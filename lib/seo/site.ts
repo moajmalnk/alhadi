@@ -31,6 +31,7 @@ export const siteConfig = {
     "https://www.linkedin.com/in/al-hadi-business-services-1085b0230",
   ] as const,
   logoPath: "/assets/images/logos/alhadi-business-logo.svg",
+  faviconPath: "/assets/images/logos/AL-HADI-ICON.jpeg",
   defaultOgImage: "/assets/images/services/Company-Formation.jpg",
   titleTemplate: "%s | Al Hadi Business Setup",
 } as const;

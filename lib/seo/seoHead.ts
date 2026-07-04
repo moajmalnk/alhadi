@@ -114,7 +114,10 @@ export function seoHead({
       images: [imageUrl],
     },
     icons: {
-      icon: siteConfig.logoPath,
+      icon: {
+        url: siteConfig.faviconPath,
+        type: "image/jpeg",
+      },
     },
   };
 }

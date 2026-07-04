@@ -31,11 +31,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link
-          rel="icon"
-          type="image/svg+xml"
-          href="/assets/images/logos/alhadi-business-logo.svg"
-        />
-        <link
           rel="stylesheet"
           href="/assets/libs/owl.carousel/dist/assets/owl.carousel.min.css"
         />
