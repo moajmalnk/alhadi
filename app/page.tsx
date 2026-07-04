@@ -470,7 +470,8 @@ export default function Home() {
                               </p>
                               <a
                                 href="/services/business-setup"
-                                className="text-primary text-decoration-none fw-medium"
+                                className="text-decoration-none fw-medium"
+                                style={{ color: "#FFAB00" }}
                               >
                                 Learn more
                               </a>
@@ -505,7 +506,8 @@ export default function Home() {
                               </p>
                               <a
                                 href="/services/pro-document-clearing"
-                                className="text-primary text-decoration-none fw-medium"
+                                className="text-decoration-none fw-medium"
+                                style={{ color: "#FFAB00" }}
                               >
                                 Learn more
                               </a>
@@ -540,7 +542,8 @@ export default function Home() {
                               </p>
                               <a
                                 href="/services/family-visa"
-                                className="text-primary text-decoration-none fw-medium"
+                                className="text-decoration-none fw-medium"
+                                style={{ color: "#FFAB00" }}
                               >
                                 Learn more
                               </a>
@@ -575,7 +578,8 @@ export default function Home() {
                               </p>
                               <a
                                 href="/services/vat-registration"
-                                className="text-primary text-decoration-none fw-medium"
+                                className="text-decoration-none fw-medium"
+                                style={{ color: "#FFAB00" }}
                               >
                                 Learn more
                               </a>
@@ -609,7 +613,8 @@ export default function Home() {
                               </p>
                               <a
                                 href="/services/trademark-registration"
-                                className="text-primary text-decoration-none fw-medium"
+                                className="text-decoration-none fw-medium"
+                                style={{ color: "#FFAB00" }}
                               >
                                 Learn more
                               </a>
@@ -644,7 +649,8 @@ export default function Home() {
                               </p>
                               <a
                                 href="/services/golden-visa"
-                                className="text-primary text-decoration-none fw-medium"
+                                className="text-decoration-none fw-medium"
+                                style={{ color: "#FFAB00" }}
                               >
                                 Learn more
                               </a>
@@ -1082,7 +1088,7 @@ export default function Home() {
         </section>
 
         {/*  Testimonial Section */}
-        <section className="testimonial py-5 py-lg-11 py-xl-12 bg-light-gray">
+        <section className="testimonial pt-5 pt-lg-11 pt-xl-12 pb-4 pb-lg-7 pb-xl-8 bg-light-gray">
           <div className="container">
             <div className="d-flex flex-column gap-5 gap-xl-11">
               <div className="row gap-7 gap-xl-0">
@@ -1426,7 +1432,7 @@ export default function Home() {
     </section> */}
 
         {/*  Associated Government Authorities Section */}
-        <section className="pricing-section py-5 py-lg-11 py-xl-12 bg-light-gray">
+        <section className="pricing-section pt-4 pt-lg-7 pt-xl-8 pb-5 pb-lg-11 pb-xl-12 bg-light-gray">
           <div className="container">
             <div className="d-flex flex-column gap-5 gap-xl-10">
               <div

@@ -18,8 +18,14 @@ a:hover {
 
 .link-hover {
     &:hover {
-        color: var(--bs-primary) !important;
+        color: var(--bs-link-hover-color) !important;
     }
+}
+
+// Footer sits on a dark background — keep hover text/icons readable
+.footer .link-hover:hover,
+.footer .link-hover:hover iconify-icon {
+    color: #FFAB00 !important;
 }
 
 ul {

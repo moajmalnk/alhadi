@@ -113,9 +113,36 @@ export default function Footer() {
                 on social networks!
               </p>
               <ul className="footer-menu list-unstyled mb-0 d-flex flex-column gap-2">
-                <li><a className="link-hover fs-5 text-white" href="#!">Facebook</a></li>
-                <li><a className="link-hover fs-5 text-white" href="#!">Instagram</a></li>
-                <li><a className="link-hover fs-5 text-white" href="#!">Twitter</a></li>
+                <li>
+                  <a
+                    className="link-hover fs-5 text-white"
+                    href="https://www.facebook.com/Alhadidxb/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Facebook
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="link-hover fs-5 text-white"
+                    href="https://www.instagram.com/alhadi_businessservices/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Instagram
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="link-hover fs-5 text-white"
+                    href="https://www.linkedin.com/in/al-hadi-business-services-1085b0230"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    LinkedIn
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

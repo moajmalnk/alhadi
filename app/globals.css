@@ -30,3 +30,11 @@
 *::-webkit-scrollbar-corner {
   background: transparent;
 }
+
+/* Sign-in: keep dark fill + white label on hover (theme inverts btn-dark to white) */
+.sign-in-submit.btn-dark:hover,
+.sign-in-submit.btn-dark:focus-visible {
+  background-color: #333333 !important;
+  border-color: #333333 !important;
+  color: #ffffff !important;
+}

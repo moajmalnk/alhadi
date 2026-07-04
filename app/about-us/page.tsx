@@ -134,6 +134,13 @@ export default function AboutUs() {
                 Your success is our celebration. We aspire to create numerous success stories by celebrating every
                 milestone achieved by our clients. Let’s embark on this journey together.
               </p>
+              <a href="/contact" className="btn align-self-start">
+                <span className="btn-text">Book a free consultation</span>
+                <iconify-icon
+                  icon="lucide:arrow-up-right"
+                  className="btn-icon bg-white text-dark round-52 rounded-circle hstack justify-content-center fs-7 shadow-sm"
+                ></iconify-icon>
+              </a>
             </div>
           </div>
         </div>
