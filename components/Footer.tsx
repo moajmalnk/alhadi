@@ -147,9 +147,22 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <p className="mb-0 text-white text-opacity-70 text-md-center mt-10">
-          2026 Copyright: Al Hadi Business Services
-        </p>
+        <div className="container mt-10">
+          <div className="d-flex align-items-center justify-content-between gap-3">
+            <span className="d-none d-md-block flex-shrink-0" style={{ width: "2.5rem" }} aria-hidden="true" />
+            <p className="mb-0 text-white text-opacity-70 text-md-center flex-grow-1">
+              2026 Copyright: Al Hadi Business Services
+            </p>
+            <Link
+              href="/dashboard"
+              className="footer-admin-link flex-shrink-0 text-white"
+              aria-label="Admin dashboard"
+              title="Admin"
+            >
+              Admin
+            </Link>
+          </div>
+        </div>
       </footer>
 
       <div className="get-template hstack gap-2">

@@ -27,7 +27,7 @@ const services = [
       "Labour Card services",
       "Government approvals & clearances",
     ],
-    image: "/assets/images/services/services-img-2.jpg",
+    image: "/assets/images/services/pro.webp",
   },
   {
     slug: "family-visa",
@@ -55,7 +55,7 @@ const services = [
       "Tax Registration Number (TRN)",
       "Tax advisory & compliance review",
     ],
-    image: "/assets/images/services/services-img-4.jpg",
+    image: "/assets/images/services/vat2.jpg",
   },
   {
     slug: "trademark-registration",
@@ -69,7 +69,7 @@ const services = [
       "Portfolio support & record updates",
       "Exclusive legal brand protection",
     ],
-    image: "/assets/images/services/services-img-1.jpg",
+    image: "/assets/images/services/Trade-Mark-4.jpg",
   },
   {
     slug: "golden-visa",

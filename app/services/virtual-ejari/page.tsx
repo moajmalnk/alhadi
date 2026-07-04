@@ -1,9 +1,30 @@
 import { notFound } from "next/navigation";
-import ServiceDetailView from "../../../components/services/ServiceDetailView";
+import {
+  ServiceCta,
+  ServiceHero,
+  ServiceIntro,
+  ServiceRelated,
+} from "../../../components/services/ServiceDetailView";
 import { getServiceBySlug } from "../../../data/services";
 
 export default function VirtualEjariPage() {
   const service = getServiceBySlug("virtual-ejari");
   if (!service) notFound();
-  return <ServiceDetailView service={service} />;
+
+  return (
+    <div className="page-wrapper overflow-hidden">
+      <ServiceHero
+        title={service.title}
+        subtitle={service.subtitle}
+        backgroundImage={service.image}
+      />
+      <ServiceIntro
+        subtitle={service.subtitle}
+        heroText={service.heroText}
+        intro={service.intro}
+      />
+      <ServiceRelated items={service.related!} />
+      <ServiceCta title={service.title} />
+    </div>
+  );
 }

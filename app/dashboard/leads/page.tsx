@@ -1,5 +1,5 @@
-import ComingSoon from "@/components/dashboard/ComingSoon";
+import LeadsManager from "@/components/dashboard/LeadsManager";
 
 export default function DashboardLeadsPage() {
-  return <ComingSoon title="Leads" />;
+  return <LeadsManager />;
 }

@@ -8,6 +8,12 @@ export type ServiceProcessStep = {
   description: string;
 };
 
+export type ServiceOfferingItem = {
+  title: string;
+  description?: string;
+  icon?: string;
+};
+
 export type ServiceOfferingDetail = {
   title: string;
   description?: string;
@@ -36,7 +42,7 @@ export type ServiceDetail = {
   image: string;
   offeringsTitle?: string;
   offeringsIntro?: string;
-  offerings?: string[];
+  offerings?: (string | ServiceOfferingItem)[];
   detailedOfferings?: ServiceOfferingDetail[];
   groupedOfferings?: ServiceGroupedOffering[];
   whatIs?: {
@@ -48,7 +54,7 @@ export type ServiceDetail = {
   whoCanApply?: {
     title: string;
     intro?: string;
-    items: string[];
+    items: (string | ServiceOfferingItem)[];
     footer?: string;
   };
   benefits?: {
@@ -163,24 +169,87 @@ export const serviceDetails: ServiceDetail[] = [
     ],
     image: "/assets/images/services/Company-Formation.jpg",
     offeringsTitle: "Our UAE Free Zone License Services",
-    offeringsIntro: "We provide complete business setup solutions, including:",
-    offerings: [
-      "Free Zone Company Formation",
-      "Free Zone Trade License Issuance",
-      "General Trading License",
-      "Commercial License",
-      "Professional License",
-      "Service License",
-      "Industrial License",
-      "E-Commerce License",
-      "Consultancy License",
-      "Freelance Permit",
-      "Holding Company Setup",
-      "Branch Office Registration",
-      "Company Amendments",
-      "Trade License Renewal",
-      "Business Activity Addition & Removal",
-      "Company Liquidation & Closure",
+    detailedOfferings: [
+      {
+        title: "Free Zone Company Formation",
+        description:
+          "End-to-end company registration in leading UAE Free Zones — from activity selection and trade name reservation to full setup.",
+      },
+      {
+        title: "Free Zone Trade License Issuance",
+        description:
+          "Fast trade license issuance tailored to your business activities, budget, and visa requirements.",
+      },
+      {
+        title: "General Trading License",
+        description:
+          "Trade multiple product categories under one license with flexible activity options.",
+      },
+      {
+        title: "Commercial License",
+        description:
+          "Set up commercial operations with the correct activity codes for your business model.",
+      },
+      {
+        title: "Professional License",
+        description:
+          "Licensing support for professional and specialized practices across Free Zones.",
+      },
+      {
+        title: "Service License",
+        description:
+          "Service-based business licensing designed for consultancies, agencies, and support providers.",
+      },
+      {
+        title: "Industrial License",
+        description:
+          "Manufacturing and industrial activity approvals with guidance on facility and compliance requirements.",
+      },
+      {
+        title: "E-Commerce License",
+        description:
+          "Online retail and digital commerce company setup for selling products and services online.",
+      },
+      {
+        title: "Consultancy License",
+        description:
+          "Advisory and consultancy firm registration tailored to your area of expertise.",
+      },
+      {
+        title: "Freelance Permit",
+        description:
+          "Independent professional permits for freelancers operating within Free Zone frameworks.",
+      },
+      {
+        title: "Holding Company Setup",
+        description:
+          "Structure holding entities for investments, subsidiaries, and asset management.",
+      },
+      {
+        title: "Branch Office Registration",
+        description:
+          "Register a Free Zone branch of your existing company to expand operations in the UAE.",
+      },
+      {
+        title: "Company Amendments",
+        description:
+          "Update ownership, company name, address, and other corporate details as your business evolves.",
+      },
+      {
+        title: "Trade License Renewal",
+        description:
+          "Renew your business license on time and avoid penalties with our quick renewal service.",
+      },
+      {
+        title: "Business Activity Addition & Removal",
+        description:
+          "Add or remove licensed activities to match your current and future business plans.",
+      },
+      {
+        title: "Company Liquidation & Closure",
+        description:
+          "Compliant company closure and liquidation support when you need to wind down operations.",
+      },
     ],
     benefits: {
       title: "Benefits of Setting Up a Free Zone Company",
@@ -309,15 +378,47 @@ export const serviceDetails: ServiceDetail[] = [
     intro: [
       "Our professional PRO services ensure smooth processing of government-related documentation including MOHRE, GDRFA, Immigration, Emirates ID, Labour Card, and visa applications.",
     ],
-    image: "/assets/images/services/services-img-2.jpg",
+    image: "/assets/images/services/pro.webp",
     offeringsTitle: "Our PRO Services",
+    offeringsIntro:
+      "End-to-end government documentation support so your business stays compliant and your people stay on track.",
     offerings: [
-      "MOHRE documentation",
-      "GDRFA documentation",
-      "Immigration applications",
-      "Emirates ID",
-      "Labour Card",
-      "Visa applications",
+      {
+        title: "MOHRE documentation",
+        description:
+          "Employment contracts, work permits, and labour filings handled accurately with the Ministry of Human Resources.",
+        icon: "lucide:briefcase",
+      },
+      {
+        title: "GDRFA documentation",
+        description:
+          "Residency, entry permits, and related filings processed smoothly with Dubai's immigration authorities.",
+        icon: "lucide:landmark",
+      },
+      {
+        title: "Immigration applications",
+        description:
+          "Complete preparation and submission support for immigration paperwork and approvals.",
+        icon: "lucide:globe-2",
+      },
+      {
+        title: "Emirates ID",
+        description:
+          "New applications, renewals, and replacements managed from start to finish.",
+        icon: "lucide:id-card",
+      },
+      {
+        title: "Labour Card",
+        description:
+          "Issuance, renewal, and amendments completed without delays or compliance gaps.",
+        icon: "lucide:badge-check",
+      },
+      {
+        title: "Visa applications",
+        description:
+          "Employment, visit, and residence visa processing with clear timelines and guidance.",
+        icon: "lucide:stamp",
+      },
     ],
   },
   {
@@ -352,10 +453,27 @@ export const serviceDetails: ServiceDetail[] = [
       title: "Who Can Apply for a UAE Family Visa?",
       intro: "Eligible UAE residents may be able to sponsor:",
       items: [
-        "Husband or Wife",
-        "Children",
-        "Parents (subject to applicable conditions)",
-        "Other eligible dependents where permitted under UAE regulations",
+        {
+          title: "Husband or Wife",
+          description: "Sponsor your spouse to live with you in the UAE.",
+          icon: "lucide:heart",
+        },
+        {
+          title: "Children",
+          description: "Bring your children under a family residence visa.",
+          icon: "lucide:baby",
+        },
+        {
+          title: "Parents",
+          description: "Subject to applicable sponsorship conditions.",
+          icon: "lucide:users",
+        },
+        {
+          title: "Other Dependents",
+          description:
+            "Where permitted under current UAE immigration regulations.",
+          icon: "lucide:user-plus",
+        },
       ],
       footer:
         "Eligibility depends on the sponsor's residency status and compliance with current UAE immigration requirements.",
@@ -442,7 +560,7 @@ export const serviceDetails: ServiceDetail[] = [
       "Our tax professionals assist you throughout the VAT registration process, ensuring your application is prepared accurately and submitted in accordance with the requirements of the UAE tax authorities.",
       "Whether your business requires mandatory VAT registration or is considering voluntary registration, we provide expert guidance from start to finish.",
     ],
-    image: "/assets/images/services/services-img-4.jpg",
+    image: "/assets/images/services/vat2.jpg",
     offeringsTitle: "Our VAT Registration Services",
     offeringsIntro: "We offer complete VAT-related solutions, including:",
     offerings: [
@@ -528,7 +646,7 @@ export const serviceDetails: ServiceDetail[] = [
       "At Al Hadi Business Services, we provide end-to-end trademark registration services across the UAE. Our experienced consultants guide individuals, startups, SMEs, and large businesses through every stage of the trademark registration process, making it simple, efficient, and hassle-free.",
       "Whether you are launching a new business or protecting an established brand, we help secure your intellectual property with professional support.",
     ],
-    image: "/assets/images/services/services-img-1.jpg",
+    image: "/assets/images/services/Trade-Mark-4.jpg",
     whatIs: {
       title: "What is a Trademark?",
       description:

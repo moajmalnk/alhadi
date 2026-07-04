@@ -1,71 +1,60 @@
 "use client";
 
-import { useMemo, useState } from "react";
-
-const blogPosts = [
-  {
-    title: "UAE Corporate Tax: What Your Business Needs to Know",
-    date: "Oct 15, 2024",
-    image: "/assets/images/resources/resources-1.jpg",
-    href: "/blog-detail",
-  },
-  {
-    title: "Top Free Zones for Startups in Dubai",
-    date: "Nov 02, 2024",
-    image: "/assets/images/resources/resources-2.jpg",
-    href: "/blog-detail",
-  },
-  {
-    title: "A Complete Guide to the UAE Golden Visa",
-    date: "Dec 10, 2024",
-    image: "/assets/images/resources/resources-3.jpg",
-    href: "/blog-detail",
-  },
-  {
-    title: "Mainland vs Free Zone vs Offshore: Choosing the Right Setup",
-    date: "Jan 18, 2025",
-    image: "/assets/images/services/services-img-1.jpg",
-    href: "/blog-detail",
-  },
-  {
-    title: "How to Sponsor Your Family on a UAE Residence Visa",
-    date: "Feb 05, 2025",
-    image: "/assets/images/services/services-img-2.jpg",
-    href: "/blog-detail",
-  },
-  {
-    title: "VAT Registration in the UAE: Who Needs It and Why",
-    date: "Mar 12, 2025",
-    image: "/assets/images/services/services-img-3.jpg",
-    href: "/blog-detail",
-  },
-  {
-    title: "Protecting Your Brand: Trademark Registration in Dubai",
-    date: "Apr 08, 2025",
-    image: "/assets/images/services/services-img-4.jpg",
-    href: "/blog-detail",
-  },
-  {
-    title: "PRO Services Explained: Government Documents Made Simple",
-    date: "May 20, 2025",
-    image: "/assets/images/services/Company-Formation.jpg",
-    href: "/blog-detail",
-  },
-];
+import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
+import { BlogPost, formatBlogDate } from "@/lib/blogs";
 
 export default function Blog() {
   const [query, setQuery] = useState("");
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function load() {
+      try {
+        const res = await fetch("/api/blogs?status=published");
+        if (!res.ok) throw new Error("Failed to load posts");
+        const data = (await res.json()) as { posts: BlogPost[] };
+        if (!cancelled) {
+          setPosts(data.posts ?? []);
+          setError(null);
+        }
+      } catch {
+        if (!cancelled) setError("Could not load articles. Please try again.");
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+
+    void load();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const filteredPosts = useMemo(() => {
     const term = query.trim().toLowerCase();
-    if (!term) return blogPosts;
-    return blogPosts.filter((post) => post.title.toLowerCase().includes(term));
-  }, [query]);
+    if (!term) return posts;
+    return posts.filter((post) => {
+      const haystack = [
+        post.title,
+        post.excerpt,
+        post.category,
+        post.author,
+        post.tags.join(" "),
+      ]
+        .join(" ")
+        .toLowerCase();
+      return haystack.includes(term);
+    });
+  }, [query, posts]);
 
   return (
     <>
       <div className="page-wrapper overflow-hidden">
-        {/* Banner Section */}
         <section
           className="banner-section banner-inner-section position-relative overflow-hidden d-flex align-items-end"
           style={{
@@ -100,23 +89,19 @@ export default function Blog() {
                 data-aos-duration="1000"
               >
                 <h1 className="mb-0 fs-16 text-white lh-1">Blog</h1>
-                <a
-                  href="javascript:void(0)"
-                  className="p-1 ps-7 bg-primary rounded-pill"
-                >
+                <span className="p-1 ps-7 bg-primary rounded-pill">
                   <span className="bg-white round-52 rounded-circle d-flex align-items-center justify-content-center">
                     <iconify-icon
                       icon="lucide:arrow-up-right"
                       className="fs-8 text-dark"
                     ></iconify-icon>
                   </span>
-                </a>
+                </span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Blog Section */}
         <section className="blog-section py-5 py-lg-11 py-xl-12">
           <div className="container">
             <div className="row mb-7 mb-xl-10 align-items-end gy-5">
@@ -175,24 +160,42 @@ export default function Blog() {
               </div>
             </div>
 
-            {filteredPosts.length > 0 ? (
+            {loading ? (
+              <p className="fs-5 text-opacity-70 mb-0">Loading articles…</p>
+            ) : error ? (
+              <p className="fs-5 text-opacity-70 mb-0">{error}</p>
+            ) : filteredPosts.length > 0 ? (
               <div className="row">
                 {filteredPosts.map((post) => (
-                  <div className="col-lg-6 mb-7" key={post.title}>
+                  <div className="col-lg-6 mb-7" key={post.id}>
                     <div className="resources d-flex flex-column gap-6">
-                      <a
-                        href={post.href}
+                      <Link
+                        href={`/blog/${post.slug}`}
                         className="resources-img resources-img-blog position-relative overflow-hidden d-block"
                       >
                         <img
-                          src={post.image}
+                          src={
+                            post.coverImage ||
+                            "/assets/images/resources/resources-1.jpg"
+                          }
                           alt={post.title}
                           className="img-fluid"
                         />
-                      </a>
+                      </Link>
                       <div className="resources-details">
-                        <p className="mb-0">{post.date}</p>
-                        <h4 className="mb-0">{post.title}</h4>
+                        <p className="mb-0">
+                          {formatBlogDate(
+                            post.publishedAt ?? post.createdAt
+                          )}
+                        </p>
+                        <h4 className="mb-0">
+                          <Link
+                            href={`/blog/${post.slug}`}
+                            className="text-decoration-none text-dark"
+                          >
+                            {post.title}
+                          </Link>
+                        </h4>
                       </div>
                     </div>
                   </div>
@@ -200,22 +203,29 @@ export default function Blog() {
               </div>
             ) : (
               <div className="d-flex flex-column align-items-start gap-4 py-5">
-                <h3 className="mb-0">No articles found</h3>
+                <h3 className="mb-0">
+                  {posts.length === 0
+                    ? "No articles yet"
+                    : "No articles found"}
+                </h3>
                 <p className="fs-5 mb-0 text-opacity-70">
-                  We couldn&apos;t find any insights matching &ldquo;{query}
-                  &rdquo;. Try a different keyword or clear your search.
+                  {posts.length === 0
+                    ? "Published articles from the dashboard will appear here."
+                    : `We couldn't find any insights matching “${query}”. Try a different keyword or clear your search.`}
                 </p>
-                <button
-                  type="button"
-                  className="btn"
-                  onClick={() => setQuery("")}
-                >
-                  <span className="btn-text">Clear search</span>
-                  <iconify-icon
-                    icon="lucide:arrow-up-right"
-                    className="btn-icon bg-white text-dark round-52 rounded-circle hstack justify-content-center fs-7 shadow-sm"
-                  ></iconify-icon>
-                </button>
+                {query ? (
+                  <button
+                    type="button"
+                    className="btn"
+                    onClick={() => setQuery("")}
+                  >
+                    <span className="btn-text">Clear search</span>
+                    <iconify-icon
+                      icon="lucide:arrow-up-right"
+                      className="btn-icon bg-white text-dark round-52 rounded-circle hstack justify-content-center fs-7 shadow-sm"
+                    ></iconify-icon>
+                  </button>
+                ) : null}
               </div>
             )}
           </div>

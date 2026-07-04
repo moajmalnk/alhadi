@@ -1,5 +1,5 @@
-import ComingSoon from "@/components/dashboard/ComingSoon";
+import BlogsManager from "@/components/dashboard/BlogsManager";
 
 export default function DashboardBlogsPage() {
-  return <ComingSoon title="Blogs" />;
+  return <BlogsManager />;
 }

@@ -13,7 +13,7 @@ export default function DashboardNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="nav flex-column gap-1">
+    <nav className="dash-nav nav flex-column gap-1">
       {navItems.map((item) => {
         const isActive = item.exact
           ? pathname === item.href
@@ -23,10 +23,8 @@ export default function DashboardNav() {
           <Link
             key={item.href}
             href={item.href}
-            className={`nav-link rounded px-3 py-2 fw-medium ${
-              isActive
-                ? "bg-dark text-white"
-                : "text-dark"
+            className={`nav-link ${
+              isActive ? "bg-dark text-white" : "text-dark"
             }`}
           >
             {item.label}
