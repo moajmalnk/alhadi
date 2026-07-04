@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import JsonLd from "@/components/seo/JsonLd";
 import {
   ServiceCta,
   ServiceDetailedOfferings,
@@ -7,13 +8,23 @@ import {
   ServiceRelated,
 } from "../../../components/services/ServiceDetailView";
 import { getServiceBySlug } from "../../../data/services";
+import {
+  serviceSeoJsonLd,
+  serviceSeoMetadata,
+} from "@/lib/seo/serviceSeo";
+
+const SLUG = "business-setup";
+
+export const metadata = serviceSeoMetadata(SLUG);
 
 export default function BusinessSetupPage() {
-  const service = getServiceBySlug("business-setup");
+  const service = getServiceBySlug(SLUG);
   if (!service) notFound();
 
   return (
-    <div className="page-wrapper overflow-hidden">
+    <>
+      <JsonLd data={serviceSeoJsonLd(SLUG)} />
+      <div className="page-wrapper overflow-hidden">
       <ServiceHero
         title={service.title}
         subtitle={service.subtitle}
@@ -31,5 +42,6 @@ export default function BusinessSetupPage() {
       <ServiceRelated items={service.related!} />
       <ServiceCta title={service.title} />
     </div>
+    </>
   );
 }

@@ -23,12 +23,41 @@ const menuServices = serviceDetails.map((service) => ({
   label: serviceMenuLabels[service.slug] ?? service.title,
 }));
 
+type BootstrapCollapse = {
+  getOrCreateInstance: (element: Element) => { hide: () => void };
+};
+
 export default function Header() {
   const pathname = usePathname();
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const mobileNavRef = useRef<HTMLDivElement>(null);
   const servicesActive = pathname === "/services" || pathname.startsWith("/services/");
+  const showSolidHeader = isMobile || isScrolled;
+
+  const closeMobileMenu = () => {
+    const el = mobileNavRef.current;
+    if (!el) return;
+
+    const Collapse = (window as Window & { bootstrap?: { Collapse: BootstrapCollapse } }).bootstrap
+      ?.Collapse;
+    if (Collapse) {
+      Collapse.getOrCreateInstance(el).hide();
+      return;
+    }
+
+    el.classList.remove("show");
+  };
+
+  const handleMobileNavClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    if ((event.target as HTMLElement).closest("a[href]")) {
+      closeMobileMenu();
+      setMobileServicesOpen(false);
+    }
+  };
 
   const openServices = () => {
     if (closeTimer.current) {
@@ -44,8 +73,26 @@ export default function Header() {
   };
 
   useEffect(() => {
+    const mobileQuery = window.matchMedia("(max-width: 991.98px)");
+    const updateViewport = () => setIsMobile(mobileQuery.matches);
+    const updateScroll = () => setIsScrolled(window.scrollY >= 60);
+
+    updateViewport();
+    updateScroll();
+
+    mobileQuery.addEventListener("change", updateViewport);
+    window.addEventListener("scroll", updateScroll, { passive: true });
+
+    return () => {
+      mobileQuery.removeEventListener("change", updateViewport);
+      window.removeEventListener("scroll", updateScroll);
+    };
+  }, []);
+
+  useEffect(() => {
     setServicesOpen(false);
     setMobileServicesOpen(false);
+    closeMobileMenu();
   }, [pathname]);
 
   useEffect(() => {
@@ -55,7 +102,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="header fixed-header border-4 border-primary border-top position-fixed start-0 top-0 w-100 z-3">
+    <header className={`header ${showSolidHeader ? "fixed-header" : ""} border-4 border-primary border-top position-fixed start-0 top-0 w-100 z-3`}>
       <div className="container">
         <nav className="navbar navbar-expand-lg py-0 header-wrapper d-flex align-items-center justify-content-between">
           <div className="logo me-auto">
@@ -73,7 +120,12 @@ export default function Header() {
             <iconify-icon icon="solar:hamburger-menu-line-duotone" className="menu-icon fs-8 text-dark"></iconify-icon>
           </button>
 
-          <div className="collapse navbar-collapse" id="headerNavbar">
+          <div
+            ref={mobileNavRef}
+            className="collapse navbar-collapse"
+            id="headerNavbar"
+            onClick={handleMobileNavClick}
+          >
             <ul className="navbar-nav header-menu ms-auto mb-2 mb-lg-0 d-flex flex-column flex-lg-row gap-2 gap-lg-4 align-items-lg-center mt-4 mt-lg-0">
               <li className="nav-item header-item">
                 <Link href="/" aria-current={pathname === "/" ? "true" : undefined}
@@ -201,6 +253,29 @@ export default function Header() {
       </div>
 
       <style jsx global>{`
+        @media (max-width: 991.98px) {
+          .header {
+            background-color: var(--bs-primary);
+            padding: 20px 0;
+          }
+
+          .header .logo .logo-dark {
+            display: block;
+          }
+
+          .header .logo .logo-white {
+            display: none;
+          }
+
+          .header .toggle-menu {
+            background-color: var(--bs-dark) !important;
+          }
+
+          .header .toggle-menu .menu-icon {
+            color: var(--bs-white) !important;
+          }
+        }
+
         .demo-btn {
           color: #000000 !important;
         }

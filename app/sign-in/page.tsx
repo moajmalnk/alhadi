@@ -1,5 +1,13 @@
 import { Suspense } from "react";
 import SignInForm from "@/components/SignInForm";
+import { seoHead } from "@/lib/seo/seoHead";
+
+export const metadata = seoHead({
+  title: "Sign In",
+  description: "Sign in to the Al Hadi Business Setup dashboard.",
+  path: "/sign-in",
+  noIndex: true,
+});
 
 export default function SignIn() {
   return (

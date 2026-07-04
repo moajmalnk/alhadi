@@ -3,7 +3,9 @@ import React, { useState } from "react";
 import HeroCTA from "../components/HeroCTA";
 import AnimatedButton from "../components/AnimatedButton";
 import Toast from "../components/Toast";
+import JsonLd from "@/components/seo/JsonLd";
 import { createLead } from "@/lib/leads";
+import { faqPageJsonLd, homeFaqs } from "@/lib/seo/jsonLd";
 
 export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -33,6 +35,7 @@ export default function Home() {
 
   return (
     <>
+      <JsonLd data={faqPageJsonLd([...homeFaqs])} />
       {/*  Page Wrapper */}
       <div className="page-wrapper overflow-hidden">
         {/*  Banner Section */}

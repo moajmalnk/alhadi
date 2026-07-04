@@ -1,3 +1,18 @@
+import { seoHead } from "@/lib/seo/seoHead";
+
+export const metadata = seoHead({
+  title: "Our Services",
+  description:
+    "Explore Al Hadi Business Setup services in Dubai: company formation, free zone licenses, PRO & document clearing, visas, VAT, trademarks, Golden Visa, translation, and Virtual Ejari.",
+  path: "/services",
+  keywords: [
+    "UAE business services",
+    "Dubai company formation",
+    "PRO services Dubai",
+    "visa services UAE",
+  ],
+});
+
 const services = [
   {
     slug: "business-setup",

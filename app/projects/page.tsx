@@ -1,3 +1,12 @@
+import { seoHead } from "@/lib/seo/seoHead";
+
+export const metadata = seoHead({
+  title: "Projects",
+  description:
+    "See how Al Hadi Business Services helps entrepreneurs and companies succeed with business setup and PRO solutions across Dubai and the UAE.",
+  path: "/projects",
+  keywords: ["Al Hadi projects", "UAE business success stories", "Dubai company setup"],
+});
 
 export default function Projects() {
   return (

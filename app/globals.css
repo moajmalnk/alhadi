@@ -232,6 +232,19 @@
   color: #ffffff;
 }
 
+/* Blog detail page layout */
+.blog-detail-img {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.blog-detail-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 /* Public blog article body (TipTap HTML) */
 .blog-prose {
   font-size: 1.125rem;
@@ -309,10 +322,10 @@
 
 .blog-prose table {
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
   font-size: 1rem;
-  overflow-x: auto;
-  display: block;
+  table-layout: auto;
 }
 
 .blog-prose th,

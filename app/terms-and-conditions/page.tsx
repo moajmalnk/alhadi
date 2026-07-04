@@ -1,3 +1,11 @@
+import { seoHead } from "@/lib/seo/seoHead";
+
+export const metadata = seoHead({
+  title: "Terms and Conditions",
+  description:
+    "Review the Terms and Conditions for using Al Hadi Business Services websites and professional services in Dubai, UAE.",
+  path: "/terms-and-conditions",
+});
 
 export default function TermsAndConditions() {
   return (
