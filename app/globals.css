@@ -30,3 +30,319 @@
 *::-webkit-scrollbar-corner {
   background: transparent;
 }
+
+/* Sign-in: keep dark fill + white label on hover (theme inverts btn-dark to white) */
+.sign-in-submit.btn-dark:hover,
+.sign-in-submit.btn-dark:focus-visible {
+  background-color: #333333 !important;
+  border-color: #333333 !important;
+  color: #ffffff !important;
+}
+
+/* Service offerings cards */
+.service-offering-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.service-offering-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 1.25rem 2.5rem rgba(31, 42, 46, 0.12) !important;
+}
+
+.service-offering-card__icon {
+  transition: transform 0.35s ease;
+}
+
+.service-offering-card:hover .service-offering-card__icon {
+  transform: scale(1.08);
+}
+
+.service-offering-card__index {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  letter-spacing: -0.04em;
+  user-select: none;
+}
+
+.service-offering-card__accent {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: var(--bs-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.service-offering-card:hover .service-offering-card__accent {
+  transform: scaleX(1);
+}
+
+/* Eligibility section */
+.service-who__glow {
+  width: min(42rem, 70vw);
+  height: min(42rem, 70vw);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0) 68%
+  );
+  pointer-events: none;
+  transform: translate(20%, -30%);
+}
+
+.service-who-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.25rem;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  backdrop-filter: blur(8px);
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.service-who-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.22);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.28);
+}
+
+.service-who-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  min-width: 3.5rem;
+  border-radius: 1rem;
+  background: #fff;
+  color: #111;
+  font-size: 1.5rem;
+  transition: transform 0.35s ease;
+}
+
+.service-who-card:hover .service-who-card__icon {
+  transform: scale(1.06);
+}
+
+.service-who-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.service-who-card__index {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.service-who-card__title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #fff;
+}
+
+.service-who-card__desc {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.service-who-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 1.15rem 1.35rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.service-who-note__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  min-width: 1.75rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 0.95rem;
+  margin-top: 0.1rem;
+}
+
+@media (min-width: 992px) {
+  .service-who-card {
+    padding: 2rem;
+    gap: 1.5rem;
+  }
+
+  .service-who-card__icon {
+    width: 4rem;
+    height: 4rem;
+    min-width: 4rem;
+    font-size: 1.75rem;
+    border-radius: 1.15rem;
+  }
+
+  .service-who-card__title {
+    font-size: 1.4rem;
+  }
+}
+
+/* Footer: discreet entry to dashboard */
+.footer-admin-link {
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  opacity: 0.22;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.footer-admin-link:hover,
+.footer-admin-link:focus-visible {
+  opacity: 0.55;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/* Blog detail page layout */
+.blog-detail-img {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.blog-detail-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Public blog article body (TipTap HTML) */
+.blog-prose {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: inherit;
+}
+
+.blog-prose > *:first-child {
+  margin-top: 0;
+}
+
+.blog-prose > *:last-child {
+  margin-bottom: 0;
+}
+
+.blog-prose p,
+.blog-prose ul,
+.blog-prose ol,
+.blog-prose blockquote,
+.blog-prose table {
+  margin: 0 0 1.25rem;
+}
+
+.blog-prose h1,
+.blog-prose h2,
+.blog-prose h3,
+.blog-prose h4 {
+  margin: 1.75rem 0 0.75rem;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.blog-prose h1 {
+  font-size: 2rem;
+}
+
+.blog-prose h2 {
+  font-size: 1.5rem;
+}
+
+.blog-prose h3 {
+  font-size: 1.25rem;
+}
+
+.blog-prose h4 {
+  font-size: 1.1rem;
+}
+
+.blog-prose ul,
+.blog-prose ol {
+  padding-left: 1.4em;
+}
+
+.blog-prose li {
+  margin-bottom: 0.35em;
+}
+
+.blog-prose blockquote {
+  border-left: 3px solid var(--bs-primary, #c9a227);
+  padding-left: 1rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.blog-prose a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.blog-prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 0.5rem 0 1.25rem;
+}
+
+.blog-prose table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  table-layout: auto;
+}
+
+.blog-prose th,
+.blog-prose td {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.blog-prose th {
+  background: rgba(0, 0, 0, 0.04);
+  font-weight: 600;
+}
+
+.blog-prose hr {
+  margin: 1.5rem 0;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}

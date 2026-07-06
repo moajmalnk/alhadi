@@ -1,3 +1,18 @@
+import { seoHead } from "@/lib/seo/seoHead";
+
+export const metadata = seoHead({
+  title: "Our Services",
+  description:
+    "Explore Al Hadi Business Setup services in Dubai: company formation, free zone licenses, PRO & document clearing, visas, VAT, trademarks, Golden Visa, translation, and Virtual Ejari.",
+  path: "/services",
+  keywords: [
+    "UAE business services",
+    "Dubai company formation",
+    "PRO services Dubai",
+    "visa services UAE",
+  ],
+});
+
 const services = [
   {
     slug: "business-setup",
@@ -27,7 +42,7 @@ const services = [
       "Labour Card services",
       "Government approvals & clearances",
     ],
-    image: "/assets/images/services/services-img-2.jpg",
+    image: "/assets/images/services/pro.webp",
   },
   {
     slug: "family-visa",
@@ -55,7 +70,7 @@ const services = [
       "Tax Registration Number (TRN)",
       "Tax advisory & compliance review",
     ],
-    image: "/assets/images/services/services-img-4.jpg",
+    image: "/assets/images/services/vat2.jpg",
   },
   {
     slug: "trademark-registration",
@@ -69,7 +84,7 @@ const services = [
       "Portfolio support & record updates",
       "Exclusive legal brand protection",
     ],
-    image: "/assets/images/services/services-img-1.jpg",
+    image: "/assets/images/services/Trade-Mark-4.jpg",
   },
   {
     slug: "golden-visa",
@@ -120,7 +135,7 @@ export default function Services() {
         {/* Banner Section */}
         <section
           className="banner-section banner-inner-section position-relative overflow-hidden d-flex align-items-end"
-          style={{ backgroundImage: "url(/assets/images/about/about-us.jpg)" }}
+          style={{ backgroundImage: "url(/assets/images/backgrounds/services.jpg)" }}
         >
           <div className="container">
             <div className="d-flex flex-column gap-4 pb-5 pb-xl-10 position-relative z-1">

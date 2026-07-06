@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Ignore uploaded media
+uploads/**
+
+# But keep the folder structure
+!uploads/
+!uploads/blogs/
+!uploads/blogs/.gitkeep

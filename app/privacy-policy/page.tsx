@@ -1,3 +1,11 @@
+import { seoHead } from "@/lib/seo/seoHead";
+
+export const metadata = seoHead({
+  title: "Privacy Policy",
+  description:
+    "Read the Privacy Policy for Al Hadi Business Services. Learn how we collect, use, and protect your personal information.",
+  path: "/privacy-policy",
+});
 
 export default function PrivacyPolicy() {
   return (

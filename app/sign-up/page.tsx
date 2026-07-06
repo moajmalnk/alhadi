@@ -1,3 +1,11 @@
+import { seoHead } from "@/lib/seo/seoHead";
+
+export const metadata = seoHead({
+  title: "Sign Up",
+  description: "Create an Al Hadi Business Setup account.",
+  path: "/sign-up",
+  noIndex: true,
+});
 
 export default function SignUp() {
   return (

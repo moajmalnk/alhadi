@@ -113,16 +113,56 @@ export default function Footer() {
                 on social networks!
               </p>
               <ul className="footer-menu list-unstyled mb-0 d-flex flex-column gap-2">
-                <li><a className="link-hover fs-5 text-white" href="#!">Facebook</a></li>
-                <li><a className="link-hover fs-5 text-white" href="#!">Instagram</a></li>
-                <li><a className="link-hover fs-5 text-white" href="#!">Twitter</a></li>
+                <li>
+                  <a
+                    className="link-hover fs-5 text-white"
+                    href="https://www.facebook.com/Alhadidxb/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Facebook
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="link-hover fs-5 text-white"
+                    href="https://www.instagram.com/alhadi_businessservices/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Instagram
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="link-hover fs-5 text-white"
+                    href="https://www.linkedin.com/in/al-hadi-business-services-1085b0230"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    LinkedIn
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
         </div>
-        <p className="mb-0 text-white text-opacity-70 text-md-center mt-10">
-          2026 Copyright: Al Hadi Business Services
-        </p>
+        <div className="container mt-10">
+          <div className="d-flex align-items-center justify-content-between gap-3">
+            <span className="d-none d-md-block flex-shrink-0" style={{ width: "2.5rem" }} aria-hidden="true" />
+            <p className="mb-0 text-white text-opacity-70 text-md-center flex-grow-1">
+              2026 Copyright: Al Hadi Business Services
+            </p>
+            <Link
+              href="/dashboard"
+              className="footer-admin-link flex-shrink-0 text-white"
+              aria-label="Admin dashboard"
+              title="Admin"
+            >
+              Admin
+            </Link>
+          </div>
+        </div>
       </footer>
 
       <div className="get-template hstack gap-2">

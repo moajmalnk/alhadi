@@ -1,3 +1,17 @@
+import { seoHead } from "@/lib/seo/seoHead";
+
+export const metadata = seoHead({
+  title: "About Us",
+  description:
+    "Learn about Al Hadi Business Services — your trusted partner for UAE business setup, trade licenses, PRO services, visas, and compliance in Dubai.",
+  path: "/about-us",
+  keywords: [
+    "Al Hadi Business Services",
+    "about Al Hadi Dubai",
+    "UAE business consultants",
+  ],
+});
+
 const services = [
   "Business Setup",
   "PRO & Document Clearing",
@@ -134,6 +148,13 @@ export default function AboutUs() {
                 Your success is our celebration. We aspire to create numerous success stories by celebrating every
                 milestone achieved by our clients. Let’s embark on this journey together.
               </p>
+              <a href="/contact" className="btn align-self-start">
+                <span className="btn-text">Book a free consultation</span>
+                <iconify-icon
+                  icon="lucide:arrow-up-right"
+                  className="btn-icon bg-white text-dark round-52 rounded-circle hstack justify-content-center fs-7 shadow-sm"
+                ></iconify-icon>
+              </a>
             </div>
           </div>
         </div>

@@ -1,3 +1,11 @@
+import { seoHead } from "@/lib/seo/seoHead";
+
+export const metadata = seoHead({
+  title: "Project Detail",
+  description:
+    "Project case study from Al Hadi Business Services — business setup and consulting outcomes for clients in Dubai, UAE.",
+  path: "/projects-detail",
+});
 
 export default function ProjectsDetail() {
   return (

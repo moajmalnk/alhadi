@@ -3,24 +3,39 @@ import React, { useState } from "react";
 import HeroCTA from "../components/HeroCTA";
 import AnimatedButton from "../components/AnimatedButton";
 import Toast from "../components/Toast";
+import JsonLd from "@/components/seo/JsonLd";
+import { createLead } from "@/lib/leads";
+import { faqPageJsonLd, homeFaqs } from "@/lib/seo/jsonLd";
 
 export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showToast, setShowToast] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
     setIsSubmitting(true);
 
-    // Simulate API call delay
+    createLead({
+      source: "home",
+      name: String(formData.get("name") || ""),
+      email: String(formData.get("email") || ""),
+      phone: String(formData.get("phone") || ""),
+      message: String(formData.get("message") || ""),
+    });
+
     setTimeout(() => {
+      form.reset();
       setIsSubmitting(false);
       setShowToast(true);
-    }, 1500);
+    }, 800);
   };
 
   return (
     <>
+      <JsonLd data={faqPageJsonLd([...homeFaqs])} />
       {/*  Page Wrapper */}
       <div className="page-wrapper overflow-hidden">
         {/*  Banner Section */}
@@ -372,8 +387,8 @@ export default function Home() {
                         tabIndex={0}
                       >
                         <img
-                          src="/assets/images/services/services-img-2.jpg"
-                          alt="services"
+                          src="/assets/images/services/pro.webp"
+                          alt="PRO & Document Clearing Services"
                           className="img-fluid rounded-4 w-100 h-100 object-fit-cover"
                         />
                       </div>
@@ -398,8 +413,8 @@ export default function Home() {
                         tabIndex={0}
                       >
                         <img
-                          src="/assets/images/services/services-img-4.jpg"
-                          alt="services"
+                          src="/assets/images/services/vat2.jpg"
+                          alt="Corporate Tax & VAT Services"
                           className="img-fluid rounded-4 w-100 h-100 object-fit-cover"
                         />
                       </div>
@@ -411,8 +426,8 @@ export default function Home() {
                         tabIndex={0}
                       >
                         <img
-                          src="/assets/images/services/services-img-1.jpg"
-                          alt="services"
+                          src="/assets/images/services/Trade-Mark-4.jpg"
+                          alt="Trademark Registration"
                           className="img-fluid rounded-4 w-100 h-100 object-fit-cover"
                         />
                       </div>
@@ -470,7 +485,8 @@ export default function Home() {
                               </p>
                               <a
                                 href="/services/business-setup"
-                                className="text-primary text-decoration-none fw-medium"
+                                className="text-decoration-none fw-medium"
+                                style={{ color: "#FFAB00" }}
                               >
                                 Learn more
                               </a>
@@ -505,7 +521,8 @@ export default function Home() {
                               </p>
                               <a
                                 href="/services/pro-document-clearing"
-                                className="text-primary text-decoration-none fw-medium"
+                                className="text-decoration-none fw-medium"
+                                style={{ color: "#FFAB00" }}
                               >
                                 Learn more
                               </a>
@@ -540,7 +557,8 @@ export default function Home() {
                               </p>
                               <a
                                 href="/services/family-visa"
-                                className="text-primary text-decoration-none fw-medium"
+                                className="text-decoration-none fw-medium"
+                                style={{ color: "#FFAB00" }}
                               >
                                 Learn more
                               </a>
@@ -575,7 +593,8 @@ export default function Home() {
                               </p>
                               <a
                                 href="/services/vat-registration"
-                                className="text-primary text-decoration-none fw-medium"
+                                className="text-decoration-none fw-medium"
+                                style={{ color: "#FFAB00" }}
                               >
                                 Learn more
                               </a>
@@ -609,7 +628,8 @@ export default function Home() {
                               </p>
                               <a
                                 href="/services/trademark-registration"
-                                className="text-primary text-decoration-none fw-medium"
+                                className="text-decoration-none fw-medium"
+                                style={{ color: "#FFAB00" }}
                               >
                                 Learn more
                               </a>
@@ -644,7 +664,8 @@ export default function Home() {
                               </p>
                               <a
                                 href="/services/golden-visa"
-                                className="text-primary text-decoration-none fw-medium"
+                                className="text-decoration-none fw-medium"
+                                style={{ color: "#FFAB00" }}
                               >
                                 Learn more
                               </a>
@@ -1082,7 +1103,7 @@ export default function Home() {
         </section>
 
         {/*  Testimonial Section */}
-        <section className="testimonial py-5 py-lg-11 py-xl-12 bg-light-gray">
+        <section className="testimonial pt-5 pt-lg-11 pt-xl-12 pb-4 pb-lg-7 pb-xl-8 bg-light-gray">
           <div className="container">
             <div className="d-flex flex-column gap-5 gap-xl-11">
               <div className="row gap-7 gap-xl-0">
@@ -1426,7 +1447,7 @@ export default function Home() {
     </section> */}
 
         {/*  Associated Government Authorities Section */}
-        <section className="pricing-section py-5 py-lg-11 py-xl-12 bg-light-gray">
+        <section className="pricing-section pt-4 pt-lg-7 pt-xl-8 pb-5 pb-lg-11 pb-xl-12 bg-light-gray">
           <div className="container">
             <div className="d-flex flex-column gap-5 gap-xl-10">
               <div
@@ -1956,8 +1977,10 @@ export default function Home() {
                       <input
                         type="text"
                         className="form-control border-bottom border-dark"
-                        id="formGroupExampleInput"
+                        id="homeLeadName"
+                        name="name"
                         placeholder="Name"
+                        required
                       />
                     </div>
                     <div className="row">
@@ -1965,8 +1988,10 @@ export default function Home() {
                         <input
                           type="email"
                           className="form-control border-bottom border-dark"
-                          id="email"
+                          id="homeLeadEmail"
+                          name="email"
                           placeholder="Email"
+                          required
                         />
                       </div>
 
@@ -1974,17 +1999,21 @@ export default function Home() {
                         <input
                           type="tel"
                           className="form-control border-bottom border-dark"
-                          id="phone"
+                          id="homeLeadPhone"
+                          name="phone"
                           placeholder="Phone Number"
+                          required
                         />
                       </div>
                     </div>
                     <div>
                       <textarea
                         className="form-control border-bottom border-dark"
-                        id="exampleFormControlTextarea1"
+                        id="homeLeadMessage"
+                        name="message"
                         placeholder="Tell us about your project"
                         rows={3}
+                        required
                       ></textarea>
                     </div>
                     <AnimatedButton

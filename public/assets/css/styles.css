@@ -16643,7 +16643,7 @@ textarea.form-control-lg {
 }
 .services-tab .nav-tabs .nav-item .nav-link.active {
   background-color: transparent;
-  color: var(--bs-primary);
+  color: #FFAB00;
 }
 
 .sign-in {
@@ -16666,7 +16666,12 @@ a:hover {
 }
 
 .link-hover:hover {
-  color: var(--bs-primary) !important;
+  color: var(--bs-link-hover-color) !important;
+}
+
+.footer .link-hover:hover,
+.footer .link-hover:hover iconify-icon {
+  color: #FFAB00 !important;
 }
 
 ul {

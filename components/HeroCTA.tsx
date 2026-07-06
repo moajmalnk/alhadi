@@ -1,33 +1,20 @@
 "use client";
-import React, { useState } from 'react';
+import React from 'react';
 import AnimatedButton from './AnimatedButton';
-import DemoModal from './DemoModal';
-import Toast from './Toast';
+import { useLeadModal } from './LeadModalProvider';
 
 export default function HeroCTA() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [toastVisible, setToastVisible] = useState(false);
+  const { openLeadModal } = useLeadModal();
 
   return (
     <div className="mt-4" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
       <AnimatedButton 
         text="Free Consultation" 
-        onClick={() => setIsModalOpen(true)} 
+        onClick={openLeadModal} 
         className="fw-bold border-0"
         bgColor="#FFAB00"
         textColor="#000"
         style={{ minWidth: '320px', height: '65px' }}
-      />
-      
-      <DemoModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-        onSuccess={() => setToastVisible(true)} 
-      />
-      <Toast 
-        isVisible={toastVisible} 
-        message="Consultation booked successfully!" 
-        onClose={() => setToastVisible(false)} 
       />
     </div>
   );
