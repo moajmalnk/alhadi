@@ -142,14 +142,14 @@ export default function ConfirmDialog({
         .confirm-dialog-title {
           font-size: 15px;
           font-weight: 600;
-          color: #111;
+          color: #000;
           margin: 0 0 6px;
           line-height: 1.3;
         }
 
         .confirm-dialog-message {
           font-size: 13px;
-          color: #6c757d;
+          color: rgba(0, 0, 0, 0.6);
           margin: 0 0 16px;
           line-height: 1.45;
         }
@@ -170,15 +170,15 @@ export default function ConfirmDialog({
 
         .confirm-dialog-actions :global(.btn-dark) {
           color: #fff !important;
-          background-color: #111 !important;
-          border-color: #111 !important;
+          background-color: #FF6F20 !important;
+          border-color: #FF6F20 !important;
         }
 
         .confirm-dialog-actions :global(.btn-dark:hover),
         .confirm-dialog-actions :global(.btn-dark:focus) {
           color: #fff !important;
-          background-color: #333 !important;
-          border-color: #333 !important;
+          background-color: #FF9A00 !important;
+          border-color: #FF9A00 !important;
         }
 
         .confirm-dialog-actions :global(.btn-danger) {
@@ -202,8 +202,8 @@ export default function ConfirmDialog({
 
         .confirm-dialog-actions :global(.btn-outline-secondary:hover),
         .confirm-dialog-actions :global(.btn-outline-secondary:focus) {
-          color: #212529 !important;
-          background-color: #f8f9fa !important;
+          color: #000 !important;
+          background-color: #EAF5F9 !important;
           border-color: #adb5bd !important;
         }
       `}</style>

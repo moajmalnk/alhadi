@@ -25,7 +25,7 @@ a:hover {
 // Footer sits on a dark background — keep hover text/icons readable
 .footer .link-hover:hover,
 .footer .link-hover:hover iconify-icon {
-    color: #FFAB00 !important;
+    color: $brand-orange !important;
 }
 
 ul {

@@ -69,17 +69,17 @@ type EditFormState = {
 function statusBadgeStyle(status: LeadStatus): React.CSSProperties {
   switch (status) {
     case "new":
-      return { backgroundColor: "#ffc107", color: "#111" };
+      return { backgroundColor: "#ffc107", color: "#000" };
     case "contacted":
-      return { backgroundColor: "#0dcaf0", color: "#111" };
+      return { backgroundColor: "#0dcaf0", color: "#000" };
     case "qualified":
-      return { backgroundColor: "#fd7e14", color: "#111" };
+      return { backgroundColor: "#fd7e14", color: "#000" };
     case "won":
       return { backgroundColor: "#198754", color: "#fff" };
     case "lost":
-      return { backgroundColor: "#6c757d", color: "#fff" };
+      return { backgroundColor: "#7BB8D9", color: "#fff" };
     default:
-      return { backgroundColor: "#e9ecef", color: "#111" };
+      return { backgroundColor: "#EAF5F9", color: "#000" };
   }
 }
 
@@ -326,7 +326,7 @@ export default function LeadsManager() {
         </div>
         <span
           className="badge align-self-start"
-          style={{ backgroundColor: "#111", color: "#fff" }}
+          style={{ backgroundColor: "var(--bs-secondary)", color: "#fff" }}
         >
           {leads.length} total
         </span>
@@ -357,8 +357,8 @@ export default function LeadsManager() {
                       className="badge"
                       style={
                         isActive
-                          ? { backgroundColor: "#ffffff", color: "#111111" }
-                          : { backgroundColor: "#111111", color: "#ffffff" }
+                          ? { backgroundColor: "#ffffff", color: "#000" }
+                          : { backgroundColor: "var(--bs-secondary)", color: "#ffffff" }
                       }
                     >
                       {count}

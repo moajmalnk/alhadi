@@ -79,7 +79,7 @@ function statusBadgeStyle(status: BlogStatus): React.CSSProperties {
   if (status === "published") {
     return { backgroundColor: "#198754", color: "#fff" };
   }
-  return { backgroundColor: "#6c757d", color: "#fff" };
+  return { backgroundColor: "#7BB8D9", color: "#fff" };
 }
 
 export default function BlogsManager() {
@@ -699,7 +699,7 @@ export default function BlogsManager() {
         <div className="d-flex align-items-center gap-2">
           <span
             className="badge"
-            style={{ backgroundColor: "#111", color: "#fff" }}
+            style={{ backgroundColor: "var(--bs-secondary)", color: "#fff" }}
           >
             {posts.length} total
           </span>

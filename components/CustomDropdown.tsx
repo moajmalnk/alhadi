@@ -59,7 +59,7 @@ export default function CustomDropdown({
         minHeight: "30px",
         lineHeight: 1.4,
         borderRadius: "4px",
-        backgroundColor: disabled ? "#f8f9fa" : "#fff",
+        backgroundColor: disabled ? "#EAF5F9" : "#fff",
       }
     : {
         cursor: disabled ? "not-allowed" : "pointer",
@@ -172,16 +172,16 @@ export default function CustomDropdown({
           }
         }
         .dropdown-item {
-          color: #212529;
+          color: #000;
         }
         .dropdown-item.active {
-          background-color: #f8f9fa !important;
-          color: #ffab00 !important;
+          background-color: #EAF5F9 !important;
+          color: #FF6F20 !important;
           font-weight: 700;
         }
         .dropdown-item:hover {
-          background-color: #f8f9fa;
-          color: #ffab00 !important;
+          background-color: #EAF5F9;
+          color: #FF6F20 !important;
         }
       `}</style>
     </div>

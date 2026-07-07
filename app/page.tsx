@@ -1,14 +1,73 @@
 "use client";
 import React, { useState } from "react";
 import AnimatedButton from "../components/AnimatedButton";
+import BannerConsultationForm from "../components/BannerConsultationForm";
+import ConsultationBottomSheet from "../components/ConsultationBottomSheet";
 import Toast from "../components/Toast";
 import JsonLd from "@/components/seo/JsonLd";
 import { createLead } from "@/lib/leads";
 import { faqPageJsonLd, homeFaqs } from "@/lib/seo/jsonLd";
 
+type PackageFeature = {
+  text: string;
+  tag?: string;
+};
+
+type PackagePlan = {
+  name: string;
+  price: string;
+  description: string;
+  featured?: boolean;
+  features: PackageFeature[];
+};
+
+const packagePlans: PackagePlan[] = [
+  {
+    name: "Freedom Package",
+    price: "8,888",
+    description:
+      "Complete employment visa solution for individuals and professionals in the UAE.",
+    features: [
+      { text: "Work Permit", tag: "STANDARD" },
+      { text: "Medical fitness" },
+      { text: "Change in immigration status" },
+      { text: "Emirates ID" },
+      { text: "Employment Visa" },
+    ],
+  },
+  {
+    name: "Ecommerce License",
+    price: "4,444",
+    description:
+      "Launch your online business in the UAE with a fully compliant ecommerce trade license.",
+    featured: true,
+    features: [
+      { text: "Trade License", tag: "STANDARD" },
+      { text: "Consulting" },
+      { text: "Real Estate" },
+      { text: "International Trade" },
+      { text: "Logistics Services" },
+    ],
+  },
+  {
+    name: "Dubai Mainland License",
+    price: "10,499",
+    description:
+      "Establish your business on Dubai mainland with full market access and professional licensing.",
+    features: [
+      { text: "Trade License", tag: "PROFESSIONAL" },
+      { text: "Shareholding" },
+      { text: "Provisional Approval" },
+      { text: "Job Offer/Contract" },
+      { text: "Execution File" },
+    ],
+  },
+];
+
 export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showToast, setShowToast] = useState(false);
+  const [isConsultationSheetOpen, setIsConsultationSheetOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -28,6 +87,7 @@ export default function Home() {
     setTimeout(() => {
       form.reset();
       setIsSubmitting(false);
+      setIsConsultationSheetOpen(false);
       setShowToast(true);
     }, 800);
   };
@@ -35,10 +95,16 @@ export default function Home() {
   return (
     <>
       <JsonLd data={faqPageJsonLd([...homeFaqs])} />
-      <Toast 
-        isVisible={showToast} 
-        onClose={() => setShowToast(false)} 
-        message="Thank you! Our experts will contact you shortly." 
+      <Toast
+        isVisible={showToast}
+        onClose={() => setShowToast(false)}
+        message="Thank you! Our experts will contact you shortly."
+      />
+      <ConsultationBottomSheet
+        isOpen={isConsultationSheetOpen}
+        onClose={() => setIsConsultationSheetOpen(false)}
+        onSubmit={handleSubmit}
+        isSubmitting={isSubmitting}
       />
       {/*  Page Wrapper */}
       <div className="page-wrapper overflow-hidden">
@@ -60,52 +126,122 @@ export default function Home() {
                     <h1 className="banner-redesign__title mb-0 fw-bolder">
                       #1 Business Setup in UAE
                     </h1>
-                    <p className="fs-5 mb-0" style={{ maxWidth: '600px', color: 'rgba(255, 255, 255, 0.75)' }}>
-                      Top rated business setup consultancy providing reliable experts, fast processing, and company formation in just 48 hours.
+                    <p
+                      className="fs-5 mb-0"
+                      style={{
+                        maxWidth: "600px",
+                        color: "rgba(255, 255, 255, 0.75)",
+                      }}
+                    >
+                      Top rated business setup consultancy providing reliable
+                      experts, fast processing, and company formation in just 48
+                      hours.
                     </p>
                   </div>
-                  
+
                   <ul className="banner-redesign__highlights list-unstyled mb-0">
                     <li>
-                      <iconify-icon icon="lucide:check-circle-2" className="me-2" style={{ color: '#ffab00' }}></iconify-icon>
+                      <iconify-icon
+                        icon="lucide:check-circle-2"
+                        className="me-2"
+                        style={{ color: "#FF6F20" }}
+                      ></iconify-icon>
                       Reliable experts
                     </li>
                     <li>
-                      <iconify-icon icon="lucide:zap" className="me-2" style={{ color: '#ffab00' }}></iconify-icon>
+                      <iconify-icon
+                        icon="lucide:zap"
+                        className="me-2"
+                        style={{ color: "#FF6F20" }}
+                      ></iconify-icon>
                       Fast processing
                     </li>
                     <li>
-                      <iconify-icon icon="lucide:clock" className="me-2" style={{ color: '#ffab00' }}></iconify-icon>
+                      <iconify-icon
+                        icon="lucide:clock"
+                        className="me-2"
+                        style={{ color: "#FF6F20" }}
+                      ></iconify-icon>
                       Setup in 48 hrs
                     </li>
                   </ul>
-                  
+
                   <div className="d-flex flex-wrap align-items-center gap-4 gap-xl-5 mt-3">
-                    <div className="d-flex flex-column gap-4">
+                    <div className="d-flex flex-column gap-4 banner-redesign__price-col">
                       <div className="d-flex flex-column gap-1">
-                        <p className="banner-redesign__price-label mb-0">Starting from just</p>
-                        <p className="banner-redesign__price mb-0 d-flex align-items-baseline gap-2" style={{ color: '#ffab00' }}>
-                          AED <span className="fs-1 fw-bold" style={{ color: '#ffffff' }}>4,444</span>
+                        <p className="banner-redesign__price-label mb-0">
+                          Starting from just
+                        </p>
+                        <p className="banner-redesign__price mb-0 d-flex align-items-baseline gap-2">
+                          <span className="banner-redesign__price-amount">
+                            4,444
+                          </span>
+                          <span className="banner-redesign__price-currency">
+                            AED
+                          </span>
                         </p>
                       </div>
-                      
-                      <div>
-                        <a href="/contact" className="banner-redesign__cta d-inline-flex align-items-center gap-2">
-                          Get Free Consultation
-                          <iconify-icon icon="lucide:arrow-right" className="fs-5"></iconify-icon>
+
+                      <div className="banner-redesign__cta-wrap">
+                        <a
+                          href="#services"
+                          className="banner-redesign__cta d-none d-lg-inline-flex align-items-center gap-2"
+                        >
+                          View Services
+                          <iconify-icon
+                            icon="lucide:arrow-right"
+                            className="fs-5"
+                          ></iconify-icon>
                         </a>
+                        <button
+                          type="button"
+                          className="banner-redesign__cta banner-redesign__cta--mobile d-lg-none d-flex w-100 align-items-center justify-content-center gap-2 border-0"
+                          onClick={() => setIsConsultationSheetOpen(true)}
+                        >
+                          Get Free Consultation
+                          <iconify-icon
+                            icon="lucide:arrow-right"
+                            className="fs-5"
+                          ></iconify-icon>
+                        </button>
                       </div>
                     </div>
 
-                    <div className="d-flex flex-column gap-2 p-3 rounded-4" style={{ background: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)', flex: '1', minWidth: '240px', maxWidth: '320px' }}>
+                    <div
+                      className="d-flex flex-column gap-2 p-3 rounded-4"
+                      style={{
+                        background: "rgba(255, 255, 255, 0.05)",
+                        border: "1px solid rgba(255, 255, 255, 0.1)",
+                        backdropFilter: "blur(10px)",
+                        flex: "1",
+                        minWidth: "240px",
+                        maxWidth: "320px",
+                      }}
+                    >
                       <div className="d-flex align-items-center gap-3">
-                        <div className="d-flex align-items-center justify-content-center bg-white rounded-circle flex-shrink-0" style={{ width: '46px', height: '46px' }}>
-                          <img src="/assets/images/svgs/icon-google.svg" alt="Google" width="24" height="24" />
+                        <div
+                          className="d-flex align-items-center justify-content-center bg-white rounded-circle flex-shrink-0"
+                          style={{ width: "46px", height: "46px" }}
+                        >
+                          <img
+                            src="/assets/images/svgs/icon-google.svg"
+                            alt="Google"
+                            width="24"
+                            height="24"
+                          />
                         </div>
                         <div className="d-flex flex-column">
                           <div className="d-flex align-items-center gap-1">
-                            <span className="fw-bold fs-5 lh-1" style={{ color: '#ffffff' }}>4.9</span>
-                            <div className="d-flex gap-1" style={{ color: '#ffab00' }}>
+                            <span
+                              className="fw-bold fs-5 lh-1"
+                              style={{ color: "#ffffff" }}
+                            >
+                              4.9
+                            </span>
+                            <div
+                              className="d-flex gap-1"
+                              style={{ color: "#FF6F20" }}
+                            >
                               <iconify-icon icon="ph:star-fill"></iconify-icon>
                               <iconify-icon icon="ph:star-fill"></iconify-icon>
                               <iconify-icon icon="ph:star-fill"></iconify-icon>
@@ -113,76 +249,43 @@ export default function Home() {
                               <iconify-icon icon="ph:star-half-fill"></iconify-icon>
                             </div>
                           </div>
-                          <span style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.85rem', marginTop: '0.2rem' }}>
+                          <span
+                            style={{
+                              color: "rgba(255,255,255,0.75)",
+                              fontSize: "0.85rem",
+                              marginTop: "0.2rem",
+                            }}
+                          >
                             Rating on Google
                           </span>
                         </div>
                       </div>
-                      <div style={{ color: 'rgba(255, 255, 255, 0.65)', fontSize: '0.85rem', marginTop: '0.25rem' }}>
-                        Based on <strong>500+</strong> reviews from verified clients.
+                      <div
+                        style={{
+                          color: "rgba(255, 255, 255, 0.65)",
+                          fontSize: "0.85rem",
+                          marginTop: "0.25rem",
+                        }}
+                      >
+                        Based on <strong>500+</strong> reviews from verified
+                        clients.
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="col-lg-5 col-xl-5">
+              <div className="col-lg-5 col-xl-5 d-none d-lg-block">
                 <div
                   className="banner-redesign__form-card ms-lg-4"
                   data-aos="fade-left"
                   data-aos-delay="250"
                   data-aos-duration="1000"
                 >
-                  <div className="text-center mb-4">
-                    <h3 className="banner-redesign__form-title mb-2">
-                      Free Consultation
-                    </h3>
-                    <p className="banner-redesign__form-subtitle mb-0">
-                      Fill the form and our experts will contact you.
-                    </p>
-                  </div>
-                  <form className="d-flex flex-column gap-3" onSubmit={handleSubmit}>
-                    <input
-                      type="text"
-                      name="name"
-                      className="form-control banner-redesign__input"
-                      placeholder="Name"
-                      style={{ backgroundColor: '#f8f9fa', color: '#111111', borderColor: '#d5d9e3' }}
-                      required
-                    />
-                    <input
-                      type="tel"
-                      name="phone"
-                      className="form-control banner-redesign__input"
-                      placeholder="Contact Number"
-                      style={{ backgroundColor: '#f8f9fa', color: '#111111', borderColor: '#d5d9e3' }}
-                      required
-                    />
-                    <input
-                      type="email"
-                      name="email"
-                      className="form-control banner-redesign__input"
-                      placeholder="Email Address"
-                      style={{ backgroundColor: '#f8f9fa', color: '#111111', borderColor: '#d5d9e3' }}
-                      required
-                    />
-                    <input
-                      type="text"
-                      name="message"
-                      className="form-control banner-redesign__input"
-                      placeholder="What business you want to start?"
-                      style={{ backgroundColor: '#f8f9fa', color: '#111111', borderColor: '#d5d9e3' }}
-                      required
-                    />
-                    <AnimatedButton
-                      type="submit"
-                      className="banner-redesign__submit w-100 mt-2 d-flex justify-content-center align-items-center gap-2"
-                      text="Submit Request"
-                      isLoading={isSubmitting}
-                      loadingText="Submitting..."
-                      disabled={isSubmitting}
-                    />
-                  </form>
+                  <BannerConsultationForm
+                    onSubmit={handleSubmit}
+                    isSubmitting={isSubmitting}
+                  />
                 </div>
               </div>
             </div>
@@ -304,7 +407,8 @@ export default function Home() {
                   key={i}
                   className="d-flex align-items-center gap-2 px-4 py-2 flex-shrink-0"
                   style={{
-                    borderRight: i < 4 ? "1px solid rgba(255,255,255,0.12)" : "none",
+                    borderRight:
+                      i < 4 ? "1px solid rgba(255,255,255,0.12)" : "none",
                   }}
                 >
                   <span
@@ -321,7 +425,9 @@ export default function Home() {
                       style={{ fontSize: "13px", color: "#fff" }}
                     ></iconify-icon>
                   </span>
-                  <span className="text-white fw-medium fs-6 text-nowrap">{item}</span>
+                  <span className="text-white fw-medium fs-6 text-nowrap">
+                    {item}
+                  </span>
                 </div>
               ))}
             </div>
@@ -571,7 +677,7 @@ export default function Home() {
                               <a
                                 href="/services/business-setup"
                                 className="text-decoration-none fw-medium"
-                                style={{ color: "#FFAB00" }}
+                                style={{ color: "var(--bs-secondary)" }}
                               >
                                 Learn more
                               </a>
@@ -607,7 +713,7 @@ export default function Home() {
                               <a
                                 href="/services/pro-document-clearing"
                                 className="text-decoration-none fw-medium"
-                                style={{ color: "#FFAB00" }}
+                                style={{ color: "var(--bs-secondary)" }}
                               >
                                 Learn more
                               </a>
@@ -643,7 +749,7 @@ export default function Home() {
                               <a
                                 href="/services/family-visa"
                                 className="text-decoration-none fw-medium"
-                                style={{ color: "#FFAB00" }}
+                                style={{ color: "var(--bs-secondary)" }}
                               >
                                 Learn more
                               </a>
@@ -679,7 +785,7 @@ export default function Home() {
                               <a
                                 href="/services/vat-registration"
                                 className="text-decoration-none fw-medium"
-                                style={{ color: "#FFAB00" }}
+                                style={{ color: "var(--bs-secondary)" }}
                               >
                                 Learn more
                               </a>
@@ -714,7 +820,7 @@ export default function Home() {
                               <a
                                 href="/services/trademark-registration"
                                 className="text-decoration-none fw-medium"
-                                style={{ color: "#FFAB00" }}
+                                style={{ color: "var(--bs-secondary)" }}
                               >
                                 Learn more
                               </a>
@@ -750,7 +856,7 @@ export default function Home() {
                               <a
                                 href="/services/golden-visa"
                                 className="text-decoration-none fw-medium"
-                                style={{ color: "#FFAB00" }}
+                                style={{ color: "var(--bs-secondary)" }}
                               >
                                 Learn more
                               </a>
@@ -1090,7 +1196,7 @@ export default function Home() {
                         />
                       </div>
 
-                      <div className="card bg-dark">
+                      <div className="card bg-secondary">
                         <div className="card-body d-flex flex-column gap-7">
                           <div>
                             <h2 className="mb-0 text-white">1000+</h2>
@@ -1187,6 +1293,128 @@ export default function Home() {
           </div>
         </section>
 
+        {/*  Pricing Section */}
+        <section className="pricing-section py-5 py-lg-11 py-xl-12 bg-light-gray">
+          <div className="container">
+            <div className="d-flex flex-column gap-5 gap-xl-10">
+              <div className="d-flex flex-column gap-5 gap-xl-11">
+                <div className="row gap-7 gap-xl-0">
+                  <div className="col-xl-4 col-xxl-4">
+                    <div
+                      className="d-flex align-items-center gap-7 py-2"
+                      data-aos="fade-right"
+                      data-aos-delay="100"
+                      data-aos-duration="1000"
+                    >
+                      <span className="round-36 flex-shrink-0 text-white rounded-circle bg-primary hstack justify-content-center fw-medium">
+                        05
+                      </span>
+                      <hr className="border-line bg-white" />
+                      <span className="badge text-bg-dark">Pricing</span>
+                    </div>
+                  </div>
+                  <div className="col-xl-8 col-xxl-7">
+                    <div className="row">
+                      <div className="col-xxl-8">
+                        <div
+                          className="d-flex flex-column gap-6"
+                          data-aos="fade-up"
+                          data-aos-delay="100"
+                          data-aos-duration="1000"
+                        >
+                          <h2 className="mb-0">Affordable business packages</h2>
+                          <p className="fs-5 mb-0 text-opacity-70">
+                            Special offer — split your payments into 4
+                            installments with tabby. Transparent pricing for
+                            company formation, visas, and licenses in the UAE.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="row">
+                  {packagePlans.map((plan, index) => (
+                    <div
+                      key={plan.name}
+                      className="col-lg-6 col-xl-4 mb-7 mb-xl-0 d-flex align-items-stretch"
+                    >
+                      <div
+                        className="card w-100"
+                        data-aos="fade-up"
+                        data-aos-delay={100 + index * 100}
+                        data-aos-duration="1000"
+                      >
+                        <div className="card-body p-7 p-xxl-5 d-flex flex-column gap-8">
+                          <div className="d-flex flex-column gap-6">
+                            {plan.featured ? (
+                              <div className="hstack gap-3">
+                                <h5 className="mb-0 fw-medium">{plan.name}</h5>
+                                <span className="badge text-bg-dark hstack gap-2">
+                                  <iconify-icon
+                                    icon="lucide:flame"
+                                    className="fs-5"
+                                  ></iconify-icon>
+                                  Most popular
+                                </span>
+                              </div>
+                            ) : (
+                              <h5 className="mb-0 fw-medium">{plan.name}</h5>
+                            )}
+                            <div className="hstack gap-2 align-items-baseline flex-wrap">
+                              <p className="mb-0 text-opacity-70">
+                                Starts from
+                              </p>
+                              <h3 className="mb-0">{plan.price}</h3>
+                              <p className="mb-0">AED</p>
+                            </div>
+                            <p className="mb-0">{plan.description}</p>
+                          </div>
+                          <div className="pt-8 border-top d-flex flex-column gap-6">
+                            <h6 className="mb-0 fw-normal">
+                              What&apos;s Included:
+                            </h6>
+                            <ul className="list-unstyled d-flex flex-column gap-3 mb-0">
+                              {plan.features.map((feature) => (
+                                <li key={feature.text} className="hstack gap-3">
+                                  <span className="round-32 rounded-circle bg-primary flex-shrink-0 hstack justify-content-center">
+                                    <iconify-icon
+                                      icon="lucide:check"
+                                      className="fs-6 text-white"
+                                    ></iconify-icon>
+                                  </span>
+                                  <h6 className="mb-0 fw-normal">
+                                    {feature.text}
+                                    {feature.tag ? (
+                                      <span className="badge text-bg-light text-white ms-2">
+                                        {feature.tag}
+                                      </span>
+                                    ) : null}
+                                  </h6>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          <a
+                            href="/contact"
+                            className="btn w-100 justify-content-center"
+                          >
+                            <span className="btn-text">Enquire Now</span>
+                            <iconify-icon
+                              icon="lucide:arrow-up-right"
+                              className="btn-icon bg-white text-dark round-52 rounded-circle hstack justify-content-center fs-7 shadow-sm"
+                            ></iconify-icon>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/*  Testimonial Section */}
         <section className="testimonial pt-5 pt-lg-11 pt-xl-12 pb-4 pb-lg-7 pb-xl-8 bg-light-gray">
           <div className="container">
@@ -1200,7 +1428,7 @@ export default function Home() {
                     data-aos-duration="1000"
                   >
                     <span className="round-36 flex-shrink-0 text-white rounded-circle bg-primary hstack justify-content-center fw-medium">
-                      05
+                      06
                     </span>
                     <hr className="border-line bg-white" />
                     <span className="badge text-bg-dark">Testimonial</span>
@@ -1230,7 +1458,7 @@ export default function Home() {
                 <div className="col-lg-4 col-xl-4 d-flex align-items-stretch">
                   <div
                     className="card w-100 h-100"
-                    style={{ backgroundColor: "#FFAB00" }}
+                    style={{ backgroundColor: "var(--bs-secondary)" }}
                     data-aos="fade-up"
                     data-aos-delay="100"
                     data-aos-duration="1000"
@@ -1379,7 +1607,7 @@ export default function Home() {
                       </div>
                       <div className="hstack gap-3">
                         <img
-                          src="https://ui-avatars.com/api/?name=Ahmed+K&background=FFAB00&color=fff&size=60"
+                          src="https://ui-avatars.com/api/?name=Ahmed+K&background=FF6F20&color=fff&size=60"
                           alt=""
                           className="img-fluid rounded-circle overflow-hidden flex-shrink-0"
                           width="60"

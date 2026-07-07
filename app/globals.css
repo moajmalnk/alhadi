@@ -1,9 +1,19 @@
+/* Sunset Breeze — site-wide palette tokens */
+:root {
+  --sunset-blue: #0072b8;
+  --sunset-orange: #ff6f20;
+  --sunset-yellow: #ffd700;
+  --sunset-golden: #ff9a00;
+  --sunset-sky: #a3d5e0;
+  --sunset-blue-light: #eaf5f9;
+}
+
 /* Custom scrollbar — thin pill thumb, transparent track */
 
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #6b7c93 transparent;
+  scrollbar-color: #a3d5e0 transparent;
 }
 
 /* Chromium / Safari / Edge */
@@ -17,14 +27,14 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #6b7c93;
+  background-color: #a3d5e0;
   border-radius: 999px;
   border: 2px solid transparent;
   background-clip: padding-box;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background-color: #7d8fa3;
+  background-color: #7bc4d4;
 }
 
 *::-webkit-scrollbar-corner {
@@ -34,14 +44,16 @@
 /* Sign-in: keep dark fill + white label on hover (theme inverts btn-dark to white) */
 .sign-in-submit.btn-dark:hover,
 .sign-in-submit.btn-dark:focus-visible {
-  background-color: #333333 !important;
-  border-color: #333333 !important;
+  background-color: #ff9a00 !important;
+  border-color: #ff9a00 !important;
   color: #ffffff !important;
 }
 
 /* Service offerings cards */
 .service-offering-card {
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 .service-offering-card:hover {
@@ -132,7 +144,7 @@
   min-width: 3.5rem;
   border-radius: 1rem;
   background: #fff;
-  color: #111;
+  color: #000;
   font-size: 1.5rem;
   transition: transform 0.35s ease;
 }
@@ -355,8 +367,18 @@ body.is-not-found-page .get-template {
 }
 
 /* Home hero redesign */
+.banner-section.banner-redesign::before {
+  display: none;
+}
+
 .banner-redesign {
-  background: linear-gradient(105deg, #0f0f0f 0%, #111111 55%, #ffab00 100%);
+  background: linear-gradient(
+    125deg,
+    #003d66 0%,
+    #0072b8 40%,
+    #ff8c2a 72%,
+    var(--sunset-orange) 100%
+  );
   min-height: 100vh;
   min-height: 100svh;
   display: flex;
@@ -410,16 +432,20 @@ body.is-not-found-page .get-template {
 }
 
 .banner-redesign__price {
-  color: #ffffff;
-  font-size: 1.35rem;
-  font-weight: 600;
   line-height: 1;
 }
 
-.banner-redesign__price span {
+.banner-redesign__price-amount {
+  color: var(--sunset-orange);
   font-size: clamp(2rem, 4.3vw, 3.2rem);
   font-weight: 800;
   letter-spacing: -0.03em;
+}
+
+.banner-redesign__price-currency {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.35rem;
+  font-weight: 600;
 }
 
 .banner-redesign__subtext {
@@ -434,15 +460,18 @@ body.is-not-found-page .get-template {
   padding: 0.75rem 1.35rem;
   border-radius: 999px;
   background: #ffffff;
-  color: #111111;
+  color: #000;
   text-decoration: none;
   font-weight: 700;
   font-size: 0.92rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .banner-redesign__cta:hover {
-  color: #111111;
+  color: #000;
   transform: translateY(-1px);
   box-shadow: 0 10px 24px rgba(2, 11, 37, 0.3);
 }
@@ -470,13 +499,15 @@ body.is-not-found-page .get-template {
 
 .banner-redesign__form-card {
   background: #ffffff;
-  border-radius: 14px;
-  box-shadow: 0 24px 50px rgba(6, 12, 30, 0.25);
-  padding: 1.25rem;
+  border-radius: 16px;
+  box-shadow:
+    0 24px 50px rgba(6, 12, 30, 0.22),
+    0 0 0 1px rgba(0, 0, 0, 0.04);
+  padding: 1.75rem 1.5rem;
 }
 
 .banner-redesign__form-title {
-  color: #111111;
+  color: #000;
   font-size: 1.2rem;
   font-weight: 800;
   line-height: 1.2;
@@ -484,35 +515,54 @@ body.is-not-found-page .get-template {
 }
 
 .banner-redesign__form-subtitle {
-  color: #6f7b8f;
+  color: rgba(0, 0, 0, 0.6);
   font-size: 0.84rem;
   text-align: center;
 }
 
 .banner-redesign__input {
-  border-radius: 8px;
-  border: 1px solid #d5d9e3;
-  min-height: 44px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  background-color: #fafbfc;
+  min-height: 48px;
+  padding: 0.75rem 1rem;
   font-size: 0.9rem;
+  color: #1a1a2e;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.banner-redesign__input::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.banner-redesign__input:hover {
+  border-color: #cbd5e1;
+  background-color: #ffffff;
 }
 
 .banner-redesign__input:focus {
-  border-color: #ffab00;
-  box-shadow: 0 0 0 0.15rem rgba(255, 171, 0, 0.2);
+  border-color: var(--sunset-orange);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(255, 111, 32, 0.12);
+  outline: none;
 }
 
 .banner-redesign__submit {
   border: 0;
-  border-radius: 8px;
-  min-height: 44px;
-  background: #111111;
+  border-radius: 10px;
+  min-height: 48px;
+  background: #ff6f20;
   color: #ffffff;
   font-weight: 700;
   transition: background-color 0.2s ease;
 }
 
 .banner-redesign__submit:hover {
-  background: #000000;
+  background: #ff9a00;
 }
 
 @media (max-width: 1199.98px) {
@@ -524,12 +574,21 @@ body.is-not-found-page .get-template {
 @media (max-width: 991.98px) {
   .banner-redesign {
     min-height: auto;
-    padding-top: 5.25rem;
+    padding-top: calc(7.75rem + env(safe-area-inset-top, 0px));
     padding-bottom: 0.75rem;
   }
 
   .banner-redesign__panel {
     padding: 1.25rem;
+  }
+
+  .banner-redesign__price-col,
+  .banner-redesign__cta-wrap {
+    width: 100%;
+  }
+
+  .banner-redesign__cta--mobile {
+    width: 100%;
   }
 
   .banner-redesign__model {
@@ -540,4 +599,68 @@ body.is-not-found-page .get-template {
   .banner-redesign__model-wrap {
     margin-bottom: 0;
   }
+}
+
+/* Mobile consultation bottom sheet */
+.consultation-sheet__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1040;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.consultation-sheet__backdrop--visible {
+  opacity: 1;
+}
+
+.consultation-sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1050;
+  max-height: 92svh;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -12px 40px rgba(6, 12, 30, 0.18);
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+  pointer-events: none;
+}
+
+.consultation-sheet--open {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.consultation-sheet__header {
+  position: relative;
+  flex-shrink: 0;
+  padding: 0.65rem 1rem 0;
+}
+
+.consultation-sheet__handle {
+  width: 40px;
+  height: 4px;
+  margin: 0 auto;
+  border-radius: 999px;
+  background: #d1d5db;
+}
+
+.consultation-sheet__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  z-index: 2;
+  opacity: 0.5;
+}
+
+.consultation-sheet__content {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.5rem 1.25rem calc(1.25rem + env(safe-area-inset-bottom, 0px));
 }

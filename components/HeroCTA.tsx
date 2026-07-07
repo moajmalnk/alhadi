@@ -12,8 +12,8 @@ export default function HeroCTA() {
         text="Free Consultation" 
         onClick={openLeadModal} 
         className="fw-bold border-0"
-        bgColor="#FFAB00"
-        textColor="#000"
+        bgColor="#FF6F20"
+        textColor="#ffffff"
         style={{ minWidth: '320px', height: '65px' }}
       />
     </div>

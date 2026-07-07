@@ -16,6 +16,7 @@
     background-color: var(--bs-secondary) !important;
     border-color: var(--bs-secondary) !important;
     box-shadow: unset !important;
+    color: var(--bs-white) !important;
 
     .btn-text{
         color: var(--bs-white);
@@ -23,11 +24,11 @@
 }
 
 .btn {
-    position: relative; // Needed for absolute children
+    position: relative;
     display: inline-flex;
     align-items: center;
     gap: 1rem;
-    background-color: var(--bs-primary);
+    background-color: var(--bs-secondary);
     border-radius: 9999px;
     padding: 0.5rem 1.5rem;
     overflow: hidden;
@@ -35,9 +36,11 @@
     transition: background-color 0.2s ease-in-out;
     width: fit-content;
     padding: 16px 58px 16px 30px;
+    color: var(--bs-white);
 
     &:hover {
-        background-color: var(--bs-secondary);
+        background-color: $brand-orange-dark;
+        color: var(--bs-white);
     }
 
     .btn-text {
@@ -45,14 +48,14 @@
         z-index: 1;
         font-size: 18px;
         font-weight: 700;
-        color: var(--bs-secondary);
+        color: var(--bs-white);
         transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
         padding-inline-end: 15px;
     }
 
     &:hover .btn-text {
         color: var(--bs-white);
-        transform: translateX(2.5rem); // 10 x 0.25rem
+        transform: translateX(2.5rem);
     }
 
     .btn-icon {
@@ -62,6 +65,7 @@
         transform: translate(-115%, -50%);
         z-index: 0;
         transition: transform 0.4s ease, left 0.4s ease;
+        color: var(--bs-primary) !important;
     }
 
     &:hover .btn-icon {
@@ -70,11 +74,61 @@
     }
 }
 
+.btn-light,
+.btn-light-gray,
+.btn-outline-light,
+.demo-btn {
+    color: #000 !important;
+
+    .btn-text {
+        color: #000 !important;
+    }
+
+    &:hover,
+    &:hover .btn-text {
+        color: #000 !important;
+    }
+}
+
+.btn-outline-primary,
+.btn-outline-secondary,
+.btn-outline-dark,
+.btn-outline-muted,
+.btn-outline-dark-light {
+    color: #000 !important;
+
+    .btn-text {
+        color: #000 !important;
+    }
+
+    &:hover,
+    &:hover .btn-text {
+        color: #fff !important;
+    }
+}
+
 .btn-dark{
     background-color: var(--bs-dark);
+    color: var(--bs-white);
+
+    .btn-text {
+        color: var(--bs-white);
+    }
 
     &:hover{
-        color: var(--bs-dark);
+        color: #000;
         background-color: var(--bs-white);
+
+        .btn-text {
+            color: #000;
+        }
     }
+}
+
+.text-dark {
+    color: #000 !important;
+}
+
+.text-bg-light-gray {
+    color: #000 !important;
 }

@@ -143,7 +143,7 @@ export default function DateRangeFilter({
           border: 1px solid #ced4da;
           border-radius: 4px;
           background: #fff;
-          color: #212529;
+          color: #000;
           font-size: 13px;
           line-height: 1.4;
           padding: 5px 8px;
@@ -152,13 +152,13 @@ export default function DateRangeFilter({
         }
 
         .date-range-filter-trigger:disabled {
-          background: #f8f9fa;
+          background: #EAF5F9;
           cursor: not-allowed;
         }
 
         .date-range-filter-trigger:hover:not(:disabled),
         .date-range-filter-trigger:focus-visible {
-          border-color: #111;
+          border-color: #FF6F20;
           outline: none;
         }
 
@@ -196,7 +196,7 @@ export default function DateRangeFilter({
           background: transparent;
           text-align: left;
           font-size: 12px;
-          color: #212529;
+          color: #000;
           padding: 6px 8px;
           border-radius: 3px;
           cursor: pointer;
@@ -204,8 +204,8 @@ export default function DateRangeFilter({
 
         .date-range-filter-option:hover,
         .date-range-filter-option.is-active {
-          background: #f8f9fa;
-          color: #ffab00;
+          background: #EAF5F9;
+          color: #FF6F20;
           font-weight: 600;
         }
       `}</style>
