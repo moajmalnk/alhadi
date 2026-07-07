@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import HeroCTA from "../components/HeroCTA";
 import AnimatedButton from "../components/AnimatedButton";
 import Toast from "../components/Toast";
 import JsonLd from "@/components/seo/JsonLd";
@@ -36,68 +35,154 @@ export default function Home() {
   return (
     <>
       <JsonLd data={faqPageJsonLd([...homeFaqs])} />
+      <Toast 
+        isVisible={showToast} 
+        onClose={() => setShowToast(false)} 
+        message="Thank you! Our experts will contact you shortly." 
+      />
       {/*  Page Wrapper */}
       <div className="page-wrapper overflow-hidden">
         {/*  Banner Section */}
-        <section
-          className="banner-section banner-inner-section position-relative overflow-hidden d-flex align-items-center"
-          style={{
-            backgroundImage: "url(/assets/images/hero/dubai_business_hero.png)",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            minHeight: "100vh",
-          }}
-        >
-          <div
-            className="position-absolute top-0 start-0 w-100 h-100 bg-dark"
-            style={{ opacity: 0.6 }}
-          ></div>
-          <div className="container mt-5">
-            <div className="d-flex flex-column gap-4 position-relative z-1">
-              <div className="row align-items-center">
-                <div className="col-xl-6">
-                  <div
-                    className="d-flex align-items-center gap-4"
-                    data-aos="fade-up"
-                    data-aos-delay="100"
-                    data-aos-duration="1000"
-                  >
-                    {/* <img src="/assets/images/svgs/primary-leaf.svg" alt="" className="img-fluid animate-spin" /> */}
-                    <p className="mb-0 text-white fs-5 text-opacity-70">
-                      Start your UAE company with{" "}
-                      <span className="text-[#FFAB00]">expert consultants</span>
-                      .
+        <section className="banner-section banner-redesign">
+          <div className="container position-relative" style={{ zIndex: 10 }}>
+            <div className="banner-redesign__panel row g-5 g-xl-0 align-items-center">
+              <div className="col-lg-7 col-xl-7">
+                <div
+                  className="d-flex flex-column gap-5 pe-xl-5"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                  data-aos-duration="1000"
+                >
+                  <div className="d-flex flex-column gap-3">
+                    <p className="banner-redesign__eyebrow mb-0 fw-medium text-uppercase tracking-wider">
+                      Start your business in Dubai, UAE with Al Hadi
                     </p>
+                    <h1 className="banner-redesign__title mb-0 fw-bolder">
+                      #1 Business Setup in UAE
+                    </h1>
+                    <p className="fs-5 mb-0" style={{ maxWidth: '600px', color: 'rgba(255, 255, 255, 0.75)' }}>
+                      Top rated business setup consultancy providing reliable experts, fast processing, and company formation in just 48 hours.
+                    </p>
+                  </div>
+                  
+                  <ul className="banner-redesign__highlights list-unstyled mb-0">
+                    <li>
+                      <iconify-icon icon="lucide:check-circle-2" className="me-2" style={{ color: '#ffab00' }}></iconify-icon>
+                      Reliable experts
+                    </li>
+                    <li>
+                      <iconify-icon icon="lucide:zap" className="me-2" style={{ color: '#ffab00' }}></iconify-icon>
+                      Fast processing
+                    </li>
+                    <li>
+                      <iconify-icon icon="lucide:clock" className="me-2" style={{ color: '#ffab00' }}></iconify-icon>
+                      Setup in 48 hrs
+                    </li>
+                  </ul>
+                  
+                  <div className="d-flex flex-wrap align-items-center gap-4 gap-xl-5 mt-3">
+                    <div className="d-flex flex-column gap-4">
+                      <div className="d-flex flex-column gap-1">
+                        <p className="banner-redesign__price-label mb-0">Starting from just</p>
+                        <p className="banner-redesign__price mb-0 d-flex align-items-baseline gap-2" style={{ color: '#ffab00' }}>
+                          AED <span className="fs-1 fw-bold" style={{ color: '#ffffff' }}>4,444</span>
+                        </p>
+                      </div>
+                      
+                      <div>
+                        <a href="/contact" className="banner-redesign__cta d-inline-flex align-items-center gap-2">
+                          Get Free Consultation
+                          <iconify-icon icon="lucide:arrow-right" className="fs-5"></iconify-icon>
+                        </a>
+                      </div>
+                    </div>
+
+                    <div className="d-flex flex-column gap-2 p-3 rounded-4" style={{ background: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)', flex: '1', minWidth: '240px', maxWidth: '320px' }}>
+                      <div className="d-flex align-items-center gap-3">
+                        <div className="d-flex align-items-center justify-content-center bg-white rounded-circle flex-shrink-0" style={{ width: '46px', height: '46px' }}>
+                          <img src="/assets/images/svgs/icon-google.svg" alt="Google" width="24" height="24" />
+                        </div>
+                        <div className="d-flex flex-column">
+                          <div className="d-flex align-items-center gap-1">
+                            <span className="fw-bold fs-5 lh-1" style={{ color: '#ffffff' }}>4.9</span>
+                            <div className="d-flex gap-1" style={{ color: '#ffab00' }}>
+                              <iconify-icon icon="ph:star-fill"></iconify-icon>
+                              <iconify-icon icon="ph:star-fill"></iconify-icon>
+                              <iconify-icon icon="ph:star-fill"></iconify-icon>
+                              <iconify-icon icon="ph:star-fill"></iconify-icon>
+                              <iconify-icon icon="ph:star-half-fill"></iconify-icon>
+                            </div>
+                          </div>
+                          <span style={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.85rem', marginTop: '0.2rem' }}>
+                            Rating on Google
+                          </span>
+                        </div>
+                      </div>
+                      <div style={{ color: 'rgba(255, 255, 255, 0.65)', fontSize: '0.85rem', marginTop: '0.25rem' }}>
+                        Based on <strong>500+</strong> reviews from verified clients.
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div
-                className="d-flex flex-column gap-4"
-                data-aos="fade-up"
-                data-aos-delay="200"
-                data-aos-duration="1000"
-              >
-                <h1
-                  className="mb-0 text-white lh-1 fw-bold pe-lg-5"
-                  style={{
-                    fontSize: "clamp(3.5rem, 6vw, 5.5rem)",
-                    maxWidth: "900px",
-                  }}
+
+              <div className="col-lg-5 col-xl-5">
+                <div
+                  className="banner-redesign__form-card ms-lg-4"
+                  data-aos="fade-left"
+                  data-aos-delay="250"
+                  data-aos-duration="1000"
                 >
-                  Business Setup Made Simple in Dubai
-                </h1>
-                <div className="mt-2">
-                  <a
-                    href="/contact"
-                    className="text-white text-decoration-none fs-5 d-inline-flex align-items-center gap-2 fw-medium transition-all custom-link-hover"
-                  >
-                    Free Consultation{" "}
-                    <iconify-icon
-                      icon="lucide:arrow-right"
-                      className="fs-6"
-                    ></iconify-icon>
-                  </a>
-                  {/* <HeroCTA /> */}
+                  <div className="text-center mb-4">
+                    <h3 className="banner-redesign__form-title mb-2">
+                      Free Consultation
+                    </h3>
+                    <p className="banner-redesign__form-subtitle mb-0">
+                      Fill the form and our experts will contact you.
+                    </p>
+                  </div>
+                  <form className="d-flex flex-column gap-3" onSubmit={handleSubmit}>
+                    <input
+                      type="text"
+                      name="name"
+                      className="form-control banner-redesign__input"
+                      placeholder="Name"
+                      style={{ backgroundColor: '#f8f9fa', color: '#111111', borderColor: '#d5d9e3' }}
+                      required
+                    />
+                    <input
+                      type="tel"
+                      name="phone"
+                      className="form-control banner-redesign__input"
+                      placeholder="Contact Number"
+                      style={{ backgroundColor: '#f8f9fa', color: '#111111', borderColor: '#d5d9e3' }}
+                      required
+                    />
+                    <input
+                      type="email"
+                      name="email"
+                      className="form-control banner-redesign__input"
+                      placeholder="Email Address"
+                      style={{ backgroundColor: '#f8f9fa', color: '#111111', borderColor: '#d5d9e3' }}
+                      required
+                    />
+                    <input
+                      type="text"
+                      name="message"
+                      className="form-control banner-redesign__input"
+                      placeholder="What business you want to start?"
+                      style={{ backgroundColor: '#f8f9fa', color: '#111111', borderColor: '#d5d9e3' }}
+                      required
+                    />
+                    <AnimatedButton
+                      type="submit"
+                      className="banner-redesign__submit w-100 mt-2 d-flex justify-content-center align-items-center gap-2"
+                      text="Submit Request"
+                      isLoading={isSubmitting}
+                      loadingText="Submitting..."
+                      disabled={isSubmitting}
+                    />
+                  </form>
                 </div>
               </div>
             </div>
