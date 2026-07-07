@@ -346,3 +346,10 @@
   border: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
+
+/* Hide global chrome for app not-found rendering */
+body.is-not-found-page .header,
+body.is-not-found-page .footer,
+body.is-not-found-page .get-template {
+  display: none !important;
+}

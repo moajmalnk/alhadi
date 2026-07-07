@@ -1,4 +1,15 @@
+"use client";
+
+import { useEffect } from "react";
+
 export default function NotFoundContent() {
+  useEffect(() => {
+    document.body.classList.add("is-not-found-page");
+    return () => {
+      document.body.classList.remove("is-not-found-page");
+    };
+  }, []);
+
   return (
     <div className="page-wrapper overflow-hidden">
       <section className="bg-light-gray border-top border-primary border-4 d-flex align-items-center justify-content-center min-vh-100">
