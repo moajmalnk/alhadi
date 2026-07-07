@@ -13,6 +13,7 @@ export default function SiteShell({
   const pathname = usePathname();
   const isDashboardShell =
     pathname.startsWith("/dashboard") || pathname === "/sign-in";
+  const is404Page = pathname === "/404";
 
   if (isDashboardShell) {
     return <>{children}</>;
@@ -20,7 +21,7 @@ export default function SiteShell({
 
   return (
     <LeadModalProvider>
-      <Header />
+      {!is404Page && <Header />}
       {children}
       <Footer />
     </LeadModalProvider>

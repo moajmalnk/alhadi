@@ -106,8 +106,8 @@ export default function FilterBar({
         }
 
         .filter-bar-clear:hover {
-          background: #f8f9fa;
-          color: #212529;
+          background: #EAF5F9;
+          color: #000;
           border-color: #adb5bd;
         }
 

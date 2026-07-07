@@ -219,7 +219,7 @@ export default function DemoModal({
         }
         .form-control:focus,
         .form-select:focus {
-          border-color: #000 !important;
+          border-color: #FF6F20 !important;
           box-shadow: none !important;
         }
       `}</style>

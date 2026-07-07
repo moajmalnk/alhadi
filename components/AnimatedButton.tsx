@@ -34,12 +34,12 @@ export default function AnimatedButton({
   className={`btn position-relative d-inline-flex align-items-center justify-content-center rounded-pill px-4 ${className}`}
   style={{
     ...style,
-    ...(bgColor ? { backgroundColor: bgColor } : {}),
+    ...(bgColor ? { backgroundColor: bgColor, color: textColor ?? "#fff" } : {}),
     ...(textColor ? { color: textColor } : {}),
     ...(isLoading ? { pointerEvents: "none", opacity: 0.7 } : {}),
   }}
 >
- <span className="w-100 text-center fs-6" style={{ transform: "translateX(-20px)" }}>
+ <span className="w-100 text-center fs-6" style={{ transform: "translateX(-20px)", color: "inherit" }}>
   {isLoading ? loadingText : text}
 </span>
 

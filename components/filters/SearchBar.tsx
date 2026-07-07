@@ -59,7 +59,7 @@ export default function SearchBar({
         .filter-search :global(.filter-search-icon) {
           position: absolute;
           left: 10px;
-          color: #6c757d;
+          color: rgba(0, 0, 0, 0.6);
           font-size: 14px;
           pointer-events: none;
         }
@@ -70,7 +70,7 @@ export default function SearchBar({
           border: 1px solid #ced4da;
           border-radius: 4px;
           background: #fff;
-          color: #212529;
+          color: #000;
           font-size: 13px;
           line-height: 1.4;
           padding: 5px 28px 5px 30px;
@@ -78,11 +78,11 @@ export default function SearchBar({
         }
 
         .filter-search-input:focus {
-          border-color: #111;
+          border-color: #FF6F20;
         }
 
         .filter-search-input:disabled {
-          background: #f8f9fa;
+          background: #EAF5F9;
           cursor: not-allowed;
         }
 
@@ -102,14 +102,14 @@ export default function SearchBar({
           border: 0;
           border-radius: 50%;
           background: transparent;
-          color: #6c757d;
+          color: rgba(0, 0, 0, 0.6);
           padding: 0;
           cursor: pointer;
         }
 
         .filter-search-clear:hover {
           background: #f1f3f5;
-          color: #212529;
+          color: #000;
         }
       `}</style>
     </div>

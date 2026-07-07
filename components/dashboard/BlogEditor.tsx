@@ -357,7 +357,7 @@ export default function BlogEditor({
           <span className="visually-hidden">Text color</span>
           <input
             type="color"
-            value={editor.getAttributes("textStyle").color || "#111111"}
+            value={editor.getAttributes("textStyle").color || "#000000"}
             onChange={(e) =>
               editor.chain().focus().setColor(e.target.value).run()
             }

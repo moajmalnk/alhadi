@@ -11,7 +11,7 @@
 
   font-size: var(--dash-font);
   line-height: 1.5;
-  color: #212529;
+  color: #000;
 }
 
 .dashboard-shell h1,
@@ -46,7 +46,7 @@
   font-weight: 500;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: #6c757d;
+  color: rgba(0, 0, 0, 0.6);
   margin: 0;
 }
 
@@ -147,7 +147,7 @@
   padding: 6px 8px;
   border-radius: var(--dash-radius-sm);
   text-decoration: none;
-  color: #6c757d;
+  color: rgba(0, 0, 0, 0.6);
   font-size: 11px;
   font-weight: 500;
   line-height: 1.2;
@@ -155,12 +155,12 @@
 }
 
 .dashboard-shell .dash-bottom-nav-link:hover {
-  color: #212529;
-  background-color: #f8f9fa;
+  color: #000;
+  background-color: #EAF5F9;
 }
 
 .dashboard-shell .dash-bottom-nav-link.is-active {
-  color: #111;
+  color: #000;
   background-color: #f1f3f5;
 }
 
@@ -202,23 +202,23 @@
 
 .dashboard-shell .btn-dark {
   color: #fff !important;
-  background-color: #111 !important;
-  border-color: #111 !important;
+  background-color: #FF6F20 !important;
+  border-color: #FF6F20 !important;
 }
 
 .dashboard-shell .btn-dark:hover,
 .dashboard-shell .btn-dark:focus,
 .dashboard-shell .btn-dark:active {
   color: #fff !important;
-  background-color: #333 !important;
-  border-color: #333 !important;
+  background-color: #FF9A00 !important;
+  border-color: #FF9A00 !important;
 }
 
 .dashboard-shell .btn-dark:disabled,
 .dashboard-shell .btn-dark.disabled {
   color: #fff !important;
-  background-color: #6c757d !important;
-  border-color: #6c757d !important;
+  background-color: #7BB8D9 !important;
+  border-color: #7BB8D9 !important;
   opacity: 0.65;
 }
 
@@ -230,8 +230,8 @@
 
 .dashboard-shell .btn-outline-secondary:hover,
 .dashboard-shell .btn-outline-secondary:focus {
-  color: #212529 !important;
-  background-color: #f8f9fa !important;
+  color: #000 !important;
+  background-color: #EAF5F9 !important;
   border-color: #adb5bd !important;
 }
 
@@ -268,7 +268,7 @@
   padding: 6px 10px;
   min-height: 34px;
   line-height: 1.45;
-  color: #212529;
+  color: #000;
   background-color: #fff;
   border: 1px solid #ced4da;
   border-radius: var(--dash-radius-sm);
@@ -277,13 +277,13 @@
 }
 
 .dashboard-shell .form-control::placeholder {
-  color: #6c757d;
+  color: rgba(0, 0, 0, 0.6);
   opacity: 1;
 }
 
 .dashboard-shell .form-control:focus,
 .dashboard-shell .form-select:focus {
-  color: #212529;
+  color: #000;
   background-color: #fff;
   border-color: #86b7fe;
   outline: 0;
@@ -293,7 +293,7 @@
 .dashboard-shell .form-control:disabled,
 .dashboard-shell .form-select:disabled {
   background-color: #e9ecef;
-  color: #6c757d;
+  color: rgba(0, 0, 0, 0.6);
   opacity: 1;
 }
 
@@ -338,22 +338,22 @@
   background: #fff;
   font-size: var(--dash-font-sm);
   font-weight: 500;
-  color: #212529;
+  color: #000;
   cursor: pointer;
   user-select: none;
 }
 
 .dashboard-shell .dash-radio-option:has(input:checked) {
-  border-color: #111;
-  background: #f8f9fa;
-  box-shadow: 0 0 0 1px #111;
+  border-color: #FF6F20;
+  background: #EAF5F9;
+  box-shadow: 0 0 0 1px #FF6F20;
 }
 
 .dashboard-shell .dash-radio-option input[type="radio"] {
   width: 14px;
   height: 14px;
   margin: 0;
-  accent-color: #111;
+  accent-color: #FF6F20;
   cursor: pointer;
   flex-shrink: 0;
 }
@@ -409,7 +409,7 @@
 .dashboard-shell .dash-empty {
   padding: 28px 14px;
   text-align: center;
-  color: #6c757d;
+  color: rgba(0, 0, 0, 0.6);
   font-size: var(--dash-font-sm);
 }
 
@@ -463,8 +463,8 @@
 }
 
 .dashboard-shell .dash-lead-card.is-selected {
-  border-color: #111;
-  box-shadow: 0 0 0 1px #111;
+  border-color: #FF6F20;
+  box-shadow: 0 0 0 1px #FF6F20;
 }
 
 .dashboard-shell .dash-lead-card-top {
@@ -477,7 +477,7 @@
 .dashboard-shell .dash-lead-card-name {
   font-size: var(--dash-font);
   font-weight: 600;
-  color: #111;
+  color: #000;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -485,7 +485,7 @@
 
 .dashboard-shell .dash-lead-card-meta {
   font-size: var(--dash-font-sm);
-  color: #6c757d;
+  color: rgba(0, 0, 0, 0.6);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -565,7 +565,7 @@
 
 .dashboard-shell .dash-field-label {
   font-size: var(--dash-font-xs);
-  color: #6c757d;
+  color: rgba(0, 0, 0, 0.6);
   margin-bottom: 3px;
 }
 
@@ -576,7 +576,7 @@
 }
 
 .dashboard-shell .dash-note {
-  background: #f8f9fa;
+  background: #EAF5F9;
   border: 1px solid #e9ecef;
   border-radius: var(--dash-radius-sm);
   padding: 10px 12px;
@@ -584,7 +584,7 @@
 
 .dashboard-shell .dash-note-meta {
   font-size: var(--dash-font-xs);
-  color: #6c757d;
+  color: rgba(0, 0, 0, 0.6);
   margin-bottom: 5px;
 }
 
@@ -630,7 +630,7 @@
   padding: 16px;
   border: 1.5px dashed #adb5bd;
   border-radius: var(--dash-radius);
-  background: #f8f9fa;
+  background: #EAF5F9;
   cursor: pointer;
   outline: none;
   transition:
@@ -641,12 +641,12 @@
 
 .dashboard-shell .blog-cover-dropzone:hover,
 .dashboard-shell .blog-cover-dropzone:focus-visible {
-  border-color: #6c757d;
+  border-color: #7BB8D9;
   background: #f1f3f5;
 }
 
 .dashboard-shell .blog-cover-dropzone.is-dragover {
-  border-color: #111;
+  border-color: #FF6F20;
   border-style: solid;
   background: #e9ecef;
   box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.08);
@@ -673,12 +673,12 @@
 .dashboard-shell .blog-cover-dropzone-title {
   font-size: var(--dash-font);
   font-weight: 600;
-  color: #212529;
+  color: #000;
 }
 
 .dashboard-shell .blog-cover-dropzone-hint {
   font-size: var(--dash-font-xs);
-  color: #6c757d;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .dashboard-shell .blog-cover-dropzone-preview {
@@ -705,7 +705,7 @@
   background: rgba(255, 255, 255, 0.72);
   font-size: var(--dash-font-sm);
   font-weight: 600;
-  color: #212529;
+  color: #000;
   border-radius: var(--dash-radius);
 }
 
@@ -720,7 +720,7 @@
 
 .dashboard-shell .blog-editor-loading {
   padding: 24px;
-  color: #6c757d;
+  color: rgba(0, 0, 0, 0.6);
   font-size: var(--dash-font-sm);
 }
 
@@ -730,13 +730,13 @@
   gap: 4px;
   padding: 8px;
   border-bottom: 1px solid #dee2e6;
-  background: #f8f9fa;
+  background: #EAF5F9;
 }
 
 .dashboard-shell .blog-editor-btn {
   border: 1px solid #ced4da;
   background: #fff;
-  color: #212529;
+  color: #000;
   border-radius: 4px;
   font-size: 12px;
   font-weight: 600;
@@ -751,8 +751,8 @@
 }
 
 .dashboard-shell .blog-editor-btn.is-active {
-  background: #111;
-  border-color: #111;
+  background: #FF6F20;
+  border-color: #FF6F20;
   color: #fff;
 }
 

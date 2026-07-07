@@ -2,21 +2,37 @@
 // Variables Style
 // ----------------------------------------------
 
+// Sunset Breeze palette
+$sunset-blue: #0072B8 !default;
+$sunset-orange: #FF6F20 !default;
+$sunset-yellow: #FFD700 !default;
+$sunset-golden: #FF9A00 !default;
+$sunset-sky: #A3D5E0 !default;
+
 // colors
 $white: #fff !default;
-$gray-100: rgba(31, 42, 46, 0.12) !default;
-$gray-200: #F4F8FA !default;
-$gray-300: rgba(31, 42, 46, 0.6) !default;
-$gray-400: rgba(31, 42, 46, 0.7) !default;
-$gray-500: #1F2A2E !default;
+$brand-blue: $sunset-blue !default;
+$brand-blue-dark: #005A94 !default;
+$brand-blue-deep: #004A7A !default;
+$brand-orange: $sunset-orange !default;
+$brand-orange-dark: $sunset-golden !default;
+$brand-yellow: $sunset-yellow !default;
+$brand-sky: $sunset-sky !default;
+$brand-blue-light: #EAF5F9 !default;
+$gray-100: rgba(0, 114, 184, 0.10) !default;
+$gray-200: $brand-blue-light !default;
+$gray-300: rgba(0, 0, 0, 0.6) !default;
+$gray-400: rgba(0, 0, 0, 0.7) !default;
+$gray-500: $brand-blue !default;
 $black: #000 !default;
+$text-on-light: #000 !default;
 
 // Color
-$blue: #C1FF72 !default;
+$blue: $brand-blue !default;
 
 // Main Colors
-$primary: $blue !default;
-$secondary: #1f2a2e !default;
+$primary: $brand-blue !default;
+$secondary: $brand-orange !default;
 $light: $gray-100 !default;
 $muted: $gray-300 !default;
 $dark: $gray-500 !default;
@@ -97,8 +113,8 @@ $font-weight-base: $font-weight-normal;
 // Buttons
 $btn-padding-y: 4px !default;
 $btn-padding-x: 4px !default;
-$btn-color: $dark !default;
-$btn-link-color: $dark !default;
+$btn-color: $white !default;
+$btn-link-color: $text-on-light !default;
 $btn-font-weight: 700 !default;
 $btn-border-radius: 56px !default;
 $btn-box-shadow: unset !default;
@@ -147,11 +163,11 @@ $body-bg: $white !default;
 $body-color: $gray-400 !default;
 
 // Heading
-$headings-color: $dark !default;
+$headings-color: $text-on-light !default;
 $headings-font-weight: 700 !default;
 
 // Border Color
-$border-color: rgba(31, 42, 46, 0.12) !default;
+$border-color: rgba(0, 114, 184, 0.12) !default;
 
 
 // Box Shadow
@@ -162,7 +178,7 @@ $box-shadow-lg: 0px 12px 16px -4px rgba(16, 24, 40, 0.08),
 $box-shadow-inset: unset !default;
 
 // Card
-$card-title-color: $dark !default;
+$card-title-color: $text-on-light !default;
 $card-subtitle-color: var(--bs-body-color) !default;
 $card-spacer-y: 30px !default;
 $card-spacer-x: 30px !default;
@@ -188,7 +204,7 @@ $tooltip-font-size: 12px !default;
 $tooltip-bg: $dark;
 
 // Input
-$form-label-color: $gray-500;
+$form-label-color: $text-on-light;
 $form-label-font-weight: 600;
 $form-select-indicator-padding: 38px;
 $form-select-border-radius: 7px !default;
@@ -198,12 +214,12 @@ $input-group-addon-bg: $gray-300 !default;
 $input-group-addon-border-color: $light !default;
 $input-border-color: 0 !default;
 $input-bg: transparent !default;
-$input-color: $gray-300 !default;
+$input-color: rgba(0, 0, 0, 0.75);
 $input-padding-y: 14px;
 $input-padding-x: 0;
 $form-check-input-width: 1.313em;
 $form-check-min-height: 1.313em;
-$form-check-input-border: 1.25px solid $dark;
+$form-check-input-border: 1.25px solid $text-on-light;
 $form-check-input-checked-bg-color: var(--bs-primary
 );
 
@@ -215,19 +231,19 @@ $dropdown-border-width: 0 !default;
 $dropdown-item-padding-y: 10px !default;
 $dropdown-link-hover-bg: $gray-100 !default;
 $dropdown-link-active-bg: $gray-100;
-$dropdown-link-active-color: $dark;
-$link-color: $dark !default;
+$dropdown-link-active-color: $text-on-light;
+$link-color: $text-on-light !default;
 
-$link-hover-color: $primary !default;
+$link-hover-color: $brand-orange !default;
 
 // Accordion
 $accordion-padding-y: 28px;
 $accordion-padding-x: 0;
-$accordion-button-color: $dark;
+$accordion-button-color: $text-on-light;
 $accordion-body-padding-y: 1rem;
 $accordion-border-color: $border-color;
 $accordion-button-active-bg: transparent !default;
-$accordion-button-active-color: $dark;
+$accordion-button-active-color: $text-on-light;
 $accordion-icon-color: #0000008a;
 $accordion-icon-active-color: #0000008a;
 $accordion-button-icon: url("../images/svgs/icon-plus.svg");

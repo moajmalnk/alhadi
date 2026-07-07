@@ -189,14 +189,14 @@ export default function DateRangeModal({
         .date-range-modal-title {
           font-size: 15px;
           font-weight: 600;
-          color: #111;
+          color: #000;
           margin: 0 0 4px;
           line-height: 1.3;
         }
 
         .date-range-modal-subtitle {
           font-size: 12px;
-          color: #6c757d;
+          color: rgba(0, 0, 0, 0.6);
           margin: 0 0 14px;
           line-height: 1.4;
         }
@@ -231,13 +231,13 @@ export default function DateRangeModal({
           border-radius: 4px;
           padding: 5px 8px;
           font-size: 13px;
-          color: #212529;
+          color: #000;
           background: #fff;
           outline: none;
         }
 
         .date-range-modal-field input:focus {
-          border-color: #111;
+          border-color: #FF6F20;
         }
 
         .date-range-modal-error {
@@ -270,19 +270,19 @@ export default function DateRangeModal({
         }
 
         .date-range-modal-btn.secondary:hover {
-          background: #f8f9fa;
-          color: #212529;
+          background: #EAF5F9;
+          color: #000;
         }
 
         .date-range-modal-btn.primary {
           color: #fff;
-          background: #111;
-          border-color: #111;
+          background: #FF6F20;
+          border-color: #FF6F20;
         }
 
         .date-range-modal-btn.primary:hover {
-          background: #333;
-          border-color: #333;
+          background: #FF9A00;
+          border-color: #FF9A00;
         }
       `}</style>
     </div>

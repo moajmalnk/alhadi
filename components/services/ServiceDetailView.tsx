@@ -774,7 +774,7 @@ export function ServiceDocuments({
                           width: "44px",
                           height: "44px",
                           minWidth: "44px",
-                          background: index % 2 === 0 ? "var(--bs-primary)" : "#212529",
+                          background: index % 2 === 0 ? "var(--bs-primary)" : "var(--bs-secondary)",
                         }}
                       >
                         <iconify-icon

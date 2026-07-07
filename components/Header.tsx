@@ -35,15 +35,17 @@ export default function Header() {
   const [isMobile, setIsMobile] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const mobileNavRef = useRef<HTMLDivElement>(null);
-  const servicesActive = pathname === "/services" || pathname.startsWith("/services/");
+  const servicesActive =
+    pathname === "/services" || pathname.startsWith("/services/");
   const showSolidHeader = isMobile || isScrolled;
 
   const closeMobileMenu = () => {
     const el = mobileNavRef.current;
     if (!el) return;
 
-    const Collapse = (window as Window & { bootstrap?: { Collapse: BootstrapCollapse } }).bootstrap
-      ?.Collapse;
+    const Collapse = (
+      window as Window & { bootstrap?: { Collapse: BootstrapCollapse } }
+    ).bootstrap?.Collapse;
     if (Collapse) {
       Collapse.getOrCreateInstance(el).hide();
       return;
@@ -102,22 +104,45 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`header ${showSolidHeader ? "fixed-header" : ""} border-4 border-primary border-top position-fixed start-0 top-0 w-100 z-3`}>
+    <header
+      className={`header ${showSolidHeader ? "fixed-header" : ""} border-4 border-primary border-top position-fixed start-0 top-0 w-100 z-3`}
+    >
       <div className="container">
         <nav className="navbar navbar-expand-lg py-0 header-wrapper d-flex align-items-center justify-content-between">
-          <div className="logo me-auto">
+          <div className="logo me-auto flex-shrink-0">
             <Link href="/" className="logo-white">
-              <img src="/assets/images/logos/alhadi-business-logo.svg" alt="logo" className="img-fluid" style={{ width: "130px" }} />
+              <img
+                src="/assets/images/logos/alhadi-business-logo.svg"
+                alt="Al Hadi Business Setup"
+                className="header-logo-img"
+                width={160}
+                height={81}
+              />
             </Link>
             <Link href="/" className="logo-dark">
-              <img src="/assets/images/logos/alhadi-business-logo.svg" alt="logo" className="img-fluid" style={{ width: "130px" }} />
+              <img
+                src="/assets/images/logos/alhadi-business-logo.svg"
+                alt="Al Hadi Business Setup"
+                className="header-logo-img"
+                width={160}
+                height={81}
+              />
             </Link>
           </div>
 
           <button
             className="navbar-toggler d-lg-none btn btn-secondary toggle-menu round-45 p-2 d-flex align-items-center justify-content-center bg-white rounded-circle ms-3 border-0 shadow-none"
-            type="button" data-bs-toggle="collapse" data-bs-target="#headerNavbar" aria-controls="headerNavbar" aria-expanded="false" aria-label="Toggle navigation">
-            <iconify-icon icon="solar:hamburger-menu-line-duotone" className="menu-icon fs-8 text-dark"></iconify-icon>
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#headerNavbar"
+            aria-controls="headerNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <iconify-icon
+              icon="solar:hamburger-menu-line-duotone"
+              className="menu-icon fs-8 text-dark"
+            ></iconify-icon>
           </button>
 
           <div
@@ -128,20 +153,29 @@ export default function Header() {
           >
             <ul className="navbar-nav header-menu ms-auto mb-2 mb-lg-0 d-flex flex-column flex-lg-row gap-2 gap-lg-4 align-items-lg-center mt-4 mt-lg-0">
               <li className="nav-item header-item">
-                <Link href="/" aria-current={pathname === "/" ? "true" : undefined}
-                  className={`nav-link custom-nav-link ${pathname === "/" ? "active" : ""}`}>
+                <Link
+                  href="/"
+                  aria-current={pathname === "/" ? "true" : undefined}
+                  className={`nav-link custom-nav-link ${pathname === "/" ? "active" : ""}`}
+                >
                   Home
                 </Link>
               </li>
               <li className="nav-item header-item">
-                <Link href="/about-us" aria-current={pathname === "/about-us" ? "true" : undefined}
-                  className={`nav-link custom-nav-link ${pathname === "/about-us" ? "active" : ""}`}>
+                <Link
+                  href="/about-us"
+                  aria-current={pathname === "/about-us" ? "true" : undefined}
+                  className={`nav-link custom-nav-link ${pathname === "/about-us" ? "active" : ""}`}
+                >
                   About
                 </Link>
               </li>
               <li className="nav-item header-item">
-                <Link href="/blog" aria-current={pathname === "/blog" ? "true" : undefined}
-                  className={`nav-link custom-nav-link ${pathname === "/blog" ? "active" : ""}`}>
+                <Link
+                  href="/blog"
+                  aria-current={pathname === "/blog" ? "true" : undefined}
+                  className={`nav-link custom-nav-link ${pathname === "/blog" ? "active" : ""}`}
+                >
                   Blog
                 </Link>
               </li>
@@ -234,29 +268,63 @@ export default function Header() {
               </li>
 
               <li className="nav-item header-item">
-                <Link href="/contact" aria-current={pathname === "/contact" ? "true" : undefined}
-                  className={`nav-link custom-nav-link ${pathname === "/contact" ? "active" : ""}`}>
+                <Link
+                  href="/contact"
+                  aria-current={pathname === "/contact" ? "true" : undefined}
+                  className={`nav-link custom-nav-link ${pathname === "/contact" ? "active" : ""}`}
+                >
                   Contact
                 </Link>
               </li>
 
               <li className="nav-item d-lg-none mt-3 pb-3">
-                <Link href="/contact" className="btn btn-light demo-btn fs-6 bg-white px-3 py-2 w-100 hstack justify-content-center rounded-pill fw-medium border-0">Free Consultation</Link>
+                <Link
+                  href="/contact"
+                  className="btn btn-secondary demo-btn fs-6 px-3 py-2 w-100 hstack justify-content-center rounded-pill fw-medium border-0"
+                >
+                  Free Consultation
+                </Link>
               </li>
             </ul>
 
             <div className="d-none d-lg-flex align-items-center gap-3 ms-lg-4">
-              <Link href="/contact" className="btn btn-light demo-btn bg-white px-4 py-2 rounded-pill fw-medium border-0" style={{ fontSize: '14px' }}>Free Consultation</Link>
+              <Link
+                href="/contact"
+                className="btn btn-secondary demo-btn px-4 py-2 rounded-pill fw-medium border-0"
+                style={{ fontSize: "14px" }}
+              >
+                Free Consultation
+              </Link>
             </div>
           </div>
         </nav>
       </div>
 
       <style jsx global>{`
+        .header .logo {
+          flex-shrink: 0;
+        }
+
+        .header-logo-img {
+          display: block;
+          width: 160px;
+          height: auto;
+        }
+
         @media (max-width: 991.98px) {
           .header {
             background-color: var(--bs-primary);
-            padding: 20px 0;
+            padding-top: calc(1.5rem + env(safe-area-inset-top, 0px));
+            padding-bottom: 1rem;
+          }
+
+          .header.fixed-header {
+            padding-top: calc(1.5rem + env(safe-area-inset-top, 0px));
+            padding-bottom: 1rem;
+          }
+
+          .header-logo-img {
+            width: 130px;
           }
 
           .header .logo .logo-dark {
@@ -277,7 +345,15 @@ export default function Header() {
         }
 
         .demo-btn {
-          color: #000000 !important;
+          background-color: var(--sunset-orange) !important;
+          border-color: var(--sunset-orange) !important;
+          color: #fff !important;
+        }
+        .demo-btn:hover,
+        .demo-btn:focus-visible {
+          background-color: var(--sunset-golden) !important;
+          border-color: var(--sunset-golden) !important;
+          color: #fff !important;
         }
         .custom-nav-link {
           color: #ffffff !important;
@@ -295,17 +371,18 @@ export default function Header() {
           color: #ffffff !important;
         }
         .custom-nav-link::after {
-          content: '';
+          content: "";
           position: absolute;
           width: 0;
           height: 2px;
           bottom: 0;
           left: 50%;
-          background-color: #FFAB00;
+          background-color: var(--bs-secondary);
           transition: all 0.3s ease;
           transform: translateX(-50%);
         }
-        .custom-nav-link.active::after, .custom-nav-link:hover::after {
+        .custom-nav-link.active::after,
+        .custom-nav-link:hover::after {
           width: 100%;
         }
         .custom-nav-link.active {
@@ -337,7 +414,7 @@ export default function Header() {
         }
 
         .services-mega-menu::before {
-          content: '';
+          content: "";
           position: absolute;
           top: -18px;
           left: 0;
@@ -353,7 +430,7 @@ export default function Header() {
         }
 
         .services-mega-panel {
-          background: #111111;
+          background: var(--bs-primary);
           border: 1px solid rgba(255, 255, 255, 0.1);
           box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
         }
@@ -375,7 +452,9 @@ export default function Header() {
           line-height: 1.35;
           letter-spacing: 0.01em;
           border: 1px solid transparent;
-          transition: color 0.2s ease, background-color 0.2s ease;
+          transition:
+            color 0.2s ease,
+            background-color 0.2s ease;
         }
 
         .services-mega-link:hover,
@@ -397,7 +476,9 @@ export default function Header() {
           font-weight: 600;
           letter-spacing: 0.06em;
           text-transform: uppercase;
-          transition: color 0.2s ease, background-color 0.2s ease;
+          transition:
+            color 0.2s ease,
+            background-color 0.2s ease;
         }
 
         .services-mega-all:hover,
