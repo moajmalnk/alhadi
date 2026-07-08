@@ -26,7 +26,7 @@ const services = [
       "Corporate bank account assistance",
       "Office & flexi desk solutions",
     ],
-    image: "/assets/images/services/Company-Formation.jpg",
+    image: "/assets/images/services/business_setup_service.png",
     relatedSlug: "free-zone",
     relatedLabel: "Also explore Free Zone licenses",
   },
@@ -42,7 +42,7 @@ const services = [
       "Labour Card services",
       "Government approvals & clearances",
     ],
-    image: "/assets/images/services/pro.webp",
+    image: "/assets/images/services/pro_services_new.png",
   },
   {
     slug: "family-visa",
@@ -56,7 +56,7 @@ const services = [
       "Visa renewal & cancellation",
       "Inside UAE status change",
     ],
-    image: "/assets/images/services/familyvisa.jpg",
+    image: "/assets/images/services/visa_services_new.png",
   },
   {
     slug: "vat-registration",
@@ -70,7 +70,7 @@ const services = [
       "Tax Registration Number (TRN)",
       "Tax advisory & compliance review",
     ],
-    image: "/assets/images/services/vat2.jpg",
+    image: "/assets/images/services/tax_vat_service_new.png",
   },
   {
     slug: "trademark-registration",
@@ -84,7 +84,7 @@ const services = [
       "Portfolio support & record updates",
       "Exclusive legal brand protection",
     ],
-    image: "/assets/images/services/Trade-Mark-4.jpg",
+    image: "/assets/images/services/trademark_service_new.png",
   },
   {
     slug: "golden-visa",
@@ -98,7 +98,7 @@ const services = [
       "Family sponsorship assistance",
       "Emirates ID & renewal support",
     ],
-    image: "/assets/images/services/Golden-Visa-3.jpg",
+    image: "/assets/images/services/golden_visa_service_new.png",
   },
 ];
 
@@ -135,7 +135,7 @@ export default function Services() {
         {/* Banner Section */}
         <section
           className="banner-section banner-inner-section position-relative overflow-hidden d-flex align-items-end"
-          style={{ backgroundImage: "url(/assets/images/backgrounds/services.jpg)" }}
+          style={{ backgroundImage: "url(/assets/images/backgrounds/services-hero.png)" }}
         >
           <div className="container">
             <div className="d-flex flex-column gap-4 pb-5 pb-xl-10 position-relative z-1">

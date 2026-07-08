@@ -91,7 +91,7 @@ export const serviceDetails: ServiceDetail[] = [
       "Looking to start a business in the UAE? Al Hadi Business Services provides complete trade license solutions for entrepreneurs, startups, SMEs, and international investors. Whether you're establishing a Mainland, Free Zone, or Offshore company, our experienced consultants ensure a smooth, fast, and hassle-free business setup process.",
       "From selecting the right business activity to obtaining your trade license, visa processing, and corporate bank account assistance, we manage every step so you can focus on growing your business.",
     ],
-    image: "/assets/images/services/Company-Formation.jpg",
+    image: "/assets/images/services/business_setup_service.png",
     offeringsTitle: "Our Trade License Services",
     detailedOfferings: [
       {
@@ -167,7 +167,7 @@ export const serviceDetails: ServiceDetail[] = [
       "A UAE Free Zone company offers an efficient way to start and grow your business with benefits such as 100% foreign ownership, simplified company formation, and access to world-class business infrastructure.",
       "Our experienced consultants help you choose the right Free Zone based on your business activities, budget, visa requirements, and long-term goals.",
     ],
-    image: "/assets/images/services/Company-Formation.jpg",
+    image: "/assets/images/services/business_setup_service.png",
     offeringsTitle: "Our UAE Free Zone License Services",
     detailedOfferings: [
       {
@@ -378,7 +378,7 @@ export const serviceDetails: ServiceDetail[] = [
     intro: [
       "Our professional PRO services ensure smooth processing of government-related documentation including MOHRE, GDRFA, Immigration, Emirates ID, Labour Card, and visa applications.",
     ],
-    image: "/assets/images/services/pro.webp",
+    image: "/assets/images/services/pro_services_new.png",
     offeringsTitle: "Our PRO Services",
     offeringsIntro:
       "End-to-end government documentation support so your business stays compliant and your people stay on track.",
@@ -430,7 +430,7 @@ export const serviceDetails: ServiceDetail[] = [
       "Bring your loved ones to the UAE with confidence. Al Hadi Business Services provides complete UAE Family Visa services for residents, investors, business owners, and professionals. We handle the entire process—from document preparation and application submission to Emirates ID processing and residence visa issuance—making family sponsorship simple and stress-free.",
       "Whether you want to sponsor your spouse, children, or parents, our experienced PRO consultants ensure your application is prepared accurately and processed efficiently.",
     ],
-    image: "/assets/images/services/familyvisa.jpg",
+    image: "/assets/images/services/visa_services_new.png",
     offeringsTitle: "Our UAE Family Visa Services",
     offeringsIntro: "We offer complete assistance for:",
     offerings: [
@@ -560,7 +560,7 @@ export const serviceDetails: ServiceDetail[] = [
       "Our tax professionals assist you throughout the VAT registration process, ensuring your application is prepared accurately and submitted in accordance with the requirements of the UAE tax authorities.",
       "Whether your business requires mandatory VAT registration or is considering voluntary registration, we provide expert guidance from start to finish.",
     ],
-    image: "/assets/images/services/vat2.jpg",
+    image: "/assets/images/services/tax_vat_service_new.png",
     offeringsTitle: "Our VAT Registration Services",
     offeringsIntro: "We offer complete VAT-related solutions, including:",
     offerings: [
@@ -646,7 +646,7 @@ export const serviceDetails: ServiceDetail[] = [
       "At Al Hadi Business Services, we provide end-to-end trademark registration services across the UAE. Our experienced consultants guide individuals, startups, SMEs, and large businesses through every stage of the trademark registration process, making it simple, efficient, and hassle-free.",
       "Whether you are launching a new business or protecting an established brand, we help secure your intellectual property with professional support.",
     ],
-    image: "/assets/images/services/Trade-Mark-4.jpg",
+    image: "/assets/images/services/trademark_service_new.png",
     whatIs: {
       title: "What is a Trademark?",
       description:
@@ -701,7 +701,7 @@ export const serviceDetails: ServiceDetail[] = [
       "Secure your long-term residency in the UAE with expert Golden Visa services from Al Hadi Business Services. We provide complete assistance for eligible investors, entrepreneurs, skilled professionals, property owners, exceptional talents, and outstanding students who wish to apply for the UAE Golden Visa.",
       "Our experienced consultants guide you through every stage of the process, from eligibility assessment and document preparation to application submission, Emirates ID processing, and residence visa issuance.",
     ],
-    image: "/assets/images/services/Golden-Visa-3.jpg",
+    image: "/assets/images/services/golden_visa_service_new.png",
     whatIs: {
       title: "What is the UAE Golden Visa?",
       description:
@@ -768,7 +768,7 @@ export const serviceDetails: ServiceDetail[] = [
     intro: [
       "We provide accurate legal, business, personal, and immigration document translation support for your UAE business and residency needs.",
     ],
-    image: "/assets/images/services/services-img-3.jpg",
+    image: "/assets/images/services/translation_services_new.png",
     offeringsTitle: "Our Translation Services",
     groupedOfferings: [
       {
@@ -844,7 +844,7 @@ export const serviceDetails: ServiceDetail[] = [
       "Whether you are setting up a new company, renewing your trade license, applying for an investor visa, or fulfilling office tenancy requirements, our team helps you obtain a Virtual Ejari through eligible business center and office solutions in accordance with applicable Dubai regulations.",
       "We make the process simple, fast, and hassle-free with complete documentation support.",
     ],
-    image: "/assets/images/services/services-img-4.jpg",
+    image: "/assets/images/services/virtual_ejari_service_new.png",
     related: [
       { slug: "business-setup", title: "Business Setup & Company Formation" },
     ],
