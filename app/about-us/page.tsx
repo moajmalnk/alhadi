@@ -33,7 +33,7 @@ export default function AboutUs() {
 
     {/*  Banner Section */}
     <section className="banner-section banner-inner-section position-relative overflow-hidden d-flex align-items-end"
-      style={{ backgroundImage: 'url(/assets/images/about/about-us.jpg)' }}>
+      style={{ backgroundImage: 'url(/assets/images/backgrounds/about-us-hero.png)' }}>
       <div className="container">
         <div className="d-flex flex-column gap-4 pb-5 pb-xl-10 position-relative z-1">
           <div className="row align-items-center">

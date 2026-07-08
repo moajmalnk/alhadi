@@ -565,7 +565,7 @@ export default function Home() {
                         tabIndex={0}
                       >
                         <img
-                          src="/assets/images/services/Company-Formation.jpg"
+                          src="/assets/images/services/business_setup_service.png"
                           alt="Business Setup & Company Formation"
                           className="img-fluid rounded-4 w-100 h-100 object-fit-cover"
                         />
@@ -578,7 +578,7 @@ export default function Home() {
                         tabIndex={0}
                       >
                         <img
-                          src="/assets/images/services/pro.webp"
+                          src="/assets/images/services/pro_services_new.png"
                           alt="PRO & Document Clearing Services"
                           className="img-fluid rounded-4 w-100 h-100 object-fit-cover"
                         />
@@ -591,7 +591,7 @@ export default function Home() {
                         tabIndex={0}
                       >
                         <img
-                          src="/assets/images/services/familyvisa.jpg"
+                          src="/assets/images/services/visa_services_new.png"
                           alt="Visa Services"
                           className="img-fluid rounded-4 w-100 h-100 object-fit-cover"
                         />
@@ -604,7 +604,7 @@ export default function Home() {
                         tabIndex={0}
                       >
                         <img
-                          src="/assets/images/services/vat2.jpg"
+                          src="/assets/images/services/tax_vat_service_new.png"
                           alt="Corporate Tax & VAT Services"
                           className="img-fluid rounded-4 w-100 h-100 object-fit-cover"
                         />
@@ -617,7 +617,7 @@ export default function Home() {
                         tabIndex={0}
                       >
                         <img
-                          src="/assets/images/services/Trade-Mark-4.jpg"
+                          src="/assets/images/services/trademark_service_new.png"
                           alt="Trademark Registration"
                           className="img-fluid rounded-4 w-100 h-100 object-fit-cover"
                         />
@@ -630,7 +630,7 @@ export default function Home() {
                         tabIndex={0}
                       >
                         <img
-                          src="/assets/images/services/Golden-Visa-3.jpg"
+                          src="/assets/images/services/golden_visa_service_new.png"
                           alt="Golden Visa Services"
                           className="img-fluid rounded-4 w-100 h-100 object-fit-cover"
                         />
@@ -2164,7 +2164,7 @@ export default function Home() {
                       className="resources-img resources-img-first position-relative overflow-hidden d-block"
                     >
                       <img
-                        src="/assets/images/resources/resources-1.jpg"
+                        src="/assets/images/blogs/corporate_tax_uae.png"
                         alt="resources"
                         className="img-fluid"
                       />
@@ -2189,7 +2189,7 @@ export default function Home() {
                       className="resources-img position-relative overflow-hidden d-block"
                     >
                       <img
-                        src="/assets/images/resources/resources-2.jpg"
+                        src="/assets/images/blogs/business_setup_uae.png"
                         alt="resources"
                         className="img-fluid"
                       />
@@ -2214,7 +2214,7 @@ export default function Home() {
                       className="resources-img position-relative overflow-hidden d-block"
                     >
                       <img
-                        src="/assets/images/resources/resources-3.jpg"
+                        src="/assets/images/blogs/golden_visa_uae.png"
                         alt="resources"
                         className="img-fluid"
                       />

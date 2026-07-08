@@ -58,7 +58,7 @@ export default function Blog() {
         <section
           className="banner-section banner-inner-section position-relative overflow-hidden d-flex align-items-end"
           style={{
-            backgroundImage: "url(/assets/images/backgrounds/blog-banner.jpg)",
+            backgroundImage: "url(/assets/images/backgrounds/blog-hero.png)",
           }}
         >
           <div className="container">

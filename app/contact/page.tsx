@@ -39,7 +39,7 @@ export default function Contact() {
         <section
           className="banner-section banner-inner-section position-relative overflow-hidden d-flex align-items-end"
           style={{
-            backgroundImage: "url(/assets/images/backgrounds/contact-us2.jpg)",
+            backgroundImage: "url(/assets/images/backgrounds/contact-hero.png)",
           }}
         >
           <div className="container">
