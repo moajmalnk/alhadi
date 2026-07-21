@@ -2,40 +2,36 @@
 // Variables Style
 // ----------------------------------------------
 
-// Sunset Breeze palette
-$sunset-blue: #0072B8 !default;
-$sunset-orange: #FF6F20 !default;
-$sunset-yellow: #FFD700 !default;
-$sunset-golden: #FF9A00 !default;
-$sunset-sky: #A3D5E0 !default;
+// Brand Palette
+$brand-dark: #151515 !default; // Primary Dark
+$brand-gold-base: #C29328 !default; // Brand Gold (Base)
+$brand-gold-light: #DFB451 !default; // Brand Gold (Light)
+$brand-accent-red: #B93030 !default; // Accent Red
+$brand-divider: #D9C59A !default; // Divider Line
+$brand-background-main: #FAFAFA !default;
+$brand-background-card: #FFFFFF !default;
+$brand-text-primary: #1A1A1A !default;
 
 // colors
-$white: #fff !default;
-$brand-blue: $sunset-blue !default;
-$brand-blue-dark: #005A94 !default;
-$brand-blue-deep: #004A7A !default;
-$brand-orange: $sunset-orange !default;
-$brand-orange-dark: $sunset-golden !default;
-$brand-yellow: $sunset-yellow !default;
-$brand-sky: $sunset-sky !default;
-$brand-blue-light: #EAF5F9 !default;
-$gray-100: rgba(0, 114, 184, 0.10) !default;
-$gray-200: $brand-blue-light !default;
-$gray-300: rgba(0, 0, 0, 0.6) !default;
-$gray-400: rgba(0, 0, 0, 0.7) !default;
-$gray-500: $brand-blue !default;
+$white: $brand-background-card !default;
 $black: #000 !default;
-$text-on-light: #000 !default;
+$text-on-light: $brand-text-primary !default;
+
+$gray-100: rgba(21, 21, 21, 0.10) !default;
+$gray-200: #F3F4F6 !default;
+$gray-300: rgba(26, 26, 26, 0.6) !default;
+$gray-400: rgba(26, 26, 26, 0.7) !default;
+$gray-500: $brand-dark !default;
 
 // Color
-$blue: $brand-blue !default;
+$blue: $brand-dark !default;
 
 // Main Colors
-$primary: $brand-blue !default;
-$secondary: $brand-orange !default;
-$light: $gray-100 !default;
+$primary: $brand-dark !default;
+$secondary: $brand-gold-base !default;
+$light: $brand-background-main !default;
 $muted: $gray-300 !default;
-$dark: $gray-500 !default;
+$dark: $brand-dark !default;
 $dark-light: $gray-400 !default;
 $light-gray: $gray-200 !default; 
 
@@ -48,6 +44,7 @@ $theme-colors: (
   "muted": $muted,
   "dark-light": $dark-light,
   "light-gray": $light-gray,
+  "danger": $brand-accent-red,
   ) !default;
 
 // Spacer
@@ -159,15 +156,15 @@ $line-height-sm: 1.25 !default;
 $line-height-lg: 2 !default;
 
 // Body
-$body-bg: $white !default;
-$body-color: $gray-400 !default;
+$body-bg: $brand-background-main !default;
+$body-color: $brand-text-primary !default;
 
 // Heading
 $headings-color: $text-on-light !default;
 $headings-font-weight: 700 !default;
 
 // Border Color
-$border-color: rgba(0, 114, 184, 0.12) !default;
+$border-color: $brand-divider !default;
 
 
 // Box Shadow
@@ -234,7 +231,7 @@ $dropdown-link-active-bg: $gray-100;
 $dropdown-link-active-color: $text-on-light;
 $link-color: $text-on-light !default;
 
-$link-hover-color: $brand-orange !default;
+$link-hover-color: $brand-gold-light !default;
 
 // Accordion
 $accordion-padding-y: 28px;

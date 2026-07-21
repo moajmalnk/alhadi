@@ -1,11 +1,13 @@
-/* Sunset Breeze — site-wide palette tokens */
+/* Brand Palette — site-wide tokens */
 :root {
-  --sunset-blue: #0072b8;
-  --sunset-orange: #ff6f20;
-  --sunset-yellow: #ffd700;
-  --sunset-golden: #ff9a00;
-  --sunset-sky: #a3d5e0;
-  --sunset-blue-light: #eaf5f9;
+  --brand-dark: #151515;
+  --brand-gold-base: #C29328;
+  --brand-gold-light: #DFB451;
+  --brand-accent-red: #B93030;
+  --brand-divider: #D9C59A;
+  --brand-background-main: #FAFAFA;
+  --brand-background-card: #FFFFFF;
+  --brand-text-primary: #1A1A1A;
 }
 
 /* Custom scrollbar — thin pill thumb, transparent track */
@@ -44,8 +46,8 @@
 /* Sign-in: keep dark fill + white label on hover (theme inverts btn-dark to white) */
 .sign-in-submit.btn-dark:hover,
 .sign-in-submit.btn-dark:focus-visible {
-  background-color: #ff9a00 !important;
-  border-color: #ff9a00 !important;
+  background-color: var(--brand-gold-light) !important;
+  border-color: var(--brand-gold-light) !important;
   color: #ffffff !important;
 }
 
@@ -366,6 +368,33 @@ body.is-not-found-page .get-template {
   display: none !important;
 }
 
+/* ====================== UNIVERSAL CONTAINER ====================== */
+:root {
+  --max-container-width: 1320px;
+  --container-px: 1rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --container-px: 1.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --container-px: 2rem;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-container-width) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: var(--container-px) !important;
+  padding-right: var(--container-px) !important;
+}
+
 /* Home hero redesign */
 .banner-section.banner-redesign::before {
   display: none;
@@ -374,16 +403,16 @@ body.is-not-found-page .get-template {
 .banner-redesign {
   background: linear-gradient(
     125deg,
-    #003d66 0%,
-    #0072b8 40%,
-    #ff8c2a 72%,
-    var(--sunset-orange) 100%
+    var(--brand-dark) 0%,
+    #2a2a2a 40%,
+    #4a3c1e 72%,
+    var(--brand-gold-base) 100%
   );
-  min-height: 100vh;
-  min-height: 100svh;
+  min-height: calc(100vh - 117px);
+  min-height: calc(100svh - 117px);
   display: flex;
   align-items: center;
-  padding-top: clamp(5.5rem, 9vh, 7rem);
+  padding-top: 2rem;
   padding-bottom: 0;
 }
 
@@ -391,8 +420,8 @@ body.is-not-found-page .get-template {
   position: relative;
   border-radius: 20px;
   padding-top: clamp(1.5rem, 2.5vw, 2.75rem);
-  padding-left: clamp(1.5rem, 2.5vw, 2.75rem);
-  padding-right: clamp(1.5rem, 2.5vw, 2.75rem);
+  padding-left: 0;
+  padding-right: 0;
   padding-bottom: 0;
   overflow: visible;
 }
@@ -436,7 +465,7 @@ body.is-not-found-page .get-template {
 }
 
 .banner-redesign__price-amount {
-  color: var(--sunset-orange);
+  color: var(--brand-gold-base);
   font-size: clamp(2rem, 4.3vw, 3.2rem);
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -545,9 +574,9 @@ body.is-not-found-page .get-template {
 }
 
 .banner-redesign__input:focus {
-  border-color: var(--sunset-orange);
+  border-color: var(--brand-gold-base);
   background-color: #ffffff;
-  box-shadow: 0 0 0 3px rgba(255, 111, 32, 0.12);
+  box-shadow: 0 0 0 3px rgba(194, 147, 40, 0.12);
   outline: none;
 }
 
@@ -555,14 +584,14 @@ body.is-not-found-page .get-template {
   border: 0;
   border-radius: 10px;
   min-height: 48px;
-  background: #ff6f20;
+  background: var(--brand-gold-base);
   color: #ffffff;
   font-weight: 700;
   transition: background-color 0.2s ease;
 }
 
 .banner-redesign__submit:hover {
-  background: #ff9a00;
+  background: var(--brand-gold-light);
 }
 
 @media (max-width: 1199.98px) {
@@ -664,3 +693,28 @@ body.is-not-found-page .get-template {
   -webkit-overflow-scrolling: touch;
   padding: 0.5rem 1.25rem calc(1.25rem + env(safe-area-inset-bottom, 0px));
 }
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+  position: fixed;
+  width: 64px;
+  height: 64px;
+  bottom: 24px;
+  right: 24px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-4px);
+  box-shadow: 2px 6px 15px rgba(0, 0, 0, 0.2);
+  color: #FFF;
+}
+

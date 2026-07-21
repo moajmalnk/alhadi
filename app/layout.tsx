@@ -7,6 +7,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/jsonLd";
 import { seoHead } from "@/lib/seo/seoHead";
 import { siteConfig } from "@/lib/seo/site";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = seoHead({
   title: siteConfig.name,
@@ -28,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link
           rel="stylesheet"
@@ -40,10 +41,11 @@ export default function RootLayout({
         />
         <link rel="stylesheet" href="/assets/css/styles.css" />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         <InitScripts />
         <SiteShell>{children}</SiteShell>
+        <WhatsAppButton />
 
         <Script
           src="/assets/libs/jquery/dist/jquery.min.js"
