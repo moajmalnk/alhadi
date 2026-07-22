@@ -1072,40 +1072,53 @@ export function ServiceCta({
   description?: string;
 }) {
   return (
-    <section className="about-cta py-5 py-lg-11 py-xl-12 position-relative overflow-hidden bg-light-gray">
-      <div className="container">
-        <div className="row gap-7 gap-xl-0">
-          <div className="col-xl-4 col-xxl-4">
-            <div
-              className="d-flex align-items-center gap-7 py-2"
-              data-aos="fade-right"
-              data-aos-delay="100"
-              data-aos-duration="1000"
-            >
-              <hr className="border-line" />
-              <span className="badge text-bg-dark">Next step</span>
-            </div>
-          </div>
-          <div className="col-xl-8 col-xxl-7">
-            <div className="d-flex flex-column gap-7">
+    <section className="about-cta py-6 py-lg-11 py-xl-12 position-relative overflow-hidden bg-white" style={{ backgroundColor: "#ffffff" }}>
+      {/* Subtle Background Graphic */}
+      <div
+        className="position-absolute top-0 end-0 opacity-10"
+        style={{ width: "350px", height: "350px", transform: "translate(10%, -10%)", zIndex: 1 }}
+      >
+        <img
+          src="/assets/images/backgrounds/stats-facts-bg.svg"
+          alt=""
+          className="img-fluid w-100 h-100 object-fit-cover"
+        />
+      </div>
+
+      <div className="container position-relative z-2">
+        <div className="row justify-content-center">
+          <div className="col-12 col-lg-10 col-xl-8">
+            <div className="d-flex flex-column align-items-center text-center gap-5">
               <div
-                className="d-flex flex-column gap-6"
+                className="d-flex align-items-center gap-3"
                 data-aos="fade-up"
                 data-aos-delay="100"
                 data-aos-duration="1000"
               >
-                <h2 className="mb-0 display-5 fw-bold">
+                <span className="badge bg-white text-dark border border-secondary border-opacity-10 shadow-sm px-3 py-2 fw-semibold text-uppercase" style={{ letterSpacing: "1px", fontSize: "0.85rem", borderRadius: "100px" }}>
+                  Next step
+                </span>
+              </div>
+              
+              <div
+                className="d-flex flex-column gap-4"
+                data-aos="fade-up"
+                data-aos-delay="200"
+                data-aos-duration="1000"
+              >
+                <h2 className="mb-0 display-5 fw-bolder lh-sm text-dark" style={{ fontWeight: 800 }}>
                   {heading || `Interested in ${title}?`}
                 </h2>
-                <p className="fs-4 mb-0 text-dark lh-base text-opacity-75">
+                <p className="fs-5 mb-0 text-dark lh-base text-opacity-75">
                   {description ||
                     "Share your requirements and our consultants will outline the documents, timeline, and next steps for this service."}
                 </p>
               </div>
+
               <div
-                className="d-flex flex-wrap gap-4"
+                className="d-flex flex-wrap justify-content-center gap-4 pt-2"
                 data-aos="fade-up"
-                data-aos-delay="200"
+                data-aos-delay="300"
                 data-aos-duration="1000"
               >
                 <a href="/contact" className="btn">
@@ -1115,13 +1128,6 @@ export function ServiceCta({
                     className="btn-icon bg-white text-dark round-52 rounded-circle hstack justify-content-center fs-7 shadow-sm"
                   ></iconify-icon>
                 </a>
-                {/* <a href="/services" className="btn">
-                  <span className="btn-text">All Services</span>
-                  <iconify-icon
-                    icon="lucide:arrow-up-right"
-                    className="btn-icon bg-white text-dark round-52 rounded-circle hstack justify-content-center fs-7 shadow-sm"
-                  ></iconify-icon>
-                </a> */}
               </div>
             </div>
           </div>

@@ -7,7 +7,8 @@ import JsonLd from "@/components/seo/JsonLd";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/jsonLd";
 import { seoHead } from "@/lib/seo/seoHead";
 import { siteConfig } from "@/lib/seo/site";
-import WhatsAppButton from "@/components/WhatsAppButton";
+
+import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata: Metadata = seoHead({
   title: siteConfig.name,
@@ -45,7 +46,7 @@ export default function RootLayout({
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         <InitScripts />
         <SiteShell>{children}</SiteShell>
-        <WhatsAppButton />
+        <ScrollToTop />
 
         <Script
           src="/assets/libs/jquery/dist/jquery.min.js"

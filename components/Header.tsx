@@ -33,32 +33,31 @@ export default function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const mobileNavRef = useRef<HTMLDivElement>(null);
   const servicesActive =
     pathname === "/services" || pathname.startsWith("/services/");
-  const showSolidHeader = isMobile || isScrolled;
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
 
   const closeMobileMenu = () => {
-    const el = mobileNavRef.current;
-    if (!el) return;
-
-    const Collapse = (
-      window as Window & { bootstrap?: { Collapse: BootstrapCollapse } }
-    ).bootstrap?.Collapse;
-    if (Collapse) {
-      Collapse.getOrCreateInstance(el).hide();
-      return;
-    }
-
-    el.classList.remove("show");
+    setIsMobileMenuOpen(false);
+    setMobileServicesOpen(false);
   };
 
   const handleMobileNavClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if ((event.target as HTMLElement).closest("a[href]")) {
       closeMobileMenu();
-      setMobileServicesOpen(false);
     }
   };
 
@@ -107,10 +106,10 @@ export default function Header() {
   return (
     <header className="header w-100 z-3 transition-all" style={{ display: "contents" }}>
       {/* Top Utility Strip (Desktop Only) */}
-      <div className="top-utility-strip d-none d-lg-flex w-100">
-        <div className="container d-flex align-items-center justify-content-between h-100">
+      <div className="top-utility-strip d-none d-lg-flex w-100 position-relative">
+        <div className="container d-flex align-items-center justify-content-between h-100 position-relative">
           {/* Left spacer to match logo width */}
-          <div style={{ width: "var(--logo-width)", flexShrink: 0 }}></div>
+          <div className="logo-spacer"></div>
           
           {/* Right: contact info */}
           <div className="d-flex align-items-center gap-4 ms-auto">
@@ -143,11 +142,11 @@ export default function Header() {
 
       {/* Main Sticky Navigation */}
       <div className={`main-navigation w-100 ${isScrolled ? "is-scrolled shadow-sm" : ""}`} style={{ position: 'sticky', top: 0, zIndex: 1030 }}>
-        <div className="container d-flex align-items-center">
+        <div className="container d-flex align-items-center position-relative">
           
-          {/* Logo (normal flow — same left edge as hero content) */}
-          <div className="navbar-logo-wrap d-none d-lg-flex align-items-center flex-shrink-0">
-            <Link href="/">
+          {/* Asymmetrical Logo Block (Desktop) */}
+          <div className="logo-block d-none d-lg-flex align-items-center justify-content-center px-3 bg-white shadow-sm">
+            <Link href="/" className="d-flex align-items-center justify-content-center">
               <img
                 src="/assets/images/logos/alhadi-business-logo.svg"
                 alt="Al Hadi Business Setup"
@@ -155,6 +154,8 @@ export default function Header() {
               />
             </Link>
           </div>
+
+          <div className="logo-spacer d-none d-lg-block"></div>
           
           <nav className="navbar navbar-expand-lg flex-grow-1 py-2 py-lg-3 header-wrapper d-flex align-items-center justify-content-between">
             {/* Mobile Logo & Toggle */}
@@ -170,10 +171,8 @@ export default function Header() {
               <button
                 className="navbar-toggler btn btn-secondary toggle-menu round-45 p-2 d-flex align-items-center justify-content-center rounded-circle border-0 shadow-none"
                 type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#headerNavbar"
-                aria-controls="headerNavbar"
-                aria-expanded="false"
+                onClick={() => setIsMobileMenuOpen(true)}
+                aria-expanded={isMobileMenuOpen}
                 aria-label="Toggle navigation"
               >
                 <iconify-icon
@@ -183,13 +182,30 @@ export default function Header() {
               </button>
             </div>
 
-            {/* Center: Links */}
+            {/* Center: Links (Fullscreen on Mobile) */}
             <div
-              ref={mobileNavRef}
-              className="collapse navbar-collapse justify-content-center"
+              className={`mobile-menu-overlay ${isMobileMenuOpen ? "is-open" : ""} d-lg-flex flex-lg-grow-1 justify-content-center`}
               id="headerNavbar"
               onClick={handleMobileNavClick}
             >
+              {/* Mobile overlay header with close button */}
+              <div className="mobile-menu-header d-flex d-lg-none align-items-center justify-content-between p-3 border-bottom">
+                <img
+                  src="/assets/images/logos/alhadi-business-logo.svg"
+                  alt="Al Hadi Business Setup"
+                  className="mobile-logo-inside"
+                  width={140}
+                />
+                <button
+                  className="btn btn-light rounded-circle p-2 d-flex align-items-center justify-content-center border-0 shadow-sm"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={{ width: "40px", height: "40px" }}
+                >
+                  <iconify-icon icon="lucide:x" width="20"></iconify-icon>
+                </button>
+              </div>
+
+              <div className="mobile-menu-body p-4 p-lg-0">
               <ul className="navbar-nav header-menu mb-2 mb-lg-0 d-flex flex-column flex-lg-row gap-2 gap-lg-4 align-items-lg-center mt-4 mt-lg-0">
                 <li className="nav-item header-item">
                   <Link
@@ -216,17 +232,17 @@ export default function Header() {
                   onMouseEnter={openServices}
                   onMouseLeave={scheduleCloseServices}
                 >
-                  <button
-                    type="button"
+                  <Link
+                    href="/services"
                     className={`nav-link custom-nav-link services-trigger d-none d-lg-inline-flex align-items-center gap-1 ${servicesActive || servicesOpen ? "active" : ""}`}
                     aria-expanded={servicesOpen}
                     aria-haspopup="true"
                     aria-controls="servicesMegaMenu"
-                    onClick={() => setServicesOpen((open) => !open)}
+                    onClick={() => setServicesOpen(false)}
                     onFocus={openServices}
                   >
                     Services
-                  </button>
+                  </Link>
 
                   <button
                     type="button"
@@ -327,6 +343,7 @@ export default function Header() {
                   </Link>
                 </li>
               </ul>
+              </div>
             </div>
 
             {/* Right: Actions */}
@@ -343,235 +360,6 @@ export default function Header() {
         </div>
       </div>
 
-      <style jsx global>{`
-        :root {
-          --top-bar-height: 48px;
-          --logo-width: 260px;
-        }
-
-        .top-utility-strip {
-          height: var(--top-bar-height);
-          background-color: #FFFFFF;
-        }
-        
-        .contact-strip {
-          background-color: #FFFFFF;
-        }
-
-        .main-navigation {
-          background-color: #FFFFFF;
-          transition: box-shadow 0.3s ease;
-        }
-
-        .main-navigation.is-scrolled {
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
-        }
-
-        .navbar-logo-wrap {
-          width: var(--logo-width);
-          padding: 0;
-          margin: 0;
-        }
-
-        .desktop-logo {
-          width: 170px;
-          height: auto;
-          filter: invert(1);
-          transition: width 0.3s ease;
-        }
-
-        .main-navigation.is-scrolled .desktop-logo {
-          width: 140px;
-        }
-
-        .hover-gold:hover, .hover-gold:focus {
-          color: var(--brand-gold-base) !important;
-        }
-
-        .transition-colors {
-          transition: color 0.2s ease, background-color 0.2s ease;
-        }
-
-        .mobile-logo {
-          filter: none;
-        }
-
-        @media (max-width: 991.98px) {
-          .main-navigation {
-            background-color: var(--bs-primary);
-          }
-          .main-navigation.is-scrolled {
-            background-color: var(--bs-primary);
-          }
-          
-          .toggle-menu {
-            background-color: var(--brand-gold-base) !important;
-          }
-          
-          .custom-nav-link {
-            color: #ffffff !important;
-          }
-        }
-
-        .demo-btn {
-          background-color: var(--brand-gold-base) !important;
-          border-color: var(--brand-gold-base) !important;
-          color: #fff !important;
-        }
-        .demo-btn:hover,
-        .demo-btn:focus-visible {
-          background-color: var(--brand-gold-light) !important;
-          border-color: var(--brand-gold-light) !important;
-          color: #fff !important;
-          transform: translateY(-1px);
-        }
-        
-        .custom-nav-link {
-          color: #4A4A4A !important;
-          font-size: 15px !important;
-          font-weight: 600 !important;
-          letter-spacing: 0.2px;
-          position: relative;
-          text-transform: capitalize;
-          transition: color 0.3s ease;
-          padding-bottom: 6px;
-          background: transparent;
-          border: 0;
-        }
-        
-        .custom-nav-link:hover, .custom-nav-link.active {
-          color: var(--bs-dark) !important;
-          font-weight: 700 !important;
-        }
-        
-        .custom-nav-link::after {
-          content: "";
-          position: absolute;
-          width: 0;
-          height: 2px;
-          bottom: 0;
-          left: 50%;
-          background-color: var(--bs-dark);
-          transition: all 0.3s ease;
-          transform: translateX(-50%);
-        }
-        
-        .custom-nav-link.active::after,
-        .custom-nav-link:hover::after {
-          width: 100%;
-        }
-
-        /* Mega Menu CSS kept same */
-        .services-mega-menu {
-          position: absolute;
-          top: calc(100% + 12px);
-          left: 50%;
-          width: 720px;
-          transform: translateX(-50%) translateY(8px);
-          opacity: 0;
-          visibility: hidden;
-          pointer-events: none;
-          z-index: 50;
-          transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
-        }
-        .services-mega-menu::before {
-          content: "";
-          position: absolute;
-          top: -12px;
-          left: 0;
-          right: 0;
-          height: 12px;
-        }
-        .services-mega-menu.is-open {
-          opacity: 1;
-          visibility: visible;
-          pointer-events: auto;
-          transform: translateX(-50%) translateY(0);
-        }
-        .services-mega-panel {
-          background: #ffffff;
-          border-radius: 12px;
-          border: 1px solid rgba(0, 0, 0, 0.05);
-          overflow: hidden;
-        }
-        .services-mega-grid {
-          display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: 0;
-          padding: 16px;
-        }
-        .services-mega-link {
-          display: block;
-          padding: 12px 16px;
-          color: var(--bs-primary) !important;
-          text-decoration: none !important;
-          font-size: 13.5px;
-          font-weight: 500;
-          line-height: 1.4;
-          border-radius: 8px;
-          transition: all 0.2s ease;
-        }
-        .services-mega-link:hover,
-        .services-mega-link.is-active {
-          color: var(--brand-gold-base) !important;
-          background: #FAFAFA;
-        }
-        .services-mega-footer {
-          border-top: 1px solid rgba(0, 0, 0, 0.05);
-          background: #FAFAFA;
-        }
-        .services-mega-all {
-          display: block;
-          padding: 16px;
-          color: var(--bs-primary) !important;
-          text-decoration: none !important;
-          font-size: 13px;
-          font-weight: 700;
-          text-align: center;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-          transition: color 0.2s ease;
-        }
-        .services-mega-all:hover,
-        .services-mega-all.is-active {
-          color: var(--brand-gold-base) !important;
-        }
-        .services-mobile-menu {
-          display: grid;
-          gap: 0;
-          max-height: 0;
-          overflow: hidden;
-          opacity: 0;
-          margin-top: 0;
-          transition: max-height 0.3s ease, opacity 0.25s ease, margin-top 0.25s ease;
-        }
-        .services-mobile-menu.is-open {
-          max-height: 520px;
-          opacity: 1;
-          margin-top: 8px;
-        }
-        .services-mobile-item {
-          display: block;
-          padding: 12px 0;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-          color: rgba(255, 255, 255, 0.85) !important;
-          text-decoration: none !important;
-          font-size: 14px;
-          font-weight: 500;
-          transition: color 0.2s ease;
-        }
-        .services-mobile-item:hover,
-        .services-mobile-item.is-active {
-          color: var(--brand-gold-light) !important;
-        }
-        .services-mobile-all {
-          color: #fff !important;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.04em;
-          font-size: 13px;
-        }
-      `}</style>
     </header>
   );
 }

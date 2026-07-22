@@ -40,8 +40,19 @@ export default function Contact() {
           className="banner-section banner-inner-section position-relative overflow-hidden d-flex align-items-end"
           style={{
             backgroundImage: "url(/assets/images/backgrounds/contact-hero.png)",
+            height: "calc(100vh - 112px)",
+            minHeight: "400px",
+            backgroundSize: "cover",
+            backgroundPosition: "center"
           }}
         >
+          <style>{`
+            @media (max-width: 991.98px) {
+              .banner-inner-section {
+                height: calc(100dvh - 64px) !important;
+              }
+            }
+          `}</style>
           <div className="container">
             <div className="d-flex flex-column gap-4 pb-5 pb-xl-10 position-relative z-1">
               <div className="row align-items-center">
@@ -52,12 +63,8 @@ export default function Contact() {
                     data-aos-delay="100"
                     data-aos-duration="1000"
                   >
-                    <p className="mb-0 text-white fs-5 text-opacity-70">
-                      Contact us today for professional{" "}
-                      <span className="text-primary">
-                        business setup and PRO services
-                      </span>{" "}
-                      in the UAE.
+                    <p className="mb-0 text-white fs-5">
+                      Contact us today for professional business setup and PRO services in the UAE.
                     </p>
                   </div>
                 </div>
@@ -69,14 +76,6 @@ export default function Contact() {
                 data-aos-duration="1000"
               >
                 <h1 className="mb-0 fs-16 text-white lh-1">Contact</h1>
-                <a href="javascript:void(0)" className="p-1 ps-7 bg-primary rounded-pill">
-                  <span className="bg-white round-52 rounded-circle d-flex align-items-center justify-content-center">
-                    <iconify-icon
-                      icon="lucide:arrow-up-right"
-                      className="fs-8 text-dark"
-                    ></iconify-icon>
-                  </span>
-                </a>
               </div>
             </div>
           </div>
