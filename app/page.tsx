@@ -4,6 +4,9 @@ import AnimatedButton from "../components/AnimatedButton";
 import BannerConsultationForm from "../components/BannerConsultationForm";
 import ConsultationBottomSheet from "../components/ConsultationBottomSheet";
 import Toast from "../components/Toast";
+import HeroCarousel from "../components/HeroCarousel";
+import ServicesSlider from "@/components/services/ServicesSlider";
+import WhyChooseUsParallax from "@/components/WhyChooseUsParallax";
 import JsonLd from "@/components/seo/JsonLd";
 import { createLead } from "@/lib/leads";
 import { faqPageJsonLd, homeFaqs } from "@/lib/seo/jsonLd";
@@ -108,231 +111,80 @@ export default function Home() {
       />
       {/*  Page Wrapper */}
       <div className="page-wrapper overflow-hidden">
-        {/*  Banner Section */}
-        <section className="banner-section banner-redesign">
-          <div className="container position-relative" style={{ zIndex: 10 }}>
-            <div className="banner-redesign__panel row g-5 g-xl-0 align-items-center">
-              <div className="col-lg-7 col-xl-7">
+        {/*  Hero Carousel Section */}
+        <HeroCarousel />
+
+        {/* Introduction / About Section Redesign */}
+        <section className="introduction-section py-6 py-lg-11 position-relative overflow-hidden bg-white">
+          <div className="container">
+            <div className="row g-5 align-items-center">
+              {/* Left Column: Text & CTAs */}
+              <div className="col-lg-7 pe-lg-5">
                 <div
-                  className="d-flex flex-column gap-5 pe-xl-5"
+                  className="d-flex flex-column gap-4"
                   data-aos="fade-up"
                   data-aos-delay="100"
                   data-aos-duration="1000"
                 >
-                  <div className="d-flex flex-column gap-3">
-                    <p className="banner-redesign__eyebrow mb-0 fw-medium text-uppercase tracking-wider">
-                      Start your business in Dubai, UAE with Al Hadi
+                  {/* Indicator matching the 'Our Approach' section */}
+                  <div className="d-flex align-items-center gap-3 mb-1">
+                    <span className="d-flex align-items-center justify-content-center text-white bg-dark rounded-circle fw-bold shadow-sm" style={{ width: "45px", height: "45px", fontSize: "1.1rem" }}>
+                      01
+                    </span>
+                    <div className="bg-dark opacity-25" style={{ width: "40px", height: "2px" }}></div>
+                    <span className="badge bg-white text-dark border border-secondary border-opacity-10 shadow-sm px-3 py-2 fw-semibold text-uppercase" style={{ letterSpacing: "1px", fontSize: "0.85rem", borderRadius: "100px" }}>
+                      About Us
+                    </span>
+                  </div>
+
+                  {/* Main Title */}
+                  <h2 className="display-5 fw-bolder text-dark mb-2 lh-sm" style={{ fontWeight: 800 }}>
+                    Your Trusted Partner for{" "}
+                    <span style={{ color: "var(--brand-gold-base, #C29328)" }}>UAE Business Growth</span>
+                  </h2>
+
+                  {/* Combined Paragraphs in Featured Quote Box */}
+                  <div
+                    className="p-4 p-md-5 rounded-4 shadow-sm mb-2"
+                    style={{
+                      background: "rgba(194, 147, 40, 0.05)",
+                      borderLeft: "4px solid var(--brand-gold-base, #C29328)",
+                    }}
+                  >
+                    <p className="fs-5 mb-4 text-dark lh-base text-opacity-75" style={{ lineHeight: "1.7" }}>
+                      Start your UAE business registration with a free expert
+                      consultation from{" "}
+                      <strong className="text-dark fw-bold">
+                        Al Hadi Business Services
+                      </strong>
+                      . We deliver tailored solutions designed specifically for
+                      your business model, ensuring a smooth and hassle-free
+                      setup process aligned with your goals.
                     </p>
-                    <h1 className="banner-redesign__title mb-0 fw-bolder">
-                      #1 Business Setup in UAE
-                    </h1>
-                    <p
-                      className="fs-5 mb-0"
-                      style={{
-                        maxWidth: "600px",
-                        color: "rgba(255, 255, 255, 0.75)",
-                      }}
-                    >
-                      Top rated business setup consultancy providing reliable
-                      experts, fast processing, and company formation in just 48
-                      hours.
+                    <p className="fs-5 text-dark lh-base text-opacity-75 mb-0" style={{ lineHeight: "1.7" }}>
+                      From securing your business licensing in Dubai to receiving
+                      complete support with legal procedures through the Dubai
+                      Economic Department, our expert guidance allows you to
+                      launch your company with complete confidence.
                     </p>
                   </div>
 
-                  <ul className="banner-redesign__highlights list-unstyled mb-0">
-                    <li>
-                      <iconify-icon
-                        icon="lucide:check-circle-2"
-                        className="me-2"
-                        style={{ color: "#FF6F20" }}
-                      ></iconify-icon>
-                      Reliable experts
-                    </li>
-                    <li>
-                      <iconify-icon
-                        icon="lucide:zap"
-                        className="me-2"
-                        style={{ color: "#FF6F20" }}
-                      ></iconify-icon>
-                      Fast processing
-                    </li>
-                    <li>
-                      <iconify-icon
-                        icon="lucide:clock"
-                        className="me-2"
-                        style={{ color: "#FF6F20" }}
-                      ></iconify-icon>
-                      Setup in 48 hrs
-                    </li>
-                  </ul>
-
-                  <div className="d-flex flex-wrap align-items-center gap-4 gap-xl-5 mt-3">
-                    <div className="d-flex flex-column gap-4 banner-redesign__price-col">
-                      <div className="d-flex flex-column gap-1">
-                        <p className="banner-redesign__price-label mb-0">
-                          Starting from just
-                        </p>
-                        <p className="banner-redesign__price mb-0 d-flex align-items-baseline gap-2">
-                          <span className="banner-redesign__price-amount">
-                            4,444
-                          </span>
-                          <span className="banner-redesign__price-currency">
-                            AED
-                          </span>
-                        </p>
-                      </div>
-
-                      <div className="banner-redesign__cta-wrap">
-                        <a
-                          href="#services"
-                          className="banner-redesign__cta d-none d-lg-inline-flex align-items-center gap-2"
-                        >
-                          View Services
-                          <iconify-icon
-                            icon="lucide:arrow-right"
-                            className="fs-5"
-                          ></iconify-icon>
-                        </a>
-                        <button
-                          type="button"
-                          className="banner-redesign__cta banner-redesign__cta--mobile d-lg-none d-flex w-100 align-items-center justify-content-center gap-2 border-0"
-                          onClick={() => setIsConsultationSheetOpen(true)}
-                        >
-                          Get Free Consultation
-                          <iconify-icon
-                            icon="lucide:arrow-right"
-                            className="fs-5"
-                          ></iconify-icon>
-                        </button>
-                      </div>
+                  {/* Quick Feature Badges */}
+                  <div className="d-flex flex-wrap gap-3 mb-2">
+                    <div className="d-flex align-items-center px-3 py-2 rounded-3 bg-light border border-secondary border-opacity-10">
+                      <span className="fw-bold fs-6 text-dark">
+                        100% Legal & DED Compliance
+                      </span>
                     </div>
-
-                    <div
-                      className="d-flex flex-column gap-2 p-3 rounded-4"
-                      style={{
-                        background: "rgba(255, 255, 255, 0.05)",
-                        border: "1px solid rgba(255, 255, 255, 0.1)",
-                        backdropFilter: "blur(10px)",
-                        flex: "1",
-                        minWidth: "240px",
-                        maxWidth: "320px",
-                      }}
-                    >
-                      <div className="d-flex align-items-center gap-3">
-                        <div
-                          className="d-flex align-items-center justify-content-center bg-white rounded-circle flex-shrink-0"
-                          style={{ width: "46px", height: "46px" }}
-                        >
-                          <img
-                            src="/assets/images/svgs/icon-google.svg"
-                            alt="Google"
-                            width="24"
-                            height="24"
-                          />
-                        </div>
-                        <div className="d-flex flex-column">
-                          <div className="d-flex align-items-center gap-1">
-                            <span
-                              className="fw-bold fs-5 lh-1"
-                              style={{ color: "#ffffff" }}
-                            >
-                              4.9
-                            </span>
-                            <div
-                              className="d-flex gap-1"
-                              style={{ color: "#FF6F20" }}
-                            >
-                              <iconify-icon icon="ph:star-fill"></iconify-icon>
-                              <iconify-icon icon="ph:star-fill"></iconify-icon>
-                              <iconify-icon icon="ph:star-fill"></iconify-icon>
-                              <iconify-icon icon="ph:star-fill"></iconify-icon>
-                              <iconify-icon icon="ph:star-half-fill"></iconify-icon>
-                            </div>
-                          </div>
-                          <span
-                            style={{
-                              color: "rgba(255,255,255,0.75)",
-                              fontSize: "0.85rem",
-                              marginTop: "0.2rem",
-                            }}
-                          >
-                            Rating on Google
-                          </span>
-                        </div>
-                      </div>
-                      <div
-                        style={{
-                          color: "rgba(255, 255, 255, 0.65)",
-                          fontSize: "0.85rem",
-                          marginTop: "0.25rem",
-                        }}
-                      >
-                        Based on <strong>500+</strong> reviews from verified
-                        clients.
-                      </div>
+                    <div className="d-flex align-items-center px-3 py-2 rounded-3 bg-light border border-secondary border-opacity-10">
+                      <span className="fw-bold fs-6 text-dark">
+                        Fast 48-Hour Approval
+                      </span>
                     </div>
                   </div>
-                </div>
-              </div>
 
-              <div className="col-lg-5 col-xl-5 d-none d-lg-block">
-                <div
-                  className="banner-redesign__form-card ms-lg-4"
-                  data-aos="fade-left"
-                  data-aos-delay="250"
-                  data-aos-duration="1000"
-                >
-                  <BannerConsultationForm
-                    onSubmit={handleSubmit}
-                    isSubmitting={isSubmitting}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Introduction Section */}
-        <section className="introduction-section py-5 py-lg-11 py-xl-12 position-relative overflow-hidden bg-white">
-          <div className="container">
-            <div className="row gap-7 gap-xl-0">
-              <div className="col-xl-8 col-xxl-7 pe-xl-10">
-                <div className="d-flex flex-column gap-7">
-                  <div className="row">
-                    <div className="col-xxl-11">
-                      <div
-                        className="d-flex flex-column gap-6"
-                        data-aos="fade-up"
-                        data-aos-delay="100"
-                        data-aos-duration="1000"
-                      >
-                        <h2 className="mb-0 display-5 fw-bold">
-                          Your Trusted Partner for UAE Business Growth
-                        </h2>
-                        <div className="d-flex flex-column gap-4">
-                          <p className="fs-4 mb-0 text-dark lh-base text-opacity-75">
-                            Start your UAE business registration with a free
-                            expert consultation from{" "}
-                            <strong className="text-dark">
-                              Al Hadi Business Services
-                            </strong>
-                            . We deliver tailored solutions designed
-                            specifically for your business model, ensuring a
-                            smooth and hassle-free setup process aligned with
-                            your goals.
-                          </p>
-                          <p className="fs-4 mb-0 text-dark lh-base text-opacity-75">
-                            From securing your business licensing in Dubai to
-                            receiving complete support with legal procedures
-                            through the Dubai Economic Department, our expert
-                            guidance allows you to launch your company with
-                            complete confidence.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
+                  {/* Consult Now Button - UNCHANGED */}
+                  <div className="pt-2">
                     <a
                       href="/contact"
                       className="btn"
@@ -349,37 +201,45 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="col-xl-4 col-xxl-4">
-                <div className="d-flex flex-column gap-5">
-                  {/* Welcome */}
-                  <div
-                    className="d-flex align-items-center gap-7 py-2"
-                    data-aos="fade-left"
-                    data-aos-delay="100"
-                    data-aos-duration="1000"
-                  >
-                    <span className="round-36 flex-shrink-0 text-white rounded-circle bg-primary hstack justify-content-center fw-medium">
-                      01
-                    </span>
 
-                    <hr className="border-line flex-grow-1" />
-
-                    <span className="badge text-bg-dark">Welcome</span>
+              {/* Right Column: Visual Image Showcase */}
+              <div className="col-lg-5 mt-5 mt-lg-0">
+                <div
+                  className="position-relative ps-lg-4"
+                  data-aos="fade-left"
+                  data-aos-delay="200"
+                  data-aos-duration="1000"
+                >
+                  {/* Main Image Frame */}
+                  <div className="rounded-4 overflow-hidden shadow-lg position-relative border border-light">
+                    <img
+                      src="/assets/images/about/about-us.jpg"
+                      alt="Al Hadi Business Services Consultants"
+                      className="img-fluid w-100 object-fit-cover"
+                      style={{ minHeight: "450px" }}
+                    />
+                    {/* Subtle gradient overlay to enhance badge contrast */}
+                    <div 
+                      className="position-absolute bottom-0 start-0 w-100" 
+                      style={{ height: "40%", background: "linear-gradient(to top, rgba(0,0,0,0.15) 0%, transparent 100%)" }}
+                    ></div>
                   </div>
 
-                  {/* Image */}
+                  {/* Minimal Floating Experience Badge */}
                   <div
-                    className="overflow-hidden shadow-sm"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                    data-aos-duration="1000"
+                    className="position-absolute bottom-0 start-0 ms-4 px-4 py-3 rounded-4 shadow-lg bg-white d-flex align-items-center gap-4"
+                    style={{ zIndex: 3, transform: "translateX(-2rem) translateY(50%)" }}
                   >
-                    <img
-                      src="assets/images/hero/business-handshake.png"
-                      alt=""
-                      className="img-fluid w-100 object-fit-cover"
-                      style={{ aspectRatio: "1.5" }}
-                    />
+                    <div 
+                      className="d-flex align-items-center justify-content-center rounded-3 px-3 py-2" 
+                      style={{ backgroundColor: "rgba(194, 147, 40, 0.1)" }}
+                    >
+                      <span className="fw-bolder display-6 mb-0" style={{ color: "var(--brand-gold-base, #C29328)" }}>10+</span>
+                    </div>
+                    <div className="d-flex flex-column pe-3">
+                      <span className="fw-bolder text-dark fs-5 lh-sm mb-1">Years Experience</span>
+                      <span className="text-secondary fs-6 lh-sm mb-0">UAE Business Setup</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -387,16 +247,26 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Trust Strip Section */}
-        <section className="trust-strip py-4 bg-dark overflow-hidden">
-          <div className="container-fluid px-0">
-            <div
-              className="d-flex flex-wrap flex-md-nowrap align-items-center justify-content-center justify-content-md-between gap-0"
-              data-aos="fade-up"
-              data-aos-delay="100"
-              data-aos-duration="800"
-            >
+        {/* Trust Strip Section (Infinite Marquee Moving Left) */}
+        <section className="trust-strip py-3 bg-dark overflow-hidden position-relative">
+          <div className="marquee-wrapper">
+            <div className="marquee-content">
               {[
+                "UAE Business Experts",
+                "Fast Processing",
+                "Transparent Pricing",
+                "End-to-End Support",
+                "Dedicated Consultant",
+                "UAE Business Experts",
+                "Fast Processing",
+                "Transparent Pricing",
+                "End-to-End Support",
+                "Dedicated Consultant",
+                "UAE Business Experts",
+                "Fast Processing",
+                "Transparent Pricing",
+                "End-to-End Support",
+                "Dedicated Consultant",
                 "UAE Business Experts",
                 "Fast Processing",
                 "Transparent Pricing",
@@ -407,8 +277,7 @@ export default function Home() {
                   key={i}
                   className="d-flex align-items-center gap-2 px-4 py-2 flex-shrink-0"
                   style={{
-                    borderRight:
-                      i < 4 ? "1px solid rgba(255,255,255,0.12)" : "none",
+                    borderRight: "1px solid rgba(255,255,255,0.12)",
                   }}
                 >
                   <span
@@ -416,7 +285,7 @@ export default function Home() {
                     style={{
                       width: "22px",
                       height: "22px",
-                      background: "var(--bs-primary)",
+                      background: "var(--brand-gold-base, #C29328)",
                       minWidth: "22px",
                     }}
                   >
@@ -434,53 +303,87 @@ export default function Home() {
           </div>
         </section>
 
-        {/*  Our Approach Section */}
-        <section className="our-approach py-5 py-lg-11 py-xl-12 position-relative overflow-hidden">
-          <div className="container">
-            <div className="row gap-7 gap-xl-0">
-              <div className="col-xl-4 col-xxl-4">
+        {/*  Our Approach Section Redesign */}
+        <section className="our-approach py-6 py-lg-10 position-relative overflow-hidden bg-light" style={{ backgroundColor: "#F8F9FA" }}>
+          {/* Subtle Background Graphic */}
+          <div
+            className="position-absolute top-0 end-0 opacity-25"
+            style={{ width: "600px", height: "600px", transform: "translate(15%, -15%)", zIndex: 1 }}
+            data-aos="fade-in"
+            data-aos-duration="1500"
+          >
+            <img
+              src="/assets/images/backgrounds/stats-facts-bg.svg"
+              alt=""
+              className="img-fluid w-100 h-100 object-fit-cover"
+            />
+          </div>
+
+          <div className="container position-relative z-2">
+            <div className="row align-items-center g-5">
+              
+              {/* Left Column: Heading & Visuals */}
+              <div className="col-lg-5 pe-lg-5">
                 <div
-                  className="d-flex align-items-center gap-7 py-2"
+                  className="d-flex flex-column"
                   data-aos="fade-right"
                   data-aos-delay="100"
                   data-aos-duration="1000"
                 >
-                  <span className="round-36 flex-shrink-0 text-white rounded-circle bg-primary hstack justify-content-center fw-medium">
-                    02
-                  </span>
-                  <hr className="border-line" />
-                  <span className="badge text-bg-dark">Our Approach</span>
+                  <div className="d-flex align-items-center gap-3 mb-4">
+                    <span className="d-flex align-items-center justify-content-center text-white bg-dark rounded-circle fw-bold shadow-sm" style={{ width: "45px", height: "45px", fontSize: "1.1rem" }}>
+                      02
+                    </span>
+                    <div className="bg-dark opacity-25" style={{ width: "40px", height: "2px" }}></div>
+                    <span className="badge bg-white text-dark border border-secondary border-opacity-10 shadow-sm px-3 py-2 fw-semibold text-uppercase" style={{ letterSpacing: "1px", fontSize: "0.85rem" }}>
+                      Our Approach
+                    </span>
+                  </div>
+                  
+                  <h2 className="display-4 fw-bolder text-dark mb-4 lh-sm">
+                    A Partner in <br />
+                    <span style={{ color: "var(--brand-gold-base, #C29328)" }}>Your Success</span>
+                  </h2>
+                  
+                  <p className="fs-5 text-secondary lh-base mb-0">
+                    We don't just process paperwork. We engineer your entire business foundation in the UAE.
+                  </p>
                 </div>
               </div>
-              <div className="col-xl-8 col-xxl-7">
-                <div className="d-flex flex-column gap-7">
-                  <div className="row">
-                    <div className="col-xxl-11">
-                      <div
-                        className="d-flex flex-column gap-6"
-                        data-aos="fade-up"
-                        data-aos-delay="100"
-                        data-aos-duration="1000"
-                      >
-                        <h2 className="mb-0 display-5 fw-bold">Our Approach</h2>
-                        <p className="fs-4 mb-0 text-dark lh-base text-opacity-75">
-                          With a handshake approach, we establish a personal
-                          connection with each client. Our team of experts and
-                          specialized departments work tirelessly to develop
-                          tailor-made frameworks for every phase of company
-                          formation. This ensures that our clients not only meet
-                          but exceed their business goals.
-                        </p>
-                      </div>
-                    </div>
+
+              {/* Right Column: Premium Content Card */}
+              <div className="col-lg-7">
+                <div 
+                  className="p-4 p-md-5 bg-white rounded-4 shadow-lg"
+                  style={{ borderTop: "4px solid var(--brand-gold-base, #C29328)" }}
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                  data-aos-duration="1000"
+                >
+                  <h3 className="fs-6 fw-bold text-dark mb-4">Building tailored frameworks</h3>
+                  
+                  <div
+                    className="p-4 rounded-4 mb-5"
+                    style={{
+                      background: "rgba(194, 147, 40, 0.05)",
+                      borderLeft: "4px solid var(--brand-gold-base, #C29328)",
+                    }}
+                  >
+                    <p className="fs-5 mb-0 text-dark lh-base text-opacity-75" style={{ lineHeight: "1.7" }}>
+                      With a handshake approach, we establish a personal
+                      connection with each client. Our team of experts and
+                      specialized departments work tirelessly to develop
+                      tailor-made frameworks for every phase of company
+                      formation. This ensures that our clients not only meet
+                      but exceed their business goals.
+                    </p>
                   </div>
+                  
+                  {/* Keep the Learn More button exactly as it is */}
                   <div>
                     <a
                       href="/about-us"
                       className="btn"
-                      data-aos="fade-up"
-                      data-aos-delay="200"
-                      data-aos-duration="1000"
                     >
                       <span className="btn-text">Learn more</span>
                       <iconify-icon
@@ -491,413 +394,13 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+
             </div>
-          </div>
-          <div
-            className="position-absolute bottom-0 start-0 opacity-50"
-            data-aos="zoom-in"
-            data-aos-delay="100"
-            data-aos-duration="1000"
-          >
-            <img
-              src="/assets/images/backgrounds/stats-facts-bg.svg"
-              alt=""
-              className="img-fluid"
-            />
           </div>
         </section>
 
-        {/*  Services Section */}
-        <section
-          className="services py-5 py-lg-11 py-xl-12 bg-dark"
-          id="services"
-        >
-          <div className="container">
-            <div className="d-flex flex-column gap-5 gap-xl-10">
-              <div className="row gap-7 gap-xl-0">
-                <div className="col-xl-4 col-xxl-4">
-                  <div
-                    className="d-flex align-items-center gap-7 py-2"
-                    data-aos="fade-right"
-                    data-aos-delay="100"
-                    data-aos-duration="1000"
-                  >
-                    <span className="round-36 flex-shrink-0 text-dark rounded-circle bg-white hstack justify-content-center fw-medium">
-                      03
-                    </span>
-                    <hr className="border-line bg-white" />
-                    <span className="badge text-dark bg-white">Services</span>
-                  </div>
-                </div>
-                <div className="col-xl-8 col-xxl-7">
-                  <div className="row">
-                    <div className="col-xxl-8">
-                      <div
-                        className="d-flex flex-column gap-6"
-                        data-aos="fade-up"
-                        data-aos-delay="100"
-                        data-aos-duration="1000"
-                      >
-                        <h2 className="mb-0 text-white">What We Do</h2>
-                        <p className="fs-5 mb-0 text-white text-opacity-70">
-                          Comprehensive business setup and consultancy services
-                          tailored for entrepreneurs and investors in the UAE.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="services-tab">
-                <div className="row gap-5 gap-xl-0">
-                  <div className="col-xl-4">
-                    <div
-                      className="tab-content h-100"
-                      data-aos="zoom-in"
-                      data-aos-delay="100"
-                      data-aos-duration="1000"
-                    >
-                      <div
-                        className="tab-pane active h-100"
-                        id="one"
-                        role="tabpanel"
-                        aria-labelledby="one-tab"
-                        tabIndex={0}
-                      >
-                        <img
-                          src="/assets/images/services/business_setup_service.png"
-                          alt="Business Setup & Company Formation"
-                          className="img-fluid rounded-4 w-100 h-100 object-fit-cover"
-                        />
-                      </div>
-                      <div
-                        className="tab-pane h-100"
-                        id="two"
-                        role="tabpanel"
-                        aria-labelledby="two-tab"
-                        tabIndex={0}
-                      >
-                        <img
-                          src="/assets/images/services/pro_services_new.png"
-                          alt="PRO & Document Clearing Services"
-                          className="img-fluid rounded-4 w-100 h-100 object-fit-cover"
-                        />
-                      </div>
-                      <div
-                        className="tab-pane h-100"
-                        id="three"
-                        role="tabpanel"
-                        aria-labelledby="three-tab"
-                        tabIndex={0}
-                      >
-                        <img
-                          src="/assets/images/services/visa_services_new.png"
-                          alt="Visa Services"
-                          className="img-fluid rounded-4 w-100 h-100 object-fit-cover"
-                        />
-                      </div>
-                      <div
-                        className="tab-pane h-100"
-                        id="four"
-                        role="tabpanel"
-                        aria-labelledby="four-tab"
-                        tabIndex={0}
-                      >
-                        <img
-                          src="/assets/images/services/tax_vat_service_new.png"
-                          alt="Corporate Tax & VAT Services"
-                          className="img-fluid rounded-4 w-100 h-100 object-fit-cover"
-                        />
-                      </div>
-                      <div
-                        className="tab-pane h-100"
-                        id="five"
-                        role="tabpanel"
-                        aria-labelledby="five-tab"
-                        tabIndex={0}
-                      >
-                        <img
-                          src="/assets/images/services/trademark_service_new.png"
-                          alt="Trademark Registration"
-                          className="img-fluid rounded-4 w-100 h-100 object-fit-cover"
-                        />
-                      </div>
-                      <div
-                        className="tab-pane h-100"
-                        id="six"
-                        role="tabpanel"
-                        aria-labelledby="six-tab"
-                        tabIndex={0}
-                      >
-                        <img
-                          src="/assets/images/services/golden_visa_service_new.png"
-                          alt="Golden Visa Services"
-                          className="img-fluid rounded-4 w-100 h-100 object-fit-cover"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-xl-8">
-                    <div className="d-flex flex-column gap-5">
-                      <ul
-                        className="nav nav-tabs"
-                        id="myTab"
-                        role="tablist"
-                        data-aos="fade-up"
-                        data-aos-delay="200"
-                        data-aos-duration="1000"
-                      >
-                        <li
-                          className="nav-item py-4 border-top border-white border-opacity-10 d-flex align-items-center w-100"
-                          role="presentation"
-                        >
-                          <div className="row w-100 align-items-center gx-3">
-                            <div className="col-lg-5 col-xxl-5">
-                              <button
-                                className="nav-link fs-5 text-start text-wrap lh-sm fw-bold py-1 px-0 border-0 rounded-0 flex-shrink-0 active w-100"
-                                id="one-tab"
-                                data-bs-toggle="tab"
-                                data-bs-target="#one"
-                                type="button"
-                                role="tab"
-                                aria-controls="one"
-                                aria-selected="true"
-                              >
-                                Business Setup & Company Formation
-                              </button>
-                            </div>
-                            <div className="col-lg-7 col-xxl-7">
-                              <p className="text-white text-opacity-70 mb-2">
-                                Start your business in Dubai with expert
-                                guidance for Mainland, Free Zone, and Offshore
-                                company formation. We help with trade licenses,
-                                company registration, legal documentation, and
-                                government approvals.
-                              </p>
-                              <a
-                                href="/services/business-setup"
-                                className="text-decoration-none fw-medium"
-                                style={{ color: "var(--bs-secondary)" }}
-                              >
-                                Learn more
-                              </a>
-                            </div>
-                          </div>
-                        </li>
-                        <li
-                          className="nav-item py-4 border-top border-white border-opacity-10 d-flex align-items-center w-100"
-                          role="presentation"
-                        >
-                          <div className="row w-100 align-items-center gx-3">
-                            <div className="col-lg-5 col-xxl-5">
-                              <button
-                                className="nav-link fs-5 text-start text-wrap lh-sm fw-bold py-1 px-0 border-0 rounded-0 flex-shrink-0 w-100"
-                                id="two-tab"
-                                data-bs-toggle="tab"
-                                data-bs-target="#two"
-                                type="button"
-                                role="tab"
-                                aria-controls="two"
-                                aria-selected="false"
-                              >
-                                PRO & Document Clearing Services
-                              </button>
-                            </div>
-                            <div className="col-lg-7 col-xxl-7">
-                              <p className="text-white text-opacity-70 mb-2">
-                                Our professional PRO services ensure smooth
-                                processing of government-related documentation
-                                including MOHRE, GDRFA, Immigration, Emirates
-                                ID, Labour Card, and visa applications.
-                              </p>
-                              <a
-                                href="/services/pro-document-clearing"
-                                className="text-decoration-none fw-medium"
-                                style={{ color: "var(--bs-secondary)" }}
-                              >
-                                Learn more
-                              </a>
-                            </div>
-                          </div>
-                        </li>
-                        <li
-                          className="nav-item py-4 border-top border-white border-opacity-10 d-flex align-items-center w-100"
-                          role="presentation"
-                        >
-                          <div className="row w-100 align-items-center gx-3">
-                            <div className="col-lg-5 col-xxl-5">
-                              <button
-                                className="nav-link fs-5 text-start text-wrap lh-sm fw-bold py-1 px-0 border-0 rounded-0 flex-shrink-0 w-100"
-                                id="three-tab"
-                                data-bs-toggle="tab"
-                                data-bs-target="#three"
-                                type="button"
-                                role="tab"
-                                aria-controls="three"
-                                aria-selected="false"
-                              >
-                                Visa Services
-                              </button>
-                            </div>
-                            <div className="col-lg-7 col-xxl-7">
-                              <p className="text-white text-opacity-70 mb-2">
-                                We provide comprehensive UAE visa services
-                                including Investor Visa, Employment Visa, Family
-                                Visa, Golden Visa, Visit Visa, Visa Renewal,
-                                Visa Cancellation, and Visa Status Change.
-                              </p>
-                              <a
-                                href="/services/family-visa"
-                                className="text-decoration-none fw-medium"
-                                style={{ color: "var(--bs-secondary)" }}
-                              >
-                                Learn more
-                              </a>
-                            </div>
-                          </div>
-                        </li>
-                        <li
-                          className="nav-item py-4 border-top border-white border-opacity-10 d-flex align-items-center w-100"
-                          role="presentation"
-                        >
-                          <div className="row w-100 align-items-center gx-3">
-                            <div className="col-lg-5 col-xxl-5">
-                              <button
-                                className="nav-link fs-5 text-start text-wrap lh-sm fw-bold py-1 px-0 border-0 rounded-0 flex-shrink-0 w-100"
-                                id="four-tab"
-                                data-bs-toggle="tab"
-                                data-bs-target="#four"
-                                type="button"
-                                role="tab"
-                                aria-controls="four"
-                                aria-selected="false"
-                              >
-                                Corporate Tax & VAT Services
-                              </button>
-                            </div>
-                            <div className="col-lg-7 col-xxl-7">
-                              <p className="text-white text-opacity-70 mb-2">
-                                Stay compliant with UAE tax regulations through
-                                our Corporate Tax Registration, Corporate Tax
-                                Filing, VAT Registration, VAT Filing, and Tax
-                                Consultancy services.
-                              </p>
-                              <a
-                                href="/services/vat-registration"
-                                className="text-decoration-none fw-medium"
-                                style={{ color: "var(--bs-secondary)" }}
-                              >
-                                Learn more
-                              </a>
-                            </div>
-                          </div>
-                        </li>
-                        <li
-                          className="nav-item py-4 border-top border-white border-opacity-10 d-flex align-items-center w-100"
-                          role="presentation"
-                        >
-                          <div className="row w-100 align-items-center gx-3">
-                            <div className="col-lg-5 col-xxl-5">
-                              <button
-                                className="nav-link fs-5 text-start text-wrap lh-sm fw-bold py-1 px-0 border-0 rounded-0 flex-shrink-0 w-100"
-                                id="five-tab"
-                                data-bs-toggle="tab"
-                                data-bs-target="#five"
-                                type="button"
-                                role="tab"
-                                aria-controls="five"
-                                aria-selected="false"
-                              >
-                                Trademark Registration
-                              </button>
-                            </div>
-                            <div className="col-lg-7 col-xxl-7">
-                              <p className="text-white text-opacity-70 mb-2">
-                                Protect your business identity with professional
-                                trademark search, trademark registration, and
-                                intellectual property services across the UAE.
-                              </p>
-                              <a
-                                href="/services/trademark-registration"
-                                className="text-decoration-none fw-medium"
-                                style={{ color: "var(--bs-secondary)" }}
-                              >
-                                Learn more
-                              </a>
-                            </div>
-                          </div>
-                        </li>
-                        <li
-                          className="nav-item py-4 border-top border-white border-opacity-10 d-flex align-items-center w-100"
-                          role="presentation"
-                        >
-                          <div className="row w-100 align-items-center gx-3">
-                            <div className="col-lg-5 col-xxl-5">
-                              <button
-                                className="nav-link fs-5 text-start text-wrap lh-sm fw-bold py-1 px-0 border-0 rounded-0 flex-shrink-0 w-100"
-                                id="six-tab"
-                                data-bs-toggle="tab"
-                                data-bs-target="#six"
-                                type="button"
-                                role="tab"
-                                aria-controls="six"
-                                aria-selected="false"
-                              >
-                                Golden Visa Services
-                              </button>
-                            </div>
-                            <div className="col-lg-7 col-xxl-7">
-                              <p className="text-white text-opacity-70 mb-2">
-                                Our experts assist eligible professionals,
-                                investors, entrepreneurs, and skilled
-                                individuals in obtaining long-term UAE Golden
-                                Visas.
-                              </p>
-                              <a
-                                href="/services/golden-visa"
-                                className="text-decoration-none fw-medium"
-                                style={{ color: "var(--bs-secondary)" }}
-                              >
-                                Learn more
-                              </a>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
-                      <div
-                        className="d-flex flex-wrap gap-4"
-                        data-aos="fade-up"
-                        data-aos-delay="300"
-                        data-aos-duration="1000"
-                      >
-                        <a
-                          href="/services"
-                          className="btn border border-white border-opacity-25"
-                        >
-                          <span className="btn-text">View All Services</span>
-                          <iconify-icon
-                            icon="lucide:arrow-up-right"
-                            className="btn-icon bg-white text-dark round-52 rounded-circle hstack justify-content-center fs-7 shadow-sm"
-                          ></iconify-icon>
-                        </a>
-                        <a
-                          href="/contact"
-                          className="btn border border-white border-opacity-25"
-                        >
-                          <span className="btn-text">Consult Now</span>
-                          <iconify-icon
-                            icon="lucide:arrow-up-right"
-                            className="btn-icon bg-white text-dark round-52 rounded-circle hstack justify-content-center fs-7 shadow-sm"
-                          ></iconify-icon>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Services Section */}
+        <ServicesSlider />
         {/* Featured Projects Section
     <section className="featured-projects py-5 py-lg-11 py-xl-12 bg-light-gray">
       <div className="d-flex flex-column gap-5 gap-xl-11">
@@ -1053,277 +556,59 @@ export default function Home() {
       </div>
     </section> */}
 
-        {/*  Why choose us Section */}
-        <section className="why-choose-us py-5 py-lg-11 py-xl-12">
-          <div className="container">
-            <div className="row justify-content-between gap-5 gap-xl-0">
-              <div className="col-xl-3 col-xxl-3">
-                <div className="d-flex flex-column gap-7">
-                  <div
-                    className="d-flex align-items-center gap-7 py-2"
-                    data-aos="fade-right"
-                    data-aos-delay="100"
-                    data-aos-duration="1000"
-                  >
-                    <span className="round-36 flex-shrink-0 text-white rounded-circle bg-primary hstack justify-content-center fw-medium">
-                      04
-                    </span>
-                    <hr className="border-line" />
-                    <span className="badge text-bg-dark">Why choose us</span>
-                  </div>
-                  <h2
-                    className="mb-0"
-                    data-aos="fade-right"
-                    data-aos-delay="200"
-                    data-aos-duration="1000"
-                  >
-                    Why Choose AL HADI?
-                  </h2>
-                  <p
-                    className="mb-0 fs-5"
-                    data-aos="fade-right"
-                    data-aos-delay="300"
-                    data-aos-duration="1000"
-                  >
-                    Whether you are starting a new company, expanding your
-                    business, or managing compliance, AL HADI is your trusted
-                    partner.
-                  </p>
-                </div>
-              </div>
-              <div className="col-xl-9 col-xxl-8">
-                <div className="row">
-                  <div className="col-lg-4 mb-7 mb-lg-0">
-                    <div
-                      className="card position-relative overflow-hidden bg-primary h-100"
-                      data-aos="fade-up"
-                      data-aos-delay="100"
-                      data-aos-duration="1000"
-                    >
-                      <div className="card-body d-flex flex-column justify-content-between">
-                        <div className="d-flex flex-column gap-3 position-relative z-1">
-                          <ul className="list-unstyled mb-0 hstack gap-1">
-                            <li>
-                              <a className="hstack" href="javascript:void(0)">
-                                <iconify-icon
-                                  icon="solar:star-bold"
-                                  className="fs-6 text-white"
-                                ></iconify-icon>
-                              </a>
-                            </li>
-                            <li>
-                              <a className="hstack" href="javascript:void(0)">
-                                <iconify-icon
-                                  icon="solar:star-bold"
-                                  className="fs-6 text-white"
-                                ></iconify-icon>
-                              </a>
-                            </li>
-                            <li>
-                              <a className="hstack" href="javascript:void(0)">
-                                <iconify-icon
-                                  icon="solar:star-bold"
-                                  className="fs-6 text-white"
-                                ></iconify-icon>
-                              </a>
-                            </li>
-                            <li>
-                              <a className="hstack" href="javascript:void(0)">
-                                <iconify-icon
-                                  icon="solar:star-bold"
-                                  className="fs-6 text-white"
-                                ></iconify-icon>
-                              </a>
-                            </li>
-                            <li>
-                              <a className="hstack" href="javascript:void(0)">
-                                <iconify-icon
-                                  icon="solar:star-bold"
-                                  className="fs-6 text-white"
-                                ></iconify-icon>
-                              </a>
-                            </li>
-                          </ul>
-                          <p className="mb-0 fs-6 text-white">
-                            "The team exceeded our expectations with seamless
-                            end-to-end business setup."
-                          </p>
-                        </div>
-                        <div className="position-relative z-1">
-                          <div className="pb-6 border-bottom">
-                            <h2 className="mb-0 text-white  ">99%</h2>
-                            <p className="mb-0 text-white ">
-                              Client satisfaction
-                            </p>
-                          </div>
-                          <div className="hstack gap-6 pt-6">
-                            <img
-                              src="/assets/images/profile/avatar-1.png"
-                              alt=""
-                              className="img-fluid rounded-circle overflow-hidden flex-shrink-0"
-                              width="64"
-                              height="64"
-                            />
-                            <div>
-                              <h5 className="mb-0 text-white">Wade Warren</h5>
-                              <p className="mb-0 text-white">TechStart Dubai</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="position-absolute bottom-0 end-0">
-                          <img
-                            src="/assets/images/backgrounds/customer-satisfaction-bg.svg"
-                            alt=""
-                            className="img-fluid"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-4 mb-7 mb-lg-0">
-                    <div
-                      className="d-flex flex-column gap-7"
-                      data-aos="fade-up"
-                      data-aos-delay="200"
-                      data-aos-duration="1000"
-                    >
-                      <div className="position-relative">
-                        <img
-                          src="/assets/images/services/Company-Formation.jpg"
-                          alt="Business Setup & Company Formation"
-                          className="img-fluid w-100 object-fit-cover"
-                          style={{ aspectRatio: "1.5" }}
-                        />
-                      </div>
-
-                      <div className="card bg-secondary">
-                        <div className="card-body d-flex flex-column gap-7">
-                          <div>
-                            <h2 className="mb-0 text-white">1000+</h2>
-                            <p className="mb-0 text-white text-opacity-70">
-                              Successful companies formed
-                            </p>
-                          </div>
-                          <ul className="d-flex align-items-center mb-0">
-                            <li>
-                              <a href="javascript:void(0)">
-                                <img
-                                  src="/assets/images/profile/user-1.jpg"
-                                  width="44"
-                                  height="44"
-                                  className="rounded-circle border border-2 border-dark"
-                                  alt="user-1"
-                                />
-                              </a>
-                            </li>
-                            <li className="ms-n2">
-                              <a href="javascript:void(0)">
-                                <img
-                                  src="/assets/images/profile/user-2.jpg"
-                                  width="44"
-                                  height="44"
-                                  className="rounded-circle border border-2 border-dark"
-                                  alt="user-2"
-                                />
-                              </a>
-                            </li>
-                            <li className="ms-n2">
-                              <a href="javascript:void(0)">
-                                <img
-                                  src="/assets/images/profile/user-3.jpg"
-                                  width="44"
-                                  height="44"
-                                  className="rounded-circle border border-2 border-dark"
-                                  alt="user-3"
-                                />
-                              </a>
-                            </li>
-                            <li className="ms-n2">
-                              <a href="javascript:void(0)">
-                                <img
-                                  src="/assets/images/profile/user-4.jpg"
-                                  width="44"
-                                  height="44"
-                                  className="rounded-circle border border-2 border-dark"
-                                  alt="user-4"
-                                />
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-4 mb-7 mb-lg-0">
-                    <div
-                      className="card border h-100 position-relative overflow-hidden"
-                      data-aos="fade-up"
-                      data-aos-delay="300"
-                      data-aos-duration="1000"
-                    >
-                      <span className="border rounded-circle round-490 d-block position-absolute top-0 start-50 translate-middle"></span>
-                      <div className="card-body d-flex flex-column justify-content-between">
-                        <div>
-                          <h2 className="mb-0">Fast</h2>
-                          <p className="mb-0 text-dark">
-                            Processing & Approvals
-                          </p>
-                        </div>
-                        <div className="d-flex flex-column gap-3 z-1 position-relative">
-                          <div>
-                            <h3
-                              className="display-6 fw-bold mb-0 text-dark"
-                              style={{ letterSpacing: "-1px" }}
-                            >
-                              AL HADI.
-                            </h3>
-                          </div>
-                          <p className="mb-0 fs-5 text-dark">
-                            We provide transparent pricing, complete government
-                            documentation, and ongoing compliance support.
-                          </p>
-                        </div>
-                      </div>
-                      <span className="border rounded-circle round-490 d-block position-absolute top-100 start-50 translate-middle"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Why Choose Us Parallax Section */}
+        <WhyChooseUsParallax />
 
         {/*  Pricing Section */}
-        <section className="pricing-section py-5 py-lg-11 py-xl-12 bg-light-gray">
-          <div className="container">
+        <section className="pricing-section py-6 py-lg-10 position-relative overflow-hidden bg-light" style={{ backgroundColor: "#F8F9FA" }}>
+          {/* Subtle Background Graphic */}
+          <div
+            className="position-absolute top-0 end-0 opacity-25"
+            style={{ width: "600px", height: "600px", transform: "translate(15%, -15%)", zIndex: 1 }}
+            data-aos="fade-in"
+            data-aos-duration="1500"
+          >
+            <img
+              src="/assets/images/backgrounds/stats-facts-bg.svg"
+              alt=""
+              className="img-fluid w-100 h-100 object-fit-cover"
+            />
+          </div>
+
+          <div className="container position-relative z-2">
             <div className="d-flex flex-column gap-5 gap-xl-10">
               <div className="d-flex flex-column gap-5 gap-xl-11">
                 <div className="row gap-7 gap-xl-0">
                   <div className="col-xl-4 col-xxl-4">
                     <div
-                      className="d-flex align-items-center gap-7 py-2"
+                      className="d-flex align-items-center gap-3 mb-4"
                       data-aos="fade-right"
                       data-aos-delay="100"
                       data-aos-duration="1000"
                     >
-                      <span className="round-36 flex-shrink-0 text-white rounded-circle bg-primary hstack justify-content-center fw-medium">
+                      <span className="d-flex align-items-center justify-content-center text-white bg-dark rounded-circle fw-bold shadow-sm" style={{ width: "45px", height: "45px", fontSize: "1.1rem" }}>
                         05
                       </span>
-                      <hr className="border-line bg-white" />
-                      <span className="badge text-bg-dark">Pricing</span>
+                      <div className="bg-dark opacity-25" style={{ width: "40px", height: "2px" }}></div>
+                      <span className="badge bg-white text-dark border border-secondary border-opacity-10 shadow-sm px-3 py-2 fw-semibold text-uppercase" style={{ letterSpacing: "1px", fontSize: "0.85rem", borderRadius: "100px" }}>
+                        Pricing
+                      </span>
                     </div>
                   </div>
                   <div className="col-xl-8 col-xxl-7">
                     <div className="row">
-                      <div className="col-xxl-8">
+                      <div className="col-xxl-10">
                         <div
-                          className="d-flex flex-column gap-6"
+                          className="d-flex flex-column gap-4"
                           data-aos="fade-up"
                           data-aos-delay="100"
                           data-aos-duration="1000"
                         >
-                          <h2 className="mb-0">Affordable business packages</h2>
-                          <p className="fs-5 mb-0 text-opacity-70">
+                          <h2 className="display-4 fw-bolder text-dark mb-2 lh-sm">
+                            Affordable <br />
+                            <span style={{ color: "var(--brand-gold-base, #C29328)" }}>business packages</span>
+                          </h2>
+                          <p className="fs-5 mb-0 text-secondary lh-base">
                             Special offer — split your payments into 4
                             installments with tabby. Transparent pricing for
                             company formation, visas, and licenses in the UAE.
@@ -1340,53 +625,75 @@ export default function Home() {
                       className="col-lg-6 col-xl-4 mb-7 mb-xl-0 d-flex align-items-stretch"
                     >
                       <div
-                        className="card w-100"
+                        className={`card w-100 border-0 rounded-4 shadow-lg h-100 position-relative ${plan.featured ? 'z-3' : 'z-2'}`}
+                        style={{
+                          backgroundColor: "#151515",
+                          borderTop: plan.featured ? "4px solid var(--brand-gold-base, #C29328)" : "4px solid #2A2A2A",
+                          transform: plan.featured ? "scale(1.03)" : "scale(1)",
+                        }}
                         data-aos="fade-up"
                         data-aos-delay={100 + index * 100}
                         data-aos-duration="1000"
                       >
-                        <div className="card-body p-7 p-xxl-5 d-flex flex-column gap-8">
-                          <div className="d-flex flex-column gap-6">
-                            {plan.featured ? (
-                              <div className="hstack gap-3">
-                                <h5 className="mb-0 fw-medium">{plan.name}</h5>
-                                <span className="badge text-bg-dark hstack gap-2">
-                                  <iconify-icon
-                                    icon="lucide:flame"
-                                    className="fs-5"
-                                  ></iconify-icon>
-                                  Most popular
-                                </span>
-                              </div>
-                            ) : (
-                              <h5 className="mb-0 fw-medium">{plan.name}</h5>
-                            )}
+                        {plan.featured && (
+                          <div className="position-absolute" style={{ top: "-16px", right: "24px" }}>
+                            <span className="badge bg-white text-dark hstack gap-2 rounded-pill px-3 py-2 shadow" style={{ fontSize: "0.8rem", border: "1px solid rgba(194, 147, 40, 0.3)" }}>
+                              <iconify-icon
+                                icon="lucide:flame"
+                                className="fs-6"
+                                style={{ color: "var(--brand-gold-base, #C29328)" }}
+                              ></iconify-icon>
+                              Most popular
+                            </span>
+                          </div>
+                        )}
+                        <div className="card-body p-4 p-md-5 d-flex flex-column justify-content-between gap-5 h-100">
+                          <div className="d-flex flex-column gap-4">
+                            <div className="d-flex align-items-center" style={{ minHeight: "56px" }}>
+                              <h5 className="mb-0 fw-bold text-white lh-base">{plan.name}</h5>
+                            </div>
+                            
                             <div className="hstack gap-2 align-items-baseline flex-wrap">
-                              <p className="mb-0 text-opacity-70">
+                              <p className="mb-0 text-white-50 fw-medium">
                                 Starts from
                               </p>
-                              <h3 className="mb-0">{plan.price}</h3>
-                              <p className="mb-0">AED</p>
+                              <h3 className="mb-0 text-white display-6 fw-bold">{plan.price}</h3>
+                              <p className="mb-0 text-white-50 fw-medium">AED</p>
                             </div>
-                            <p className="mb-0">{plan.description}</p>
+                            
+                            <div
+                              className="p-4 rounded-4"
+                              style={{
+                                background: "rgba(194, 147, 40, 0.08)",
+                              }}
+                            >
+                              <p className="mb-0 text-white text-opacity-90 lh-base" style={{ fontSize: "0.95rem" }}>
+                                {plan.description}
+                              </p>
+                            </div>
                           </div>
-                          <div className="pt-8 border-top d-flex flex-column gap-6">
-                            <h6 className="mb-0 fw-normal">
+                          
+                          <div className="pt-4 border-top border-secondary border-opacity-25 d-flex flex-column gap-4 mt-auto">
+                            <h6 className="mb-0 fw-semibold text-white">
                               What&apos;s Included:
                             </h6>
                             <ul className="list-unstyled d-flex flex-column gap-3 mb-0">
                               {plan.features.map((feature) => (
-                                <li key={feature.text} className="hstack gap-3">
-                                  <span className="round-32 rounded-circle bg-primary flex-shrink-0 hstack justify-content-center">
+                                <li key={feature.text} className="hstack gap-3 align-items-center">
+                                  <span 
+                                    className="rounded-circle flex-shrink-0 hstack justify-content-center"
+                                    style={{ width: "20px", height: "20px", background: "var(--brand-gold-base, #C29328)" }}
+                                  >
                                     <iconify-icon
                                       icon="lucide:check"
-                                      className="fs-6 text-white"
+                                      className="text-white"
+                                      style={{ fontSize: "13px" }}
                                     ></iconify-icon>
                                   </span>
-                                  <h6 className="mb-0 fw-normal">
+                                  <h6 className="mb-0 fw-normal text-white-50 lh-base" style={{ fontSize: "0.95rem" }}>
                                     {feature.text}
                                     {feature.tag ? (
-                                      <span className="badge text-bg-light text-white ms-2">
+                                      <span className="badge ms-2 rounded-2 fw-semibold px-2 py-1" style={{ backgroundColor: "rgba(194, 147, 40, 0.15)", color: "var(--brand-gold-base, #C29328)" }}>
                                         {feature.tag}
                                       </span>
                                     ) : null}
@@ -1395,16 +702,25 @@ export default function Home() {
                               ))}
                             </ul>
                           </div>
-                          <a
-                            href="/contact"
-                            className="btn w-100 justify-content-center"
-                          >
-                            <span className="btn-text">Enquire Now</span>
-                            <iconify-icon
-                              icon="lucide:arrow-up-right"
-                              className="btn-icon bg-white text-dark round-52 rounded-circle hstack justify-content-center fs-7 shadow-sm"
-                            ></iconify-icon>
-                          </a>
+                          
+                          <div className="pt-3">
+                            <a
+                              href="/contact"
+                              className="btn w-100 justify-content-center py-3 rounded-pill"
+                              style={{ 
+                                backgroundColor: "var(--brand-gold-base, #C29328)",
+                                color: "#fff",
+                                border: "none",
+                                transition: "all 0.3s ease"
+                              }}
+                            >
+                              <span className="fw-semibold">Enquire Now</span>
+                              <iconify-icon
+                                icon="lucide:arrow-up-right"
+                                className="ms-2 fs-5"
+                              ></iconify-icon>
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -1416,35 +732,54 @@ export default function Home() {
         </section>
 
         {/*  Testimonial Section */}
-        <section className="testimonial pt-5 pt-lg-11 pt-xl-12 pb-4 pb-lg-7 pb-xl-8 bg-light-gray">
-          <div className="container">
-            <div className="d-flex flex-column gap-5 gap-xl-11">
+        <section className="testimonial py-6 py-lg-10 position-relative overflow-hidden bg-light" style={{ backgroundColor: "#F8F9FA" }}>
+          {/* Subtle Background Graphic */}
+          <div
+            className="position-absolute top-0 end-0 opacity-25"
+            style={{ width: "600px", height: "600px", transform: "translate(15%, -15%)", zIndex: 1 }}
+            data-aos="fade-in"
+            data-aos-duration="1500"
+          >
+            <img
+              src="/assets/images/backgrounds/stats-facts-bg.svg"
+              alt=""
+              className="img-fluid w-100 h-100 object-fit-cover"
+            />
+          </div>
+
+          <div className="container position-relative z-2">
+            <div className="d-flex flex-column gap-5 gap-xl-9">
               <div className="row gap-7 gap-xl-0">
                 <div className="col-xl-4 col-xxl-4">
                   <div
-                    className="d-flex align-items-center gap-7 py-2"
+                    className="d-flex align-items-center gap-3 mb-4"
                     data-aos="fade-right"
                     data-aos-delay="100"
                     data-aos-duration="1000"
                   >
-                    <span className="round-36 flex-shrink-0 text-white rounded-circle bg-primary hstack justify-content-center fw-medium">
+                    <span className="d-flex align-items-center justify-content-center text-white bg-dark rounded-circle fw-bold shadow-sm" style={{ width: "45px", height: "45px", fontSize: "1.1rem" }}>
                       06
                     </span>
-                    <hr className="border-line bg-white" />
-                    <span className="badge text-bg-dark">Testimonial</span>
+                    <div className="bg-dark opacity-25" style={{ width: "40px", height: "2px" }}></div>
+                    <span className="badge bg-white text-dark border border-secondary border-opacity-10 shadow-sm px-3 py-2 fw-semibold text-uppercase" style={{ letterSpacing: "1px", fontSize: "0.85rem", borderRadius: "100px" }}>
+                      Testimonial
+                    </span>
                   </div>
                 </div>
                 <div className="col-xl-8 col-xxl-7">
                   <div className="row">
-                    <div className="col-xxl-8">
+                    <div className="col-xxl-10">
                       <div
-                        className="d-flex flex-column gap-6"
+                        className="d-flex flex-column gap-4"
                         data-aos="fade-up"
                         data-aos-delay="100"
                         data-aos-duration="1000"
                       >
-                        <h2 className="mb-0">Stories from clients</h2>
-                        <p className="fs-5 mb-0 text-opacity-70">
+                        <h2 className="display-4 fw-bolder text-dark mb-2 lh-sm">
+                          Stories from <br />
+                          <span style={{ color: "var(--brand-gold-base, #C29328)" }}>clients</span>
+                        </h2>
+                        <p className="fs-5 mb-0 text-secondary lh-base">
                           Real experiences, genuine feedback—discover how our
                           creative solutions have transformed brands and
                           elevated businesses.
@@ -1455,172 +790,84 @@ export default function Home() {
                 </div>
               </div>
               <div className="row gap-7 gap-lg-0">
-                <div className="col-lg-4 col-xl-4 d-flex align-items-stretch">
-                  <div
-                    className="card w-100 h-100"
-                    style={{ backgroundColor: "var(--bs-secondary)" }}
-                    data-aos="fade-up"
-                    data-aos-delay="100"
-                    data-aos-duration="1000"
-                  >
-                    <div className="card-body d-flex flex-column gap-4 gap-xl-6 justify-content-between">
-                      <div className="d-flex flex-column gap-4">
-                        <h4 className="mb-0">Exceptional service!</h4>
-                        <p className="mb-0">
-                          Al Hadi Business Services made the entire company
-                          formation process seamless and stress-free. The team
-                          was incredibly knowledgeable, guiding me through every
-                          step. I highly recommend their services for anyone
-                          looking to establish their business in the UAE.
-                        </p>
-                      </div>
-                      <div className="hstack gap-3">
-                        <img
-                          src="https://ui-avatars.com/api/?name=John+D&background=212529&color=fff&size=60"
-                          alt=""
-                          className="img-fluid rounded-circle overflow-hidden flex-shrink-0"
-                          width="60"
-                          height="60"
-                        />
-                        <div>
-                          <h5 className="mb-1 fw-normal">John D</h5>
-                          <p className="mb-0">Client</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-4 col-xl-4 d-flex align-items-stretch">
-                  <div
-                    className="card bg-dark w-100 h-100"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                    data-aos-duration="1000"
-                  >
-                    <div className="card-body d-flex flex-column gap-4 gap-xl-6 justify-content-between">
-                      <div className="d-flex flex-column gap-4">
-                        <h4 className="mb-0 text-white pe-xl-2">
-                          Al Hadi exceeded my expectations!
-                        </h4>
-                        <p className="mb-0 text-white text-opacity-70">
-                          They took care of every detail, from licensing to
-                          documentation, ensuring our business complied with all
-                          regulations. The personalized approach and commitment
-                          to our success were evident throughout. I'm grateful
-                          for their support in making our business dreams a
-                          reality.
-                        </p>
-                        <div className="hstack gap-2">
-                          <ul className="list-unstyled mb-0 hstack gap-1">
-                            <li>
-                              <a className="hstack" href="javascript:void(0)">
-                                <iconify-icon
-                                  icon="solar:star-bold"
-                                  className="fs-6 text-white"
-                                ></iconify-icon>
-                              </a>
-                            </li>
-                            <li>
-                              <a className="hstack" href="javascript:void(0)">
-                                <iconify-icon
-                                  icon="solar:star-bold"
-                                  className="fs-6 text-white"
-                                ></iconify-icon>
-                              </a>
-                            </li>
-                            <li>
-                              <a className="hstack" href="javascript:void(0)">
-                                <iconify-icon
-                                  icon="solar:star-bold"
-                                  className="fs-6 text-white"
-                                ></iconify-icon>
-                              </a>
-                            </li>
-                            <li>
-                              <a className="hstack" href="javascript:void(0)">
-                                <iconify-icon
-                                  icon="solar:star-bold"
-                                  className="fs-6 text-white"
-                                ></iconify-icon>
-                              </a>
-                            </li>
-                            <li>
-                              <a className="hstack" href="javascript:void(0)">
-                                <iconify-icon
-                                  icon="solar:star-bold"
-                                  className="fs-6 text-white"
-                                ></iconify-icon>
-                              </a>
-                            </li>
-                          </ul>
-                          <h6 className="mb-0 text-white fw-medium">5.0</h6>
-                        </div>
-                      </div>
-                      <div className="d-flex align-items-center justify-content-between">
-                        <div className="hstack gap-3">
-                          <img
-                            src="https://ui-avatars.com/api/?name=Emily+S&background=ffffff&color=212529&size=60"
-                            alt=""
-                            className="img-fluid rounded-circle overflow-hidden flex-shrink-0"
-                            width="60"
-                            height="60"
-                          />
-                          <div>
-                            <h5 className="mb-1 fw-normal text-white">
-                              Emily S
-                            </h5>
-                            <p className="mb-0 text-white text-opacity-70">
-                              Client
-                            </p>
+                {[
+                  {
+                    title: "Exceptional service!",
+                    content: "Al Hadi Business Services made the entire company formation process seamless and stress-free. The team was incredibly knowledgeable, guiding me through every step. I highly recommend their services for anyone looking to establish their business in the UAE.",
+                    name: "John D",
+                    avatarColor: "C29328"
+                  },
+                  {
+                    title: "Al Hadi exceeded my expectations!",
+                    content: "They took care of every detail, from licensing to documentation, ensuring our business complied with all regulations. The personalized approach and commitment to our success were evident throughout. I'm grateful for their support in making our business dreams a reality.",
+                    name: "Emily S",
+                    avatarColor: "2A2A2A"
+                  },
+                  {
+                    title: "Al Hadi Business Services truly stands out!",
+                    content: "From expert advice on business structures to handling all the paperwork, they provided a comprehensive service. Their professionalism and dedication ensured a smooth and swift company setup. A reliable partner for anyone venturing into the business world.",
+                    name: "Ahmed K",
+                    avatarColor: "C29328"
+                  }
+                ].map((testimonial, idx) => (
+                  <div key={idx} className="col-lg-4 col-xl-4 d-flex align-items-stretch mb-7 mb-lg-0">
+                    <div
+                      className="card w-100 h-100 border-0 rounded-4 shadow-lg"
+                      style={{ backgroundColor: "#151515", borderTop: "4px solid var(--brand-gold-base, #C29328)" }}
+                      data-aos="fade-up"
+                      data-aos-delay={100 * (idx + 1)}
+                      data-aos-duration="1000"
+                    >
+                      <div className="card-body p-4 p-md-5 d-flex flex-column gap-4 justify-content-between h-100">
+                        <div className="d-flex flex-column gap-4">
+                          <h4 className="mb-0 text-white lh-base">{testimonial.title}</h4>
+                          <p className="mb-0 text-white-50 lh-base" style={{ fontSize: "0.95rem" }}>
+                            {testimonial.content}
+                          </p>
+                          <div className="hstack gap-2">
+                            <ul className="list-unstyled mb-0 hstack gap-1">
+                              {[...Array(5)].map((_, i) => (
+                                <li key={i}>
+                                  <a className="hstack" href="javascript:void(0)">
+                                    <iconify-icon
+                                      icon="solar:star-bold"
+                                      className="fs-6"
+                                      style={{ color: "var(--brand-gold-base, #C29328)" }}
+                                    ></iconify-icon>
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                            <h6 className="mb-0 text-white fw-medium">5.0</h6>
                           </div>
                         </div>
-                        <span>
-                          <img
-                            src="/assets/images/testimonial/quete.svg"
-                            alt="quete"
-                            className="img-fluid flex-shrink-0"
-                          />
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-4 col-xl-4 d-flex align-items-stretch">
-                  <div
-                    className="card w-100 h-100"
-                    data-aos="fade-up"
-                    data-aos-delay="300"
-                    data-aos-duration="1000"
-                  >
-                    <div className="card-body d-flex flex-column gap-4 gap-xl-6 justify-content-between">
-                      <div className="d-flex flex-column gap-4">
-                        <h4 className="mb-0">
-                          Al Hadi Business Services truly stands out!
-                        </h4>
-                        <p className="mb-0">
-                          From expert advice on business structures to handling
-                          all the paperwork, they provided a comprehensive
-                          service. Their professionalism and dedication ensured
-                          a smooth and swift company setup. A reliable partner
-                          for anyone venturing into the business world.
-                        </p>
-                      </div>
-                      <div className="hstack gap-3">
-                        <img
-                          src="https://ui-avatars.com/api/?name=Ahmed+K&background=FF6F20&color=fff&size=60"
-                          alt=""
-                          className="img-fluid rounded-circle overflow-hidden flex-shrink-0"
-                          width="60"
-                          height="60"
-                        />
-                        <div>
-                          <h5 className="mb-1 fw-normal">Ahmed K</h5>
-                          <p className="mb-0">Client</p>
+                        <div className="d-flex align-items-center justify-content-between pt-4 border-top border-secondary border-opacity-25 mt-auto">
+                          <div className="hstack gap-3">
+                            <img
+                              src={`https://ui-avatars.com/api/?name=${testimonial.name.replace(' ', '+')}&background=${testimonial.avatarColor}&color=fff&size=60`}
+                              alt={testimonial.name}
+                              className="img-fluid rounded-circle flex-shrink-0"
+                              width="50"
+                              height="50"
+                            />
+                            <div>
+                              <h5 className="mb-1 fw-bold text-white fs-6">{testimonial.name}</h5>
+                              <p className="mb-0 text-white-50" style={{ fontSize: "0.85rem" }}>Client</p>
+                            </div>
+                          </div>
+                          <span>
+                            <img
+                              src="/assets/images/testimonial/quete.svg"
+                              alt="quete"
+                              className="img-fluid flex-shrink-0 opacity-50"
+                              width="40"
+                            />
+                          </span>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
@@ -1760,18 +1007,54 @@ export default function Home() {
     </section> */}
 
         {/*  Associated Government Authorities Section */}
-        <section className="pricing-section pt-4 pt-lg-7 pt-xl-8 pb-5 pb-lg-11 pb-xl-12 bg-light-gray">
+        <section className="associated-authorities-section py-6 py-lg-10 bg-white">
           <div className="container">
             <div className="d-flex flex-column gap-5 gap-xl-10">
+              <div className="row gap-7 gap-xl-0">
+                <div className="col-xl-4 col-xxl-4">
+                  <div
+                    className="d-flex align-items-center gap-3 mb-4"
+                    data-aos="fade-right"
+                    data-aos-delay="100"
+                    data-aos-duration="1000"
+                  >
+                    <span className="d-flex align-items-center justify-content-center text-white bg-dark rounded-circle fw-bold shadow-sm" style={{ width: "45px", height: "45px", fontSize: "1.1rem" }}>
+                      07
+                    </span>
+                    <div className="bg-dark opacity-25" style={{ width: "40px", height: "2px" }}></div>
+                    <span className="badge bg-white text-dark border border-secondary border-opacity-10 shadow-sm px-3 py-2 fw-semibold text-uppercase" style={{ letterSpacing: "1px", fontSize: "0.85rem", borderRadius: "100px" }}>
+                      Authorities
+                    </span>
+                  </div>
+                </div>
+                <div className="col-xl-8 col-xxl-7">
+                  <div className="row">
+                    <div className="col-xxl-10">
+                      <div
+                        className="d-flex flex-column gap-4"
+                        data-aos="fade-up"
+                        data-aos-delay="100"
+                        data-aos-duration="1000"
+                      >
+                        <h2 className="display-4 fw-bolder text-dark mb-2 lh-sm">
+                          Associated <br />
+                          <span style={{ color: "var(--brand-gold-base, #C29328)" }}>Government Authorities</span>
+                        </h2>
+                        <p className="fs-5 mb-0 text-secondary lh-base">
+                          We work closely with leading government entities in the UAE to ensure seamless and compliant business operations.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
               <div
-                className="d-flex flex-column gap-8"
+                className="mt-4"
                 data-aos="fade-up"
-                data-aos-delay="100"
+                data-aos-delay="200"
                 data-aos-duration="1000"
               >
-                <p className="fs-5 mb-0 text-center text-dark">
-                  Associated Government Authorities
-                </p>
                 <div className="marquee w-100 d-flex align-items-center overflow-hidden">
                   <div className="marquee-content d-flex align-items-center gap-8">
                     <div className="marquee-tag hstack justify-content-center">
@@ -1921,423 +1204,573 @@ export default function Home() {
           </div>
         </section>
 
-        {/*  FAQ Section */}
-        <section className="faq py-5 py-lg-11 py-xl-12">
-          <div className="container">
-            <div className="d-flex flex-column gap-5 gap-xl-11">
-              <div className="row gap-7 gap-xl-0">
-                <div className="col-xl-4 col-xxl-4">
-                  <div
-                    className="d-flex align-items-center gap-7 py-2"
-                    data-aos="fade-right"
-                    data-aos-delay="100"
-                    data-aos-duration="1000"
-                  >
-                    <span className="round-36 flex-shrink-0 text-white rounded-circle bg-primary hstack justify-content-center fw-medium">
-                      08
-                    </span>
-                    <hr className="border-line bg-white" />
-                    <span className="badge text-bg-dark">FAQs</span>
+        {/*  FAQ Section - Unique Redesign */}
+        <section className="faq-section py-8 py-lg-12 bg-white position-relative overflow-hidden" id="faqs">
+          {/* Subtle Background Pattern */}
+          <div className="position-absolute top-0 start-0 w-100 h-100 opacity-25" style={{ pointerEvents: "none", background: "radial-gradient(circle at 10% 20%, rgba(194, 147, 40, 0.03) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(194, 147, 40, 0.03) 0%, transparent 40%)" }}></div>
+          
+          <div className="container position-relative z-2">
+            <div className="row g-6 g-xl-10">
+              
+              {/* Left Column: Sticky Header & CTA */}
+              <div className="col-lg-5 col-xl-4 mb-5 mb-lg-0">
+                <div 
+                  className="position-sticky" 
+                  style={{ top: "120px" }}
+                  data-aos="fade-right"
+                  data-aos-delay="100"
+                  data-aos-duration="1000"
+                >
+                  <div className="d-flex flex-column gap-4">
+                    {/* Unique Badge */}
+                    <div className="d-flex align-items-center gap-3 mb-2">
+                      <span className="d-flex align-items-center justify-content-center text-white bg-dark rounded-circle fw-bold shadow-sm" style={{ width: "45px", height: "45px", fontSize: "1.1rem" }}>
+                        08
+                      </span>
+                      <div className="bg-dark opacity-25" style={{ width: "40px", height: "2px" }}></div>
+                      <span className="badge bg-white text-dark border border-secondary border-opacity-10 shadow-sm px-3 py-2 fw-semibold text-uppercase" style={{ letterSpacing: "1px", fontSize: "0.85rem", borderRadius: "100px" }}>
+                        Knowledge Base
+                      </span>
+                    </div>
+
+                    <h2 className="display-4 fw-bolder text-dark mb-0 lh-sm">
+                      Got questions? <br/>
+                      <span style={{ color: "var(--brand-gold-base, #C29328)" }}>We've got answers.</span>
+                    </h2>
+                    
+                    <p className="fs-5 text-secondary lh-base mb-4 pe-lg-4">
+                      Everything you need to know about our business setup, visa processing, tax compliance, and PRO services in the UAE.
+                    </p>
+
+                    {/* Support CTA Block */}
+                    <div className="p-4 p-xl-5 rounded-4 mt-2 shadow-sm" style={{ backgroundColor: "#151515" }}>
+                      <h5 className="text-white mb-2 fw-semibold">Still have questions?</h5>
+                      <p className="text-white-50 mb-4" style={{ fontSize: "0.95rem", lineHeight: "1.6" }}>
+                        Can't find the answer you're looking for? Our team of experts is ready to help you with tailored advice.
+                      </p>
+                      <a href="/contact" className="btn d-inline-flex align-items-center justify-content-center gap-2 rounded-pill px-4 py-3 fw-bold border-0 transition-all" style={{ backgroundColor: "var(--brand-gold-base, #C29328)", color: "#fff", boxShadow: "0 4px 14px rgba(194, 147, 40, 0.3)" }}>
+                        Contact Support
+                        <iconify-icon icon="lucide:arrow-right" width="18"></iconify-icon>
+                      </a>
+                    </div>
                   </div>
                 </div>
-                <div className="col-xl-8 col-xxl-7">
-                  <div className="row">
-                    <div className="col-xxl-9">
-                      <div
-                        className="d-flex flex-column gap-6"
-                        data-aos="fade-up"
-                        data-aos-delay="100"
-                        data-aos-duration="1000"
+              </div>
+
+              {/* Right Column: Accordion */}
+              <div className="col-lg-7 col-xl-8">
+                <div
+                  className="accordion faq-accordion d-flex flex-column gap-4"
+                  id="faqAccordion"
+                  data-aos="fade-left"
+                  data-aos-delay="200"
+                  data-aos-duration="1000"
+                >
+                  {/* FAQ Items */}
+                  <div className="accordion-item bg-white rounded-4 border border-secondary border-opacity-10 shadow-sm overflow-hidden" style={{ transition: "all 0.3s ease" }}>
+                    <h2 className="accordion-header">
+                      <button
+                        className="accordion-button collapsed p-4 p-md-5 fs-5 fw-bold bg-transparent text-dark shadow-none"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faq1"
+                        aria-expanded="false"
+                        aria-controls="faq1"
                       >
-                        <h2 className="mb-0">Frequently asked questions</h2>
-                        <p className="fs-5 mb-0 text-opacity-70">
-                          Find answers to common questions about our business
-                          setup, visa processing, tax compliance, and PRO
-                          services in the UAE.
-                        </p>
+                        What services does AL HADI BUSINESS SERVICES offer?
+                      </button>
+                    </h2>
+                    <div id="faq1" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                      <div className="accordion-body px-4 px-md-5 pb-4 pb-md-5 pt-0 fs-5 text-secondary lh-base">
+                        We provide complete business setup solutions, including Mainland, Free Zone, and Offshore company formation, trade license issuance, PRO & document clearing services, visa processing, VAT & Corporate Tax services, and trademark registration.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="accordion-item bg-white rounded-4 border border-secondary border-opacity-10 shadow-sm overflow-hidden" style={{ transition: "all 0.3s ease" }}>
+                    <h2 className="accordion-header">
+                      <button
+                        className="accordion-button collapsed p-4 p-md-5 fs-5 fw-bold bg-transparent text-dark shadow-none"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faq2"
+                        aria-expanded="false"
+                        aria-controls="faq2"
+                      >
+                        Can you assist with UAE Family Visas?
+                      </button>
+                    </h2>
+                    <div id="faq2" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                      <div className="accordion-body px-4 px-md-5 pb-4 pb-md-5 pt-0 fs-5 text-secondary lh-base">
+                        Yes, we provide comprehensive UAE Family Visa services for residents, investors, and business owners. We handle everything from document preparation to application submission, Emirates ID processing, and residence visa issuance.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="accordion-item bg-white rounded-4 border border-secondary border-opacity-10 shadow-sm overflow-hidden" style={{ transition: "all 0.3s ease" }}>
+                    <h2 className="accordion-header">
+                      <button
+                        className="accordion-button collapsed p-4 p-md-5 fs-5 fw-bold bg-transparent text-dark shadow-none"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faq3"
+                        aria-expanded="false"
+                        aria-controls="faq3"
+                      >
+                        What are the benefits of setting up a Free Zone company?
+                      </button>
+                    </h2>
+                    <div id="faq3" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                      <div className="accordion-body px-4 px-md-5 pb-4 pb-md-5 pt-0 fs-5 text-secondary lh-base">
+                        Establishing a Free Zone company offers 100% foreign ownership, full repatriation of capital and profits, fast company registration, flexible office solutions, and investor/employee visa eligibility in a tax-friendly environment.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="accordion-item bg-white rounded-4 border border-secondary border-opacity-10 shadow-sm overflow-hidden" style={{ transition: "all 0.3s ease" }}>
+                    <h2 className="accordion-header">
+                      <button
+                        className="accordion-button collapsed p-4 p-md-5 fs-5 fw-bold bg-transparent text-dark shadow-none"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faq4"
+                        aria-expanded="false"
+                        aria-controls="faq4"
+                      >
+                        Do I need to register for Corporate Tax and VAT?
+                      </button>
+                    </h2>
+                    <div id="faq4" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                      <div className="accordion-body px-4 px-md-5 pb-4 pb-md-5 pt-0 fs-5 text-secondary lh-base">
+                        Depending on your business's taxable supplies and structure, VAT or Corporate Tax registration may be mandatory. Our expert tax professionals provide full assistance with Corporate Tax Registration, VAT Registration, filing, and advisory services.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="accordion-item bg-white rounded-4 border border-secondary border-opacity-10 shadow-sm overflow-hidden" style={{ transition: "all 0.3s ease" }}>
+                    <h2 className="accordion-header">
+                      <button
+                        className="accordion-button collapsed p-4 p-md-5 fs-5 fw-bold bg-transparent text-dark shadow-none"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faq5"
+                        aria-expanded="false"
+                        aria-controls="faq5"
+                      >
+                        Who is eligible for a UAE Golden Visa?
+                      </button>
+                    </h2>
+                    <div id="faq5" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                      <div className="accordion-body px-4 px-md-5 pb-4 pb-md-5 pt-0 fs-5 text-secondary lh-base">
+                        The UAE Golden Visa is available to eligible property investors, business investors, entrepreneurs, skilled professionals, exceptional talents, and outstanding students. It offers long-term, renewable residency without requiring a local sponsor.
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="row justify-content-end">
-                <div className="col-xl-8">
-                  <div
-                    className="accordion accordion-flush"
-                    id="accordionFlushExample"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                    data-aos-duration="1000"
-                  >
-                    <div className="accordion-item">
-                      <h2 className="accordion-header">
-                        <button
-                          className="accordion-button collapsed fs-8 fw-bold"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#flush-collapseOne"
-                          aria-expanded="false"
-                          aria-controls="flush-collapseOne"
-                        >
-                          What services does AL HADI BUSINESS SERVICES offer?
-                        </button>
-                      </h2>
-                      <div
-                        id="flush-collapseOne"
-                        className="accordion-collapse collapse"
-                        data-bs-parent="#accordionFlushExample"
-                      >
-                        <div className="accordion-body pt-0 fs-5 text-dark">
-                          We provide complete business setup solutions,
-                          including Mainland, Free Zone, and Offshore company
-                          formation, trade license issuance, PRO & document
-                          clearing services, visa processing, VAT & Corporate
-                          Tax services, and trademark registration.
-                        </div>
-                      </div>
-                    </div>
-                    <div className="accordion-item">
-                      <h2 className="accordion-header">
-                        <button
-                          className="accordion-button collapsed fs-8 fw-bold"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#flush-collapseTwo"
-                          aria-expanded="false"
-                          aria-controls="flush-collapseTwo"
-                        >
-                          Can you assist with UAE Family Visas?
-                        </button>
-                      </h2>
-                      <div
-                        id="flush-collapseTwo"
-                        className="accordion-collapse collapse"
-                        data-bs-parent="#accordionFlushExample"
-                      >
-                        <div className="accordion-body pt-0 fs-5 text-dark">
-                          Yes, we provide comprehensive UAE Family Visa services
-                          for residents, investors, and business owners. We
-                          handle everything from document preparation to
-                          application submission, Emirates ID processing, and
-                          residence visa issuance.
-                        </div>
-                      </div>
-                    </div>
-                    <div className="accordion-item">
-                      <h2 className="accordion-header">
-                        <button
-                          className="accordion-button collapsed fs-8 fw-bold"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#flush-collapseThree"
-                          aria-expanded="false"
-                          aria-controls="flush-collapseThree"
-                        >
-                          What are the benefits of setting up a Free Zone
-                          company?
-                        </button>
-                      </h2>
-                      <div
-                        id="flush-collapseThree"
-                        className="accordion-collapse collapse"
-                        data-bs-parent="#accordionFlushExample"
-                      >
-                        <div className="accordion-body pt-0 fs-5 text-dark">
-                          Establishing a Free Zone company offers 100% foreign
-                          ownership, full repatriation of capital and profits,
-                          fast company registration, flexible office solutions,
-                          and investor/employee visa eligibility in a
-                          tax-friendly environment.
-                        </div>
-                      </div>
-                    </div>
-                    <div className="accordion-item">
-                      <h2 className="accordion-header">
-                        <button
-                          className="accordion-button collapsed fs-8 fw-bold"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#flush-collapseFour"
-                          aria-expanded="false"
-                          aria-controls="flush-collapseFour"
-                        >
-                          Do I need to register for Corporate Tax and VAT?
-                        </button>
-                      </h2>
-                      <div
-                        id="flush-collapseFour"
-                        className="accordion-collapse collapse"
-                        data-bs-parent="#accordionFlushExample"
-                      >
-                        <div className="accordion-body pt-0 fs-5 text-dark">
-                          Depending on your business's taxable supplies and
-                          structure, VAT or Corporate Tax registration may be
-                          mandatory. Our expert tax professionals provide full
-                          assistance with Corporate Tax Registration, VAT
-                          Registration, filing, and advisory services.
-                        </div>
-                      </div>
-                    </div>
-                    <div className="accordion-item border-bottom">
-                      <h2 className="accordion-header">
-                        <button
-                          className="accordion-button collapsed fs-8 fw-bold"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#flush-collapseFive"
-                          aria-expanded="false"
-                          aria-controls="flush-collapseFive"
-                        >
-                          Who is eligible for a UAE Golden Visa?
-                        </button>
-                      </h2>
-                      <div
-                        id="flush-collapseFive"
-                        className="accordion-collapse collapse"
-                        data-bs-parent="#accordionFlushExample"
-                      >
-                        <div className="accordion-body pt-0 fs-5 text-dark">
-                          The UAE Golden Visa is available to eligible property
-                          investors, business investors, entrepreneurs, skilled
-                          professionals, exceptional talents, and outstanding
-                          students. It offers long-term, renewable residency
-                          without requiring a local sponsor.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
             </div>
           </div>
         </section>
 
         {/*  Recent news Section */}
-        <section className="Recent-news bg-light-gray py-5 py-lg-11 py-xl-12">
+        <section className="recent-news-section py-6 py-lg-10 bg-light" style={{ backgroundColor: "#F8F9FA" }}>
+          <style>{`
+            .article-card-img img {
+              transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            }
+            .article-card:hover .article-card-img img {
+              transform: scale(1.08);
+            }
+            .article-title {
+              transition: color 0.3s ease;
+            }
+            .article-card:hover .article-title {
+              color: var(--brand-gold-base, #C29328) !important;
+            }
+            .article-link-icon {
+              transition: transform 0.3s ease;
+            }
+            .article-card:hover .article-link-icon {
+              transform: translateX(5px);
+            }
+          `}</style>
           <div className="container">
-            <div className="d-flex flex-column gap-5 gap-xl-11">
+            <div className="d-flex flex-column gap-5 gap-xl-7">
+              {/* Header */}
               <div className="row gap-7 gap-xl-0">
                 <div className="col-xl-4 col-xxl-4">
                   <div
-                    className="d-flex align-items-center gap-7 py-2"
+                    className="d-flex align-items-center gap-3 mb-4"
                     data-aos="fade-right"
                     data-aos-delay="100"
                     data-aos-duration="1000"
                   >
-                    <span className="round-36 flex-shrink-0 text-white rounded-circle bg-primary hstack justify-content-center fw-medium">
+                    <span className="d-flex align-items-center justify-content-center text-white bg-dark rounded-circle fw-bold shadow-sm" style={{ width: "45px", height: "45px", fontSize: "1.1rem" }}>
                       09
                     </span>
-                    <hr className="border-line bg-white" />
-                    <span className="badge text-bg-dark">Resources</span>
+                    <div className="bg-dark opacity-25" style={{ width: "40px", height: "2px" }}></div>
+                    <span className="badge bg-white text-dark border border-secondary border-opacity-10 shadow-sm px-3 py-2 fw-semibold text-uppercase" style={{ letterSpacing: "1px", fontSize: "0.85rem", borderRadius: "100px" }}>
+                      Resources
+                    </span>
                   </div>
                 </div>
                 <div className="col-xl-8 col-xxl-7">
                   <div className="row">
-                    <div className="col-xxl-8">
+                    <div className="col-xxl-10">
                       <div
-                        className="d-flex flex-column gap-6"
+                        className="d-flex flex-column gap-4"
                         data-aos="fade-up"
                         data-aos-delay="100"
                         data-aos-duration="1000"
                       >
-                        <h2 className="mb-0">Recent Insights</h2>
-                        <p className="fs-5 mb-0 text-opacity-70">
-                          Stay informed with the latest updates on UAE business
-                          regulations, corporate tax changes, company formation
-                          trends, and expert insights from AL HADI.
+                        <h2 className="display-4 fw-bolder text-dark mb-2 lh-sm">
+                          Recent <br />
+                          <span style={{ color: "var(--brand-gold-base, #C29328)" }}>Insights</span>
+                        </h2>
+                        <p className="fs-5 mb-0 text-secondary lh-base">
+                          Stay informed with the latest updates on UAE business regulations, corporate tax changes, company formation trends, and expert insights from AL HADI.
                         </p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="row">
-                <div className="col-xl-6 mb-7 mb-xl-0">
+              
+              {/* Cards Grid */}
+              <div className="row gy-5">
+                {/* Article 1 */}
+                <div className="col-md-6 col-lg-4">
                   <div
-                    className="resources d-flex flex-column gap-6"
+                    className="card border-0 bg-transparent h-100 article-card"
+                    style={{ cursor: "pointer" }}
                     data-aos="fade-up"
                     data-aos-delay="100"
                     data-aos-duration="1000"
                   >
                     <a
                       href="/blog-detail"
-                      className="resources-img resources-img-first position-relative overflow-hidden d-block"
+                      className="article-card-img position-relative overflow-hidden rounded-4 d-block shadow-sm"
+                      style={{ aspectRatio: "4/3" }}
                     >
                       <img
                         src="/assets/images/blogs/corporate_tax_uae.png"
-                        alt="resources"
-                        className="img-fluid"
+                        alt="Corporate Tax"
+                        className="img-fluid w-100 h-100 object-fit-cover"
                       />
+                      <div className="position-absolute top-0 start-0 m-3">
+                         <span className="badge bg-white text-dark shadow-sm px-3 py-2 fw-semibold rounded-pill">Taxation</span>
+                      </div>
                     </a>
-                    <div className="resources-details">
-                      <p className="mb-0">Oct 15, 2024</p>
-                      <h4 className="mb-0">
-                        UAE Corporate Tax: What Your Business Needs to Know
-                      </h4>
+                    <div className="card-body px-0 pt-4 pb-0 d-flex flex-column">
+                      <div className="d-flex align-items-center gap-2 mb-3">
+                        <iconify-icon icon="lucide:calendar" width="16" className="text-secondary"></iconify-icon>
+                        <p className="mb-0 text-secondary fs-7 fw-medium text-uppercase" style={{ letterSpacing: "1px" }}>Oct 15, 2024</p>
+                      </div>
+                      <a href="/blog-detail" className="text-decoration-none mb-4">
+                        <h4 className="mb-0 text-dark fw-bold article-title lh-base">
+                          UAE Corporate Tax: What Your Business Needs to Know
+                        </h4>
+                      </a>
+                      <a href="/blog-detail" className="mt-auto d-inline-flex align-items-center gap-2 text-dark fw-bold text-decoration-none">
+                        Read Article
+                        <iconify-icon icon="lucide:arrow-right" width="18" className="article-link-icon"></iconify-icon>
+                      </a>
                     </div>
                   </div>
                 </div>
-                <div className="col-md-6 col-xl-3 mb-7 mb-xl-0">
+
+                {/* Article 2 */}
+                <div className="col-md-6 col-lg-4">
                   <div
-                    className="resources d-flex flex-column gap-6"
+                    className="card border-0 bg-transparent h-100 article-card"
+                    style={{ cursor: "pointer" }}
                     data-aos="fade-up"
                     data-aos-delay="200"
                     data-aos-duration="1000"
                   >
                     <a
                       href="/blog-detail"
-                      className="resources-img position-relative overflow-hidden d-block"
+                      className="article-card-img position-relative overflow-hidden rounded-4 d-block shadow-sm"
+                      style={{ aspectRatio: "4/3" }}
                     >
                       <img
                         src="/assets/images/blogs/business_setup_uae.png"
-                        alt="resources"
-                        className="img-fluid"
+                        alt="Business Setup"
+                        className="img-fluid w-100 h-100 object-fit-cover"
                       />
+                      <div className="position-absolute top-0 start-0 m-3">
+                         <span className="badge bg-white text-dark shadow-sm px-3 py-2 fw-semibold rounded-pill">Business Setup</span>
+                      </div>
                     </a>
-                    <div className="resources-details">
-                      <p className="mb-0">Nov 02, 2024</p>
-                      <h4 className="mb-0">
-                        Top Free Zones for Startups in Dubai
-                      </h4>
+                    <div className="card-body px-0 pt-4 pb-0 d-flex flex-column">
+                      <div className="d-flex align-items-center gap-2 mb-3">
+                        <iconify-icon icon="lucide:calendar" width="16" className="text-secondary"></iconify-icon>
+                        <p className="mb-0 text-secondary fs-7 fw-medium text-uppercase" style={{ letterSpacing: "1px" }}>Nov 02, 2024</p>
+                      </div>
+                      <a href="/blog-detail" className="text-decoration-none mb-4">
+                        <h4 className="mb-0 text-dark fw-bold article-title lh-base">
+                          Top Free Zones for Startups in Dubai
+                        </h4>
+                      </a>
+                      <a href="/blog-detail" className="mt-auto d-inline-flex align-items-center gap-2 text-dark fw-bold text-decoration-none">
+                        Read Article
+                        <iconify-icon icon="lucide:arrow-right" width="18" className="article-link-icon"></iconify-icon>
+                      </a>
                     </div>
                   </div>
                 </div>
-                <div className="col-md-6 col-xl-3 mb-7 mb-xl-0">
+
+                {/* Article 3 */}
+                <div className="col-md-6 col-lg-4">
                   <div
-                    className="resources d-flex flex-column gap-6"
+                    className="card border-0 bg-transparent h-100 article-card"
+                    style={{ cursor: "pointer" }}
                     data-aos="fade-up"
                     data-aos-delay="300"
                     data-aos-duration="1000"
                   >
                     <a
                       href="/blog-detail"
-                      className="resources-img position-relative overflow-hidden d-block"
+                      className="article-card-img position-relative overflow-hidden rounded-4 d-block shadow-sm"
+                      style={{ aspectRatio: "4/3" }}
                     >
                       <img
                         src="/assets/images/blogs/golden_visa_uae.png"
-                        alt="resources"
-                        className="img-fluid"
+                        alt="Golden Visa"
+                        className="img-fluid w-100 h-100 object-fit-cover"
                       />
+                      <div className="position-absolute top-0 start-0 m-3">
+                         <span className="badge bg-white text-dark shadow-sm px-3 py-2 fw-semibold rounded-pill">Visas</span>
+                      </div>
                     </a>
-                    <div className="resources-details">
-                      <p className="mb-0">Dec 10, 2024</p>
-                      <h4 className="mb-0">
-                        A Complete Guide to the UAE Golden Visa
-                      </h4>
+                    <div className="card-body px-0 pt-4 pb-0 d-flex flex-column">
+                      <div className="d-flex align-items-center gap-2 mb-3">
+                        <iconify-icon icon="lucide:calendar" width="16" className="text-secondary"></iconify-icon>
+                        <p className="mb-0 text-secondary fs-7 fw-medium text-uppercase" style={{ letterSpacing: "1px" }}>Dec 10, 2024</p>
+                      </div>
+                      <a href="/blog-detail" className="text-decoration-none mb-4">
+                        <h4 className="mb-0 text-dark fw-bold article-title lh-base">
+                          A Complete Guide to the UAE Golden Visa
+                        </h4>
+                      </a>
+                      <a href="/blog-detail" className="mt-auto d-inline-flex align-items-center gap-2 text-dark fw-bold text-decoration-none">
+                        Read Article
+                        <iconify-icon icon="lucide:arrow-right" width="18" className="article-link-icon"></iconify-icon>
+                      </a>
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
         </section>
 
         {/*  Get in touch Section */}
-        <section className="get-in-touch py-5 py-lg-11 py-xl-12">
+        <section className="contact-section py-6 py-lg-10 bg-white position-relative" id="contact">
+          <style>{`
+            .premium-input {
+              background-color: #F8F9FA;
+              border: 1px solid rgba(0,0,0,0.05);
+              border-radius: 12px;
+              padding: 16px 20px;
+              font-size: 1rem;
+              transition: all 0.3s ease;
+            }
+            .premium-input:focus {
+              background-color: #FFFFFF;
+              border-color: var(--brand-gold-base, #C29328);
+              box-shadow: 0 0 0 4px rgba(194, 147, 40, 0.1);
+              outline: none;
+            }
+            .premium-input::placeholder {
+              color: #A0AEC0;
+            }
+            .contact-info-card {
+              background: #151515;
+              border-radius: 20px;
+              padding: 40px;
+              color: white;
+              height: 100%;
+              position: relative;
+              overflow: hidden;
+            }
+            .contact-info-card::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              right: 0;
+              width: 250px;
+              height: 250px;
+              background: radial-gradient(circle, var(--brand-gold-base, #C29328) 0%, transparent 70%);
+              opacity: 0.15;
+              transform: translate(30%, -30%);
+            }
+            .info-icon-wrapper {
+              width: 48px;
+              height: 48px;
+              border-radius: 12px;
+              background: rgba(255,255,255,0.05);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: var(--brand-gold-base, #C29328);
+              flex-shrink: 0;
+            }
+          `}</style>
           <div className="container">
-            <div className="d-flex flex-column gap-5 gap-xl-10">
+            <div className="d-flex flex-column gap-5 gap-xl-8">
+              
+              {/* Header */}
               <div className="row gap-7 gap-xl-0">
                 <div className="col-xl-4 col-xxl-4">
                   <div
-                    className="d-flex align-items-center gap-7 py-2"
+                    className="d-flex align-items-center gap-3 mb-4"
                     data-aos="fade-right"
                     data-aos-delay="100"
                     data-aos-duration="1000"
                   >
-                    <span className="round-36 flex-shrink-0 text-white rounded-circle bg-primary hstack justify-content-center fw-medium">
+                    <span className="d-flex align-items-center justify-content-center text-white bg-dark rounded-circle fw-bold shadow-sm" style={{ width: "45px", height: "45px", fontSize: "1.1rem" }}>
                       10
                     </span>
-                    <hr className="border-line bg-white" />
-                    <span className="badge text-bg-dark">Contact us</span>
+                    <div className="bg-dark opacity-25" style={{ width: "40px", height: "2px" }}></div>
+                    <span className="badge bg-white text-dark border border-secondary border-opacity-10 shadow-sm px-3 py-2 fw-semibold text-uppercase" style={{ letterSpacing: "1px", fontSize: "0.85rem", borderRadius: "100px" }}>
+                      Contact Us
+                    </span>
                   </div>
                 </div>
                 <div className="col-xl-8 col-xxl-7">
                   <div className="row">
-                    <div className="col-xxl-8">
+                    <div className="col-xxl-10">
                       <div
-                        className="d-flex flex-column gap-6"
+                        className="d-flex flex-column gap-4"
                         data-aos="fade-up"
                         data-aos-delay="100"
                         data-aos-duration="1000"
                       >
-                        <h2 className="mb-0">Get in touch</h2>
+                        <h2 className="display-4 fw-bolder text-dark mb-2 lh-sm">
+                          Let's Get In <br />
+                          <span style={{ color: "var(--brand-gold-base, #C29328)" }}>Touch</span>
+                        </h2>
+                        <p className="fs-5 mb-0 text-secondary lh-base">
+                          Ready to start your business journey in the UAE? Our experts are here to help you every step of the way. Let's collaborate and create something amazing!
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="row justify-content-between gap-7 gap-xl-0">
-                <div className="col-xl-3">
-                  <p
-                    className="mb-0 fs-5"
-                    data-aos="fade-right"
-                    data-aos-delay="100"
-                    data-aos-duration="1000"
-                  >
-                    Let’s collaborate and create something amazing! Tell me
-                    about your project—I’m all ears.
-                  </p>
+              
+              <div className="row g-5 g-xl-8 mt-2">
+                {/* Contact Info */}
+                <div className="col-lg-5 col-xl-4">
+                  <div className="contact-info-card shadow-lg" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
+                    <h3 className="h4 fw-bold mb-4 text-white">Contact Information</h3>
+                    <p className="text-white-50 mb-5 fs-6 lh-base">
+                      Fill out the form and our team will get back to you within 24 hours.
+                    </p>
+                    
+                    <div className="d-flex flex-column gap-4">
+                      <div className="d-flex align-items-center gap-3">
+                        <div className="info-icon-wrapper">
+                          <iconify-icon icon="lucide:phone" width="20"></iconify-icon>
+                        </div>
+                        <div>
+                          <p className="mb-1 text-white-50 text-uppercase fw-semibold" style={{ fontSize: "0.75rem", letterSpacing: "1px" }}>Call Us</p>
+                          <p className="mb-0 fw-bold text-white" style={{ fontSize: "1.1rem" }}>+971 4 123 4567</p>
+                        </div>
+                      </div>
+                      
+                      <div className="d-flex align-items-center gap-3">
+                        <div className="info-icon-wrapper">
+                          <iconify-icon icon="lucide:mail" width="20"></iconify-icon>
+                        </div>
+                        <div>
+                          <p className="mb-1 text-white-50 text-uppercase fw-semibold" style={{ fontSize: "0.75rem", letterSpacing: "1px" }}>Email Us</p>
+                          <p className="mb-0 fw-bold text-white" style={{ fontSize: "1.1rem" }}>info@alhadi.ae</p>
+                        </div>
+                      </div>
+                      
+                      <div className="d-flex align-items-center gap-3">
+                        <div className="info-icon-wrapper">
+                          <iconify-icon icon="lucide:map-pin" width="20"></iconify-icon>
+                        </div>
+                        <div>
+                          <p className="mb-1 text-white-50 text-uppercase fw-semibold" style={{ fontSize: "0.75rem", letterSpacing: "1px" }}>Visit Us</p>
+                          <p className="mb-0 fw-bold text-white lh-base" style={{ fontSize: "1.05rem" }}>Sheikh Zayed Road,<br/>Dubai, UAE</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="col-xl-8">
-                  <form
-                    className="d-flex flex-column gap-7"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                    data-aos-duration="1000"
-                    onSubmit={handleSubmit}
-                  >
-                    <div>
-                      <input
-                        type="text"
-                        className="form-control border-bottom border-dark"
-                        id="homeLeadName"
-                        name="name"
-                        placeholder="Name"
-                        required
-                      />
-                    </div>
-                    <div className="row">
-                      <div className="col-md-6">
-                        <input
-                          type="email"
-                          className="form-control border-bottom border-dark"
-                          id="homeLeadEmail"
-                          name="email"
-                          placeholder="Email"
-                          required
-                        />
-                      </div>
 
-                      <div className="col-md-6">
-                        <input
-                          type="tel"
-                          className="form-control border-bottom border-dark"
-                          id="homeLeadPhone"
-                          name="phone"
-                          placeholder="Phone Number"
-                          required
+                {/* Contact Form */}
+                <div className="col-lg-7 col-xl-8">
+                  <div className="bg-white p-4 p-md-5 rounded-4 shadow-sm border border-secondary border-opacity-10 h-100" data-aos="fade-left" data-aos-delay="300" data-aos-duration="1000">
+                    <form
+                      className="d-flex flex-column gap-4 h-100"
+                      onSubmit={handleSubmit}
+                    >
+                      <div className="row g-4">
+                        <div className="col-md-6">
+                          <label htmlFor="homeLeadName" className="form-label fw-semibold text-secondary ms-1 mb-2" style={{ fontSize: "0.95rem" }}>Full Name</label>
+                          <input
+                            type="text"
+                            className="form-control premium-input shadow-none"
+                            id="homeLeadName"
+                            name="name"
+                            placeholder="John Doe"
+                            required
+                          />
+                        </div>
+                        <div className="col-md-6">
+                          <label htmlFor="homeLeadEmail" className="form-label fw-semibold text-secondary ms-1 mb-2" style={{ fontSize: "0.95rem" }}>Email Address</label>
+                          <input
+                            type="email"
+                            className="form-control premium-input shadow-none"
+                            id="homeLeadEmail"
+                            name="email"
+                            placeholder="john@example.com"
+                            required
+                          />
+                        </div>
+                        <div className="col-md-12">
+                          <label htmlFor="homeLeadPhone" className="form-label fw-semibold text-secondary ms-1 mb-2" style={{ fontSize: "0.95rem" }}>Phone Number</label>
+                          <input
+                            type="tel"
+                            className="form-control premium-input shadow-none"
+                            id="homeLeadPhone"
+                            name="phone"
+                            placeholder="+971 50 123 4567"
+                            required
+                          />
+                        </div>
+                        <div className="col-md-12">
+                          <label htmlFor="homeLeadMessage" className="form-label fw-semibold text-secondary ms-1 mb-2" style={{ fontSize: "0.95rem" }}>Your Message</label>
+                          <textarea
+                            className="form-control premium-input shadow-none"
+                            id="homeLeadMessage"
+                            name="message"
+                            placeholder="Tell us about your business setup needs..."
+                            rows={4}
+                            required
+                          ></textarea>
+                        </div>
+                      </div>
+                      
+                      <div className="mt-auto pt-4">
+                        <AnimatedButton
+                          type="submit"
+                          className="w-100 fs-5 rounded-pill shadow-sm"
+                          isLoading={isSubmitting}
+                          text="Send Message"
+                          loadingText="Sending..."
+                          style={{ height: "60px", backgroundColor: "var(--brand-gold-base, #C29328)", border: "none" }}
                         />
                       </div>
-                    </div>
-                    <div>
-                      <textarea
-                        className="form-control border-bottom border-dark"
-                        id="homeLeadMessage"
-                        name="message"
-                        placeholder="Tell us about your project"
-                        rows={3}
-                        required
-                      ></textarea>
-                    </div>
-                    <AnimatedButton
-                      type="submit"
-                      className="w-100"
-                      isLoading={isSubmitting}
-                      text="Submit message"
-                      loadingText="Sending..."
-                      style={{ height: "60px" }}
-                    />
-                  </form>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>

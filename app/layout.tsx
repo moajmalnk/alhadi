@@ -8,6 +8,8 @@ import { organizationJsonLd, websiteJsonLd } from "@/lib/seo/jsonLd";
 import { seoHead } from "@/lib/seo/seoHead";
 import { siteConfig } from "@/lib/seo/site";
 
+import ScrollToTop from "@/components/ScrollToTop";
+
 export const metadata: Metadata = seoHead({
   title: siteConfig.name,
   description: siteConfig.description,
@@ -28,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link
           rel="stylesheet"
@@ -40,10 +42,11 @@ export default function RootLayout({
         />
         <link rel="stylesheet" href="/assets/css/styles.css" />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         <InitScripts />
         <SiteShell>{children}</SiteShell>
+        <ScrollToTop />
 
         <Script
           src="/assets/libs/jquery/dist/jquery.min.js"

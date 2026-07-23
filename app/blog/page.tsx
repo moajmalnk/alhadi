@@ -59,8 +59,19 @@ export default function Blog() {
           className="banner-section banner-inner-section position-relative overflow-hidden d-flex align-items-end"
           style={{
             backgroundImage: "url(/assets/images/backgrounds/blog-hero.png)",
+            height: "calc(100vh - 112px)",
+            minHeight: "400px",
+            backgroundSize: "cover",
+            backgroundPosition: "center"
           }}
         >
+          <style>{`
+            @media (max-width: 991.98px) {
+              .banner-inner-section {
+                height: calc(100dvh - 64px) !important;
+              }
+            }
+          `}</style>
           <div className="container">
             <div className="d-flex flex-column gap-4 pb-5 pb-xl-10 position-relative z-1">
               <div className="row align-items-center">
@@ -71,13 +82,9 @@ export default function Blog() {
                     data-aos-delay="100"
                     data-aos-duration="1000"
                   >
-                    <p className="mb-0 text-white fs-5 text-opacity-70">
+                    <p className="mb-0 text-white fs-5">
                       Expert insights on UAE business setup, visas, tax
-                      compliance, and corporate services from{" "}
-                      <span className="text-primary">
-                        AL HADI Business Services
-                      </span>
-                      .
+                      compliance, and corporate services from AL HADI Business Services.
                     </p>
                   </div>
                 </div>
@@ -89,14 +96,6 @@ export default function Blog() {
                 data-aos-duration="1000"
               >
                 <h1 className="mb-0 fs-16 text-white lh-1">Blog</h1>
-                <span className="p-1 ps-7 bg-primary rounded-pill">
-                  <span className="bg-white round-52 rounded-circle d-flex align-items-center justify-content-center">
-                    <iconify-icon
-                      icon="lucide:arrow-up-right"
-                      className="fs-8 text-dark"
-                    ></iconify-icon>
-                  </span>
-                </span>
               </div>
             </div>
           </div>
