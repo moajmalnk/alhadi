@@ -19,7 +19,20 @@ export default function PrivacyPolicy() {
 
     {/*  Banner Section */}
     <section className="banner-section banner-inner-section position-relative overflow-hidden d-flex align-items-end"
-      style={{ backgroundImage: 'url(/assets/images/backgrounds/privacy-policy-banner.jpg)' }}>
+      style={{
+        backgroundImage: 'url(/assets/images/backgrounds/privacy-policy-banner.jpg)',
+        height: "calc(100vh - 112px)",
+        minHeight: "400px",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}>
+      <style>{`
+        @media (max-width: 991.98px) {
+          .banner-inner-section {
+            height: calc(100dvh - 64px) !important;
+          }
+        }
+      `}</style>
       <div className="container">
         <div className="d-flex flex-column gap-4 pb-5 pb-xl-10 position-relative z-1">
           <div className="row align-items-center">

@@ -1385,3 +1385,17 @@ body.is-not-found-page .get-template {
             font-weight: 500;
           }
         }
+
+/* Global Hero Section 100vh Height */
+.banner-inner-section {
+  height: calc(100vh - 112px) !important;
+  min-height: 400px !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+@media (max-width: 991.98px) {
+  .banner-inner-section {
+    height: calc(100dvh - 64px) !important;
+  }
+}
