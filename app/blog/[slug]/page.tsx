@@ -81,8 +81,19 @@ export default async function BlogDetailPage({ params }: PageProps) {
           style={{
             backgroundImage:
               "url(/assets/images/backgrounds/blog-detail-banner.jpg)",
+            height: "calc(100vh - 112px)",
+            minHeight: "400px",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         >
+          <style>{`
+            @media (max-width: 991.98px) {
+              .banner-inner-section {
+                height: calc(100dvh - 64px) !important;
+              }
+            }
+          `}</style>
           <div className="container">
             <div className="d-flex flex-column gap-4 pb-5 pb-xl-10 position-relative z-1">
               <div className="row align-items-center">

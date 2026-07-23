@@ -33,6 +33,20 @@ const services = [
     relatedLabel: "Also explore Free Zone licenses",
   },
   {
+    slug: "free-zone",
+    title: "Free Zone License Services",
+    description:
+      "Start your business in leading UAE Free Zones with 100% foreign ownership, tax exemption, and fast registration. We assist in choosing the ideal Free Zone based on your business activity, budget, flexi-desk office, and visa requirements.",
+    offerings: [
+      "100% Foreign Ownership & Tax Exemption",
+      "Flexi-Desk & Virtual Office Solutions",
+      "Fast-Track Registration & Licensing",
+      "Multi-Year License Options",
+      "Corporate Bank Account Opening",
+    ],
+    image: "/assets/images/services/business_setup_card.png",
+  },
+  {
     slug: "pro-document-clearing",
     title: "PRO & Document Clearing Services",
     description:
